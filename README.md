@@ -1,4 +1,6 @@
 # ✈️ Traveloop
+<img width="1536" height="1024" alt="ChatGPT Image May 10, 2026, 05_18_51 PM" src="https://github.com/user-attachments/assets/7708aef7-11a7-4013-afe4-73b1fd002d43" />
+
 
 > **Your Journey, Organized Beautifully.**
 
