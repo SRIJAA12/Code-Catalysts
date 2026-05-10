@@ -1,4 +1,6 @@
+"use client";
 import Navbar from "@/components/Navbar";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import {
   MdLocationOn, MdAdd, MdDragIndicator, MdSchedule,
   MdRestaurant, MdCameraAlt, MdDirectionsBoat, MdArrowForward,
@@ -6,7 +8,7 @@ import {
   MdShare, MdMoreHoriz,
 } from "react-icons/md";
 
-export default function ItineraryBuilderPage() {
+function BuilderContent() {
   const cities = ["Amalfi Coast", "Rome", "Venice"];
   const days = [
     { label: "Day 1: Arrival",            active: false },
@@ -236,5 +238,13 @@ export default function ItineraryBuilderPage() {
         </aside>
       </main>
     </div>
+  );
+}
+
+export default function ItineraryBuilderPage() {
+  return (
+    <ProtectedRoute>
+      <BuilderContent />
+    </ProtectedRoute>
   );
 }

@@ -1,21 +1,68 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// src/lib/firebase.js
+// Centralized Firebase initialization — exports app, auth, and googleProvider
+import { initializeApp, getApps, getApp } from "firebase/app";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  signOut as firebaseSignOut,
+  onAuthStateChanged,
+  updateProfile,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyAR7HFdg-KK5hyXN0nZc8NW8EAPZLo2gL4",
-    authDomain: "traveloop-d1b43.firebaseapp.com",
-    projectId: "traveloop-d1b43",
-    storageBucket: "traveloop-d1b43.firebasestorage.app",
-    messagingSenderId: "750624799696",
-    appId: "1:750624799696:web:6ff957102d4f5a143817d5",
-    measurementId: "G-L5W0EC0CPT"
+  apiKey:            process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain:        process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId:         process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket:     process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId:             process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId:     process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// Avoid re-initializing on hot reload
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: "select_account" });
+
+// ── Auth helpers ──────────────────────────────────────────────
+
+/** Email + password sign-in */
+export async function signInWithEmail(email, password) {
+  return signInWithEmailAndPassword(auth, email, password);
+}
+
+/** Email + password sign-up with optional display name */
+export async function signUpWithEmail(email, password, displayName) {
+  const credential = await createUserWithEmailAndPassword(auth, email, password);
+  if (displayName) {
+    await updateProfile(credential.user, { displayName });
+  }
+  return credential;
+}
+
+/** Google popup sign-in */
+export async function signInWithGoogle() {
+  return signInWithPopup(auth, googleProvider);
+}
+
+/** Sign out the current user */
+export async function signOut() {
+  return firebaseSignOut(auth);
+}
+
+/** Send password reset email */
+export async function resetPassword(email) {
+  return sendPasswordResetEmail(auth, email);
+}
+
+/** Subscribe to auth state changes */
+export function onAuthChange(callback) {
+  return onAuthStateChanged(auth, callback);
+}
+
+export { app, auth };

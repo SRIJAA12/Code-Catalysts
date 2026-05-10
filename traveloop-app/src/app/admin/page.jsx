@@ -1,3 +1,5 @@
+"use client";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import {
   MdPersonAdd, MdMap, MdInsights, MdCalendarToday, MdAdd,
   MdSearch, MdDownload, MdTrendingUp, MdTrendingDown,
@@ -23,7 +25,7 @@ const TABLE_ROWS = [
 
 const BAR = [8, 12, 10, 14, 16, 14, 15];
 
-export default function AdminAnalyticsPage() {
+function AdminContent() {
   return (
     <div className="bg-background text-on-surface flex min-h-screen">
       {/* Sidebar */}
@@ -241,5 +243,13 @@ export default function AdminAnalyticsPage() {
         <MdAdd className="icon-nav" />
       </button>
     </div>
+  );
+}
+
+export default function AdminAnalyticsPage() {
+  return (
+    <ProtectedRoute>
+      <AdminContent />
+    </ProtectedRoute>
   );
 }
