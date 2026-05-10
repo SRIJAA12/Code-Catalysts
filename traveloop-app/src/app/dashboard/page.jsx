@@ -1,10 +1,14 @@
 "use client";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { useAuth } from "@/context/AuthContext";
+import { detectCurrency, formatCurrency } from "@/lib/currency";
 import {
   MdCalendarToday, MdPublic, MdPayments, MdSchedule,
   MdAddCircle, MdAdd, MdStar, MdChevronLeft, MdChevronRight,
+  MdSearch, MdLocationOn, MdAutoAwesome, MdClose,
 } from "react-icons/md";
 import Link from "next/link";
 
@@ -46,18 +50,33 @@ const destinations = [
   { city: "Banff, Canada",  price: "From $900",   rating: "4.7", col: "col-span-6", row: "row-span-2", top: true, img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBbSRuras1H44hCdm8zc0iIbqrKQDMJS5lrbNUgwExzSXtqkKRhaBtJY-9gcJQ_FFgSpa4w64XKMYjN0jxKldkeUokLk8XuRQJ47anbgmkLsFngvCNeNQH3-ikeBPGQygN_sqLul4OXIHzW-wO3wpwidKudL7bmiqEgsYboOHX1PXHtyAHZebvTbnfkrzB0sdiXC6p0djF-q9CBlDQgWstRJ2hf2GHjlO3YdrmLneWD_PhTYEnEPDyuWZazGwzgiOqPkh6gNWzowjY" },
 ];
 
+const VIBES = ["Beaches", "Mountains", "Cultural", "Adventure", "City Break", "Nature", "Spiritual", "Luxury"];
+
 function DashboardContent() {
   const { user } = useAuth();
+  const router   = useRouter();
+  const [currency, setCurrency]   = useState({ code: "INR", symbol: "₹", locale: "en-IN" });
+  const [destFilter, setDestFilter] = useState("");
+  const [budgetFilter, setBudgetFilter] = useState("");
 
-  // Derive first name for greeting
+  useEffect(() => { setCurrency(detectCurrency()); }, []);
+
   const firstName = user?.displayName?.split(" ")[0] || user?.email?.split("@")[0] || "Traveler";
 
   const stats = [
     { label: "Upcoming Trips",    value: "3",     Icon: MdCalendarToday, bg: "bg-primary-container text-on-primary-container" },
     { label: "Countries Planned", value: "12",    Icon: MdPublic,         bg: "bg-secondary-container text-on-secondary-container" },
-    { label: "Total Budget",      value: "$14.2k", Icon: MdPayments,       bg: "bg-tertiary-fixed text-on-tertiary-fixed" },
+    { label: "Total Budget",      value: formatCurrency(14200, currency), Icon: MdPayments, bg: "bg-tertiary-fixed text-on-tertiary-fixed" },
     { label: "Days Traveling",    value: "45",    Icon: MdSchedule,       bg: "bg-surface-container-high text-on-surface" },
   ];
+
+  function handleSearch(e) {
+    e.preventDefault();
+    const params = new URLSearchParams();
+    if (destFilter)   params.set("dest",   destFilter);
+    if (budgetFilter) params.set("budget", budgetFilter);
+    router.push(`/explore?${params.toString()}`);
+  }
 
   return (
     <div className="bg-background text-on-surface">
@@ -92,6 +111,77 @@ function DashboardContent() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* ── Trip Finder Filters ── */}
+        <section className="bg-white border border-outline-variant/20 rounded-2xl shadow-sm p-6">
+          <div className="flex items-center gap-2 mb-5">
+            <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+              <MdAutoAwesome className="icon-sm text-primary" />
+            </div>
+            <div>
+              <h2 className="font-bold text-base">Find My Next Trip</h2>
+              <p className="text-xs text-on-surface-variant">Optional filters — leave blank for AI-curated picks</p>
+            </div>
+          </div>
+
+          <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 items-end">
+            {/* Destination filter */}
+            <div className="flex-1 space-y-1.5">
+              <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Destination / Vibe</label>
+              <div className="relative">
+                <MdLocationOn className="absolute left-3 top-1/2 -translate-y-1/2 icon-sm text-primary" />
+                <input
+                  type="text" value={destFilter} onChange={e => setDestFilter(e.target.value)}
+                  placeholder="e.g. Beaches, Goa, Europe…"
+                  className="w-full pl-9 pr-4 py-2.5 bg-surface-container-low rounded-xl text-sm border border-outline-variant/20 focus:border-primary transition-colors"
+                />
+              </div>
+              <div className="flex flex-wrap gap-1.5 mt-2">
+                {VIBES.slice(0, 5).map(v => (
+                  <button type="button" key={v} onClick={() => setDestFilter(destFilter === v ? "" : v)}
+                    className={`text-[10px] px-2.5 py-1 rounded-full font-semibold border transition-all
+                      ${destFilter === v ? "bg-primary text-white border-primary" : "border-outline-variant/30 text-on-surface-variant hover:border-primary hover:text-primary"}`}>
+                    {v}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Budget filter */}
+            <div className="w-full sm:w-52 space-y-1.5">
+              <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+                Max Budget ({currency.symbol})
+              </label>
+              <div className="relative">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm font-bold text-primary">{currency.symbol}</span>
+                <input
+                  type="number" value={budgetFilter} onChange={e => setBudgetFilter(e.target.value)}
+                  placeholder={currency.code === "INR" ? "50000" : "1500"} min="0"
+                  className="w-full pl-7 pr-4 py-2.5 bg-surface-container-low rounded-xl text-sm border border-outline-variant/20 focus:border-primary transition-colors"
+                />
+              </div>
+              {budgetFilter && (
+                <p className="text-[10px] text-primary font-bold">
+                  Under {formatCurrency(Number(budgetFilter), currency)}
+                </p>
+              )}
+            </div>
+
+            {/* Buttons */}
+            <div className="flex gap-2 shrink-0">
+              {(destFilter || budgetFilter) && (
+                <button type="button" onClick={() => { setDestFilter(""); setBudgetFilter(""); }}
+                  className="p-2.5 border border-outline-variant/30 rounded-xl hover:bg-surface-container transition-colors" title="Clear">
+                  <MdClose className="icon-nav text-on-surface-variant" />
+                </button>
+              )}
+              <button type="submit"
+                className="flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-xl text-sm font-bold hover:bg-primary/90 hover:-translate-y-0.5 transition-all shadow-sm">
+                <MdSearch className="icon-sm" /> Explore
+              </button>
+            </div>
+          </form>
         </section>
 
         {/* ── Stats ── */}
