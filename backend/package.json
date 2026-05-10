@@ -1,10 +1,11 @@
 {
-  "name": "backend",
+  "name": "traveloop-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Traveloop Express + Prisma API",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +18,8 @@
     "firebase-admin": "^13.9.0",
     "pg": "^8.20.0",
     "prisma": "^6.19.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
