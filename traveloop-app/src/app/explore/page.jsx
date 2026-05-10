@@ -1,4 +1,7 @@
+"use client";
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import {
   MdSearch, MdLocationOn, MdStar, MdFavorite, MdFavoriteBorder,
   MdFilterList, MdTune, MdSort, MdHiking, MdBeachAccess, MdMuseum, MdForest, MdMap,
@@ -27,7 +30,23 @@ const DESTINATIONS = [
   { city: "Canadian Rockies",   rating: "4.8", reviews: "2.4k", price: "From $1,600", liked: false, tall: true,  img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDMAOhihVmDmR1O30g9XhN8nclA60YzaqMcOSvq7I7gGtcOOWEc1D4jSJGLPzTFnGkSu1xux8Sud3o53d-cfoN-Y3FjMm1kFqLP0mgwz2mWA3vooNmRXGmiBr_FNISCqTeOHEHr22xA13zqnNgQSK8_EsUQ32KCusLewhjaXD7iRULziUvsZWZPDhy-HhnT3YR-JHTkd5ET7HD5yqFk5mhjWA0uK9_L-U-ntUIZbGBmImOs_cPGuYhFXzEgRovngyWubWMhtdgLsUo" },
 ];
 
-export default function ExplorePage() {
+function ExploreContent() {
+  const [activeCategory, setActiveCategory] = useState("Adventure");
+  const [liked, setLiked] = useState(new Set(DESTINATIONS.filter(d => d.liked).map(d => d.city)));
+  const [search, setSearch] = useState("");
+
+  const filteredDests = DESTINATIONS.filter(d =>
+    !search || d.city.toLowerCase().includes(search.toLowerCase())
+  );
+
+  function toggleLike(city) {
+    setLiked(prev => {
+      const next = new Set(prev);
+      next.has(city) ? next.delete(city) : next.add(city);
+      return next;
+    });
+  }
+
   return (
     <div className="bg-background text-on-surface">
       <Navbar activePage="explore" />
@@ -49,6 +68,8 @@ export default function ExplorePage() {
                   placeholder="Search destinations, activities…"
                   className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white/95 border border-outline-variant/20 text-sm focus:ring-2 focus:ring-primary/20 transition-all shadow-lg"
                   type="search"
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
                 />
               </div>
               <button className="bg-primary text-white px-5 py-3.5 rounded-xl text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shrink-0 flex items-center gap-1.5">
@@ -70,10 +91,11 @@ export default function ExplorePage() {
 
             <div className="space-y-2">
               <h4 className="text-xs font-bold uppercase tracking-widest text-outline">Category</h4>
-              {CATEGORIES.map(({ label, Icon, active }) => (
+              {CATEGORIES.map(({ label, Icon }) => (
                 <button
                   key={label}
-                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ${active ? "bg-primary text-white font-bold" : "text-on-surface-variant hover:bg-surface-container"}`}
+                  onClick={() => setActiveCategory(label)}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ${activeCategory === label ? "bg-primary text-white font-bold" : "text-on-surface-variant hover:bg-surface-container"}`}
                 >
                   <Icon className="icon-sm shrink-0" /> {label}
                 </button>
@@ -102,8 +124,8 @@ export default function ExplorePage() {
         <main className="flex-1 min-w-0">
           <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
             <div>
-              <h2 className="text-xl font-bold">Adventure Destinations</h2>
-              <p className="text-xs text-on-surface-variant mt-0.5">Showing {DESTINATIONS.length} results</p>
+              <h2 className="text-xl font-bold">{activeCategory} Destinations</h2>
+              <p className="text-xs text-on-surface-variant mt-0.5">Showing {filteredDests.length} results</p>
             </div>
             <button className="flex items-center gap-2 px-4 py-2 bg-surface-container-low border border-outline-variant/20 rounded-xl text-sm font-semibold text-on-surface-variant hover:bg-surface-container-high transition-colors">
               <MdSort className="icon-sm" /> Sort by: Rating
@@ -112,16 +134,17 @@ export default function ExplorePage() {
 
           {/* Masonry */}
           <div className="masonry-grid">
-            {DESTINATIONS.map((d) => (
+            {filteredDests.map((d) => (
               <div key={d.city} className="masonry-item group cursor-pointer">
                 <div className={`relative rounded-2xl overflow-hidden ${d.tall ? "h-72" : "h-52"}`}>
                   <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src={d.img} alt={d.city} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <button
                     aria-label="Like"
+                    onClick={() => toggleLike(d.city)}
                     className="absolute top-3 right-3 p-2 bg-black/30 backdrop-blur rounded-full hover:bg-black/50 transition-colors"
                   >
-                    {d.liked
+                    {liked.has(d.city)
                       ? <MdFavorite className="icon-sm text-red-400" />
                       : <MdFavoriteBorder className="icon-sm text-white" />
                     }
@@ -149,5 +172,13 @@ export default function ExplorePage() {
         </main>
       </div>
     </div>
+  );
+}
+
+export default function ExplorePage() {
+  return (
+    <ProtectedRoute>
+      <ExploreContent />
+    </ProtectedRoute>
   );
 }

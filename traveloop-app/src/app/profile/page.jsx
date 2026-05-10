@@ -1,8 +1,12 @@
+"use client";
 import Navbar from "@/components/Navbar";
+import ProtectedRoute from "@/components/ProtectedRoute";
+import { useAuth } from "@/context/AuthContext";
 import {
   MdPerson, MdSecurity, MdNotifications, MdPayments, MdLanguage,
   MdPhotoLibrary, MdStar, MdMap, MdPublic, MdCalendarMonth,
   MdEdit, MdDarkMode, MdTranslate, MdCurrencyExchange, MdAdd, MdLocationOn,
+  MdLogout,
 } from "react-icons/md";
 
 const SETTINGS_NAV = [
@@ -26,7 +30,13 @@ const SAVED = [
   { city: "Venice, IT",    places: "5 Places",  img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCNfE9om0k7PasZHmCLbI7nriYvdcvUHw4CUg2LMdSuwjlVQl8_jD_kvMoFKqMcN-heEQ8G3qx2R2aylglVoSY5ZzqANHw63kl3BduE7bEOMvRx1P4grjOsfhl59LXdZ5BPcD72fN-iT2NhmeVkWvR0DbyWSkLJJ7ItwqiCVMhQtN-VFA_46Pp9a-deJoxcRrohF89BUwpsd1MNgu83LRGzoRr3hImsNRmwJslOSJ8udTu2nc8n587ny92Cz-EV5GfsGrqbPxQYKXA" },
 ];
 
-export default function UserProfilePage() {
+function ProfileContent() {
+  const { user, signOut } = useAuth();
+  const displayName = user?.displayName || user?.email?.split("@")[0] || "Traveler";
+  const photoURL    = user?.photoURL;
+  const initials    = displayName.slice(0, 2).toUpperCase();
+  const joinedDate  = user?.metadata?.creationTime ? new Date(user.metadata.creationTime).toLocaleDateString("en-US", { month: "short", year: "numeric" }) : "Recently";
+
   return (
     <div className="bg-background text-on-surface">
       <Navbar activePage="home" />
@@ -72,20 +82,25 @@ export default function UserProfilePage() {
               </button>
               <div className="flex flex-col sm:flex-row items-start gap-6">
                 <div className="relative shrink-0">
-                  <div className="w-24 h-24 rounded-2xl overflow-hidden border-2 border-surface-container shadow-sm">
-                    <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuxy7uK4bzZJYzZoo9-qJMip2yfsEkS05Zw2fmd6kbU3PLnsXiaC08FX6VEoaO33EzOGzrcjcVSd6NAwBKTOo-co29pyjvnlUjYZkwIAXbfbKdaCnikQVV_J4L1zPsLn-zG3eL9fK11CLHvamdYiKqXqAMyqxp1jP_CxLiLzVRTGLY9lSaNhcZeehf6e8cFmvmI0UJb3MW0XplQ1y5mxuQxcB-l2LFdNDjK90cHAEqq1J0BF0wIpgFFQdnjmVAPyvuE3i9NhS3tew" alt="Julian" />
+                  <div className="w-24 h-24 rounded-2xl overflow-hidden border-2 border-surface-container shadow-sm bg-primary/10 flex items-center justify-center">
+                    {photoURL ? (
+                      <img className="w-full h-full object-cover" src={photoURL} alt={displayName} />
+                    ) : (
+                      <span className="text-3xl font-black text-primary">{initials}</span>
+                    )}
                   </div>
                   <span className="absolute -bottom-2 -right-2 bg-secondary text-on-secondary text-[9px] font-bold px-2 py-0.5 rounded-full">Explorer</span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h1 className="text-2xl sm:text-3xl font-black tracking-tight">Julian Martinez</h1>
-                  <p className="text-sm text-on-surface-variant mt-1 max-w-md leading-relaxed">Digital nomad and amateur photographer currently exploring hidden gems of Central Europe.</p>
+                  <h1 className="text-2xl sm:text-3xl font-black tracking-tight">{displayName}</h1>
+                  <p className="text-sm text-on-surface-variant mt-1 max-w-md leading-relaxed">{user?.email}</p>
                   <div className="flex flex-wrap gap-3 mt-4">
-                    {[[MdLocationOn, "Barcelona, ES"],[MdCalendarMonth, "Joined Jan 2022"]].map(([Icon, label]) => (
-                      <div key={label} className="flex items-center gap-1.5 bg-surface-container-low px-3 py-1.5 rounded-xl text-xs font-semibold">
-                        <Icon className="icon-xs text-primary" />{label}
-                      </div>
-                    ))}
+                    <div className="flex items-center gap-1.5 bg-surface-container-low px-3 py-1.5 rounded-xl text-xs font-semibold">
+                      <MdCalendarMonth className="icon-xs text-primary" /> Joined {joinedDate}
+                    </div>
+                    <button onClick={signOut} className="flex items-center gap-1.5 bg-red-50 border border-red-200 px-3 py-1.5 rounded-xl text-xs font-semibold text-error hover:bg-red-100 transition-colors">
+                      <MdLogout className="icon-xs" /> Sign Out
+                    </button>
                   </div>
                 </div>
               </div>
@@ -180,5 +195,13 @@ export default function UserProfilePage() {
         </section>
       </div>
     </div>
+  );
+}
+
+export default function UserProfilePage() {
+  return (
+    <ProtectedRoute>
+      <ProfileContent />
+    </ProtectedRoute>
   );
 }

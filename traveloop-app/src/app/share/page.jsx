@@ -1,3 +1,4 @@
+"use client";
 import {
   MdNotifications, MdContentCopy, MdIosShare,
   MdFlightTakeoff, MdTrain, MdLocationOn, MdStar,
