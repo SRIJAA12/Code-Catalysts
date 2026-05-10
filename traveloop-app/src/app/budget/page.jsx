@@ -1,4 +1,6 @@
+"use client";
 import Navbar from "@/components/Navbar";
+import WalletSection from "@/components/WalletSection";
 import {
   MdAccountBalanceWallet, MdRestaurant, MdHotel, MdTrain,
   MdBeachAccess, MdShoppingBag, MdTrendingUp, MdWarning, MdDownload,
@@ -15,10 +17,10 @@ const CATEGORIES = [
 ];
 
 const TRANSACTIONS = [
-  { icon: MdHotel,      label: "Hotel Check-in",    sub: "Today · 2:30 PM",    amount: "-$380", negative: true },
-  { icon: MdRestaurant, label: "Restaurant Dinner", sub: "Yesterday · 7:45 PM",amount: "-$85",  negative: true },
-  { icon: MdSavings,    label: "Budget Refund",     sub: "Jun 12 · 10:00 AM",  amount: "+$200", negative: false },
-  { icon: MdTrain,      label: "Train Ticket",      sub: "Jun 11 · 9:00 AM",   amount: "-$120", negative: true },
+  { icon: MdHotel,      label: "Hotel Check-in",    sub: "Today · 2:30 PM",    amount: "-$380", negative: true,  wallet: false },
+  { icon: MdRestaurant, label: "Restaurant Dinner", sub: "Yesterday · 7:45 PM", amount: "-$85",  negative: true,  wallet: true  },
+  { icon: MdSavings,    label: "Budget Refund",     sub: "Jun 12 · 10:00 AM",  amount: "+$200", negative: false, wallet: false },
+  { icon: MdTrain,      label: "Train Ticket",      sub: "Jun 11 · 9:00 AM",   amount: "-$120", negative: true,  wallet: true  },
 ];
 
 const BAR_DATA = [
@@ -46,6 +48,9 @@ export default function BudgetPage() {
             <MdDownload className="icon-btn text-on-surface-variant" /> Export Report
           </button>
         </div>
+
+        {/* ── Traveloop Wallet ── */}
+        <WalletSection />
 
         {/* Summary Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -141,7 +146,14 @@ export default function BudgetPage() {
                     <t.icon className="icon-nav text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold truncate">{t.label}</p>
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <p className="text-sm font-semibold truncate">{t.label}</p>
+                      {t.wallet && (
+                        <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-primary/8 text-primary rounded-md text-[10px] font-bold shrink-0">
+                          <MdAccountBalanceWallet style={{ fontSize: 10 }} /> Wallet
+                        </span>
+                      )}
+                    </div>
                     <p className="text-xs text-on-surface-variant">{t.sub}</p>
                   </div>
                   <span className={`text-sm font-bold shrink-0 ${t.negative ? "text-error" : "text-green-600"}`}>{t.amount}</span>

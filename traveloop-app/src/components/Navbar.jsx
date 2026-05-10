@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   MdNotifications,
+  MdAccountBalanceWallet,
   MdHome,
   MdLuggage,
   MdExplore,
@@ -10,6 +11,27 @@ import {
   MdMenu,
   MdClose,
 } from "react-icons/md";
+
+function WalletChip() {
+  const [balance, setBalance] = useState(null);
+  useEffect(() => {
+    fetch("/api/wallet/balance")
+      .then((r) => r.json())
+      .then((d) => setBalance(d.balance))
+      .catch(() => {});
+  }, []);
+  if (balance === null) return null;
+  return (
+    <Link
+      href="/budget"
+      className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-primary/8 text-primary text-xs font-bold hover:bg-primary/15 transition-all"
+      title="Traveloop Wallet"
+    >
+      <MdAccountBalanceWallet className="icon-sm" />
+      ${Number(balance).toFixed(2)}
+    </Link>
+  );
+}
 
 export default function Navbar({ activePage = "home" }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -51,6 +73,7 @@ export default function Navbar({ activePage = "home" }) {
 
         {/* Right Actions */}
         <div className="flex items-center gap-2">
+          <WalletChip />
           <button
             aria-label="Notifications"
             className="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container transition-all"
