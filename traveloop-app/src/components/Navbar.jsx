@@ -28,7 +28,7 @@ function WalletChip() {
       title="Traveloop Wallet"
     >
       <MdAccountBalanceWallet className="icon-sm" />
-      ${Number(balance).toFixed(2)}
+      ₹{Number(balance).toFixed(2)}
     </Link>
   );
 }

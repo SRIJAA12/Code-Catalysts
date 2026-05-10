@@ -7,7 +7,7 @@ import {
 } from "react-icons/md";
 
 /* ── helpers ── */
-const fmt = (n) => `$${Number(n).toFixed(2)}`;
+const fmt = (n) => `₹${Number(n).toFixed(2)}`;
 
 const TYPE_META = {
   credit:   { label: "Added",    icon: MdArrowDownward, color: "text-emerald-600", bg: "bg-emerald-50",   dot: "bg-emerald-500"  },
@@ -143,7 +143,7 @@ function AddFundsModal({ balance, onClose, onSuccess }) {
               </p>
             </div>
 
-            <button
+              <button
               onClick={handlePay}
               disabled={amount <= 0}
               className="btn btn-primary w-full disabled:opacity-40 disabled:cursor-not-allowed"

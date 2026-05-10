@@ -8,19 +8,19 @@ import {
 } from "react-icons/md";
 
 const CATEGORIES = [
-  { label: "Accommodation", Icon: MdHotel,               amount: "$1,890", pct: 38, color: "bg-primary",          textColor: "text-primary" },
-  { label: "Food & Dining", Icon: MdRestaurant,           amount: "$940",   pct: 19, color: "bg-secondary",        textColor: "text-secondary" },
-  { label: "Transport",     Icon: MdTrain,                amount: "$780",   pct: 16, color: "bg-tertiary",         textColor: "text-tertiary" },
-  { label: "Activities",    Icon: MdBeachAccess,          amount: "$650",   pct: 13, color: "bg-green-500",        textColor: "text-green-600" },
-  { label: "Shopping",      Icon: MdShoppingBag,          amount: "$480",   pct: 10, color: "bg-purple-500",       textColor: "text-purple-600" },
-  { label: "Miscellaneous", Icon: MdAccountBalanceWallet, amount: "$200",   pct: 4,  color: "bg-orange-400",       textColor: "text-orange-500" },
+  { label: "Accommodation", Icon: MdHotel,               amount: "₹1,890", pct: 38, color: "bg-primary",          textColor: "text-primary" },
+  { label: "Food & Dining", Icon: MdRestaurant,           amount: "₹940",   pct: 19, color: "bg-secondary",        textColor: "text-secondary" },
+  { label: "Transport",     Icon: MdTrain,                amount: "₹780",   pct: 16, color: "bg-tertiary",         textColor: "text-tertiary" },
+  { label: "Activities",    Icon: MdBeachAccess,          amount: "₹650",   pct: 13, color: "bg-green-500",        textColor: "text-green-600" },
+  { label: "Shopping",      Icon: MdShoppingBag,          amount: "₹480",   pct: 10, color: "bg-purple-500",       textColor: "text-purple-600" },
+  { label: "Miscellaneous", Icon: MdAccountBalanceWallet, amount: "₹200",   pct: 4,  color: "bg-orange-400",       textColor: "text-orange-500" },
 ];
 
 const TRANSACTIONS = [
-  { icon: MdHotel,      label: "Hotel Check-in",    sub: "Today · 2:30 PM",    amount: "-$380", negative: true,  wallet: false },
-  { icon: MdRestaurant, label: "Restaurant Dinner", sub: "Yesterday · 7:45 PM", amount: "-$85",  negative: true,  wallet: true  },
-  { icon: MdSavings,    label: "Budget Refund",     sub: "Jun 12 · 10:00 AM",  amount: "+$200", negative: false, wallet: false },
-  { icon: MdTrain,      label: "Train Ticket",      sub: "Jun 11 · 9:00 AM",   amount: "-$120", negative: true,  wallet: true  },
+  { icon: MdHotel,      label: "Hotel Check-in",    sub: "Today · 2:30 PM",    amount: "-₹380", negative: true,  wallet: false },
+  { icon: MdRestaurant, label: "Restaurant Dinner", sub: "Yesterday · 7:45 PM", amount: "-₹85",  negative: true,  wallet: true  },
+  { icon: MdSavings,    label: "Budget Refund",     sub: "Jun 12 · 10:00 AM",  amount: "+₹200", negative: false, wallet: false },
+  { icon: MdTrain,      label: "Train Ticket",      sub: "Jun 11 · 9:00 AM",   amount: "-₹120", negative: true,  wallet: true  },
 ];
 
 const BAR_DATA = [
@@ -55,10 +55,10 @@ export default function BudgetPage() {
         {/* Summary Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
-            { label: "Total Budget",     value: "$4,940", sub: "For 10 days",      bg: "bg-primary text-white",                    Icon: MdAccountBalanceWallet },
-            { label: "Amount Spent",     value: "$3,740", sub: "76% of budget",    bg: "bg-white border border-outline-variant/20", Icon: MdTrendingUp },
-            { label: "Remaining",        value: "$1,200", sub: "24% left",         bg: "bg-white border border-outline-variant/20", Icon: MdSavings },
-            { label: "Daily Average",    value: "$374",   sub: "Budget: $494/day", bg: "bg-white border border-outline-variant/20", Icon: MdRestaurant },
+            { label: "Total Budget",     value: "₹4,940", sub: "For 10 days",      bg: "bg-primary text-white",                    Icon: MdAccountBalanceWallet },
+            { label: "Amount Spent",     value: "₹3,740", sub: "76% of budget",    bg: "bg-white border border-outline-variant/20", Icon: MdTrendingUp },
+            { label: "Remaining",        value: "₹1,200", sub: "24% left",         bg: "bg-white border border-outline-variant/20", Icon: MdSavings },
+            { label: "Daily Average",    value: "₹374",   sub: "Budget: ₹494/day", bg: "bg-white border border-outline-variant/20", Icon: MdRestaurant },
           ].map((c) => (
             <div key={c.label} className={`p-6 rounded-2xl shadow-sm flex flex-col gap-2 ${c.bg}`}>
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${c.bg.includes("primary") ? "bg-white/20" : "bg-primary/8"}`}>
@@ -189,8 +189,8 @@ export default function BudgetPage() {
                 <div className="h-full bg-primary rounded-full transition-all" style={{ width: `${pctSpent}%` }} />
               </div>
               <div className="flex justify-between text-[10px] font-medium text-on-surface-variant">
-                <span>Spent: ${totalSpent.toLocaleString()}</span>
-                <span>Budget: ${totalBudget.toLocaleString()}</span>
+                <span>Spent: ₹{totalSpent.toLocaleString()}</span>
+                <span>Budget: ₹{totalBudget.toLocaleString()}</span>
               </div>
             </div>
           </div>

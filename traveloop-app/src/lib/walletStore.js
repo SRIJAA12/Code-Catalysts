@@ -123,7 +123,7 @@ export async function addFunds(amount) {
   const txn = transactions.find((t) => t.transaction_id === pendingId);
   if (isSuccess) {
     txn.status = "success";
-    txn.description = `Added $${amount} via Credit Card`;
+    txn.description = `Added ₹${amount} via Credit Card`;
     walletState.balance = +(walletState.balance + amount).toFixed(2);
     return { success: true, transactionId: pendingId, newBalance: walletState.balance };
   } else {
