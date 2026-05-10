@@ -4,8 +4,6 @@
 
 > **Your Journey, Organized Beautifully.**
 
-![Traveloop Architecture and Flow](architecture.jpg)
-*(Note: Please save the provided image as `architecture.jpg` in the root directory for it to display above)*
 
 Welcome to **Traveloop**, a comprehensive, AI-powered travel planning platform designed to make organizing your trips effortless, collaborative, and beautiful. 
 
