@@ -1,0 +1,119 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id          String    @id @default(cuid())
+  firebaseUid String    @unique
+  email       String    @unique
+  name        String?
+  avatar      String?
+  role        String    @default("user") // "user" | "admin"
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  trips       Trip[]
+  expenses    Expense[]
+  packItems   PackItem[]
+  notes       Note[]
+}
+
+model Trip {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  title       String
+  destination String?
+  coverImage  String?
+  status      String    @default("draft") // "draft" | "upcoming" | "active" | "completed"
+  startDate   DateTime?
+  endDate     DateTime?
+  budget      Float?
+  budgetStyle String?   // "budget" | "standard" | "luxury"
+  interests   String[]  @default([])
+  shareSlug   String?   @unique
+  isPublic    Boolean   @default(false)
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  cities      TripCity[]
+  expenses    Expense[]
+  packItems   PackItem[]
+  notes       Note[]
+}
+
+model TripCity {
+  id        String     @id @default(cuid())
+  tripId    String
+  trip      Trip       @relation(fields: [tripId], references: [id], onDelete: Cascade)
+
+  cityName  String
+  country   String?
+  lat       Float?
+  lng       Float?
+  order     Int        @default(0)
+  nights    Int?
+
+  activities Activity[]
+}
+
+model Activity {
+  id          String   @id @default(cuid())
+  cityId      String
+  city        TripCity @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  time        String?
+  title       String
+  description String?
+  cost        Float?
+  category    String?  // "food" | "sightseeing" | "transport" | "accommodation" | "other"
+  order       Int      @default(0)
+}
+
+model Expense {
+  id          String   @id @default(cuid())
+  tripId      String
+  trip        Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  amount      Float
+  category    String   // "accommodation" | "food" | "transport" | "activities" | "shopping" | "misc"
+  description String?
+  date        DateTime @default(now())
+  createdAt   DateTime @default(now())
+}
+
+model PackItem {
+  id        String   @id @default(cuid())
+  tripId    String?
+  trip      Trip?    @relation(fields: [tripId], references: [id], onDelete: SetNull)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  label     String
+  category  String?  // "clothing" | "toiletries" | "electronics" | "documents" | "other"
+  packed    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Note {
+  id        String   @id @default(cuid())
+  tripId    String?
+  trip      Trip?    @relation(fields: [tripId], references: [id], onDelete: SetNull)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

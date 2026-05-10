@@ -1,9 +1,14 @@
 "use client";
 import Link from "next/link";
+<<<<<<< HEAD
+import { useState, useEffect } from "react";
+=======
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
+>>>>>>> origin/shivani
 import {
   MdNotifications,
+  MdAccountBalanceWallet,
   MdHome,
   MdLuggage,
   MdExplore,
@@ -14,9 +19,28 @@ import {
   MdPerson,
   MdLogout,
   MdSettings,
-  MdEditNote,
-  MdAccountBalanceWallet,
 } from "react-icons/md";
+
+function WalletChip() {
+  const [balance, setBalance] = useState(null);
+  useEffect(() => {
+    fetch("/api/wallet/balance")
+      .then((r) => r.json())
+      .then((d) => setBalance(d.balance))
+      .catch(() => {});
+  }, []);
+  if (balance === null) return null;
+  return (
+    <Link
+      href="/budget"
+      className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-primary/8 text-primary text-xs font-bold hover:bg-primary/15 transition-all"
+      title="Traveloop Wallet"
+    >
+      <MdAccountBalanceWallet className="icon-sm" />
+      ₹{Number(balance).toFixed(2)}
+    </Link>
+  );
+}
 
 export default function Navbar({ activePage = "home" }) {
   const [mobileOpen,  setMobileOpen]  = useState(false);
@@ -24,13 +48,11 @@ export default function Navbar({ activePage = "home" }) {
   const { user, signOut }             = useAuth();
 
   const navLinks = [
-    { label: "Home",       href: "/dashboard",  key: "home",       Icon: MdHome },
-    { label: "My Trips",   href: "/trips",      key: "trips",      Icon: MdLuggage },
-    { label: "Itinerary",  href: "/itinerary",  key: "itinerary",  Icon: MdEditNote },
-    { label: "Explore",    href: "/explore",    key: "explore",    Icon: MdExplore },
-    { label: "Budget",     href: "/budget",     key: "budget",     Icon: MdPayments },
-    { label: "Wallet",     href: "/wallet",     key: "wallet",     Icon: MdAccountBalanceWallet },
-    { label: "Assistant",  href: "/assistant",  key: "assistant",  Icon: MdAutoAwesome },
+    { label: "Home",      href: "/dashboard", key: "home",      Icon: MdHome },
+    { label: "My Trips",  href: "/trips",     key: "trips",     Icon: MdLuggage },
+    { label: "Explore",   href: "/explore",   key: "explore",   Icon: MdExplore },
+    { label: "Budget",    href: "/budget",    key: "budget",    Icon: MdPayments },
+    { label: "Assistant", href: "/assistant", key: "assistant", Icon: MdAutoAwesome },
   ];
 
   // Avatar initials fallback
@@ -65,6 +87,7 @@ export default function Navbar({ activePage = "home" }) {
 
         {/* Right Actions */}
         <div className="flex items-center gap-2">
+          <WalletChip />
           <button
             aria-label="Notifications"
             className="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container transition-all"
