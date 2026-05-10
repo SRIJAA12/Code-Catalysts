@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#fefcff",
+                    "inverse-primary": "#adc6ff",
+                    "primary-fixed-dim": "#adc6ff",
+                    "inverse-surface": "#2e3038",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#dbe1ff",
+                    "secondary": "#0051d5",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9f9ff",
+                    "outline": "#727785",
+                    "tertiary-fixed": "#ffdcc6",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#b75b00",
+                    "surface-container-high": "#e6e7f2",
+                    "surface-dim": "#d8d9e3",
+                    "tertiary": "#924700",
+                    "primary": "#0058be",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#003ea8",
+                    "surface-bright": "#f9f9ff",
+                    "secondary-container": "#316bf3",
+                    "surface-container": "#ecedf7",
+                    "on-surface-variant": "#424754",
+                    "primary-container": "#2170e4",
+                    "on-tertiary-fixed-variant": "#723600",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#f2f3fd",
+                    "on-primary-fixed": "#001a42",
+                    "inverse-on-surface": "#eff0fa",
+                    "on-background": "#191b23",
+                    "primary-fixed": "#d8e2ff",
+                    "on-secondary-container": "#fefcff",
+                    "secondary-fixed-dim": "#b4c5ff",
+                    "on-surface": "#191b23",
+                    "on-secondary-fixed": "#00174b",
+                    "surface-variant": "#e1e2ec",
+                    "surface-container-highest": "#e1e2ec",
+                    "tertiary-fixed-dim": "#ffb786",
+                    "outline-variant": "#c2c6d6",
+                    "on-primary-fixed-variant": "#004395",
+                    "on-tertiary-fixed": "#311400",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-tint": "#005ac2",
+                    "surface": "#f9f9ff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "display": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-panel {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-4 bg-surface/80 backdrop-blur-2xl shadow-sm">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black tracking-tighter text-primary">Traveloop</span>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">My Trips</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">Budget</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/30">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48" placeholder="Search destinations..." type="text"/>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-10 w-10 rounded-full border-2 border-primary overflow-hidden cursor-pointer ring-offset-2 ring-2 ring-primary/10">
+<img alt="User profile" class="h-full w-full object-cover" data-alt="A professional close-up portrait of a modern traveler in his late 20s with a warm, friendly expression. The lighting is soft and natural, suggesting an outdoor editorial photography style. He is wearing high-quality minimalist apparel. The background is softly blurred with hints of urban greenery, maintaining a premium and aspirational travel lifestyle aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa_KsFHUmF3gAwspV4WnUCew0fubhMmK51ftHcoViQ4tVV-9AVErU4JAauoNSbAAorGRVm1mlA4uxN0GwNG1iUVdaNsdpQYMCLzabsuIKl7INO1WQ0iBl_hb-ealrvhMxa-Co_ekyZFBDs4zsXmhaqVaXhl_LeE26llf-pZXkJcGfukiCWYrwUHw3jea3o3y51Wj_WQ7f34tED_bnTj8oE0RDQUbOGpkzUHyDIe9ApuE_fhiRjLcqgXdrUVo25ngXSvX69-WF6nkw"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Layout -->
+<main class="max-w-[1440px] mx-auto pt-24 px-8 pb-12 flex gap-8">
+<!-- Side Navigation (Settings & Profile Anchors) -->
+<aside class="w-72 flex-shrink-0">
+<div class="sticky top-24 flex flex-col gap-2 p-6 bg-surface-container-low/70 glass-panel rounded-3xl border border-outline-variant/20 shadow-xl">
+<div class="mb-6">
+<h2 class="font-headline text-on-surface font-bold text-xl px-2">Account Settings</h2>
+<p class="text-on-surface-variant text-xs px-2 opacity-70">Manage your profile &amp; travel preferences</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-xl font-bold transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Profile Details</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span>Privacy &amp; Safety</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span>Notification Prefs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Billing &amp; Payments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+<span>Language &amp; Region</span>
+</a>
+</nav>
+<div class="mt-8 border-t border-outline-variant/20 pt-6">
+<div class="bg-primary/5 p-4 rounded-2xl">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-primary uppercase tracking-wider">Storage Plan</span>
+<span class="text-xs text-primary font-medium">85%</span>
+</div>
+<div class="w-full h-1.5 bg-primary/10 rounded-full overflow-hidden">
+<div class="w-[85%] h-full bg-primary"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-2">12.4 GB of 15 GB used. Upgrade for more storage.</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Right Content Area: Bento Grid Layout -->
+<section class="flex-grow space-y-8">
+<!-- Profile Header Card -->
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-8 bg-surface-container-lowest rounded-[32px] p-8 border border-outline-variant/10 shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-6">
+<button class="bg-white/80 hover:bg-white p-2 rounded-full shadow-lg border border-outline-variant/20 transition-all">
+<span class="material-symbols-outlined text-primary" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="flex gap-8 items-start">
+<div class="relative">
+<div class="w-32 h-32 rounded-3xl overflow-hidden border-4 border-surface-container shadow-inner">
+<img alt="Julian Martinez" class="w-full h-full object-cover" data-alt="A portrait of a male traveler with a joyful and relaxed expression, captured in natural evening light. He is standing on a balcony with a subtle view of a European city at dusk. The lighting is golden and warm, casting a sophisticated glow. The overall atmosphere is premium, peaceful, and inspires wanderlust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuxy7uK4bzZJYzZoo9-qJMip2yfsEkS05Zw2fmd6kbU3PLnsXiaC08FX6VEoaO33EzOGzrcjcVSd6NAwBKTOo-co29pyjvnlUjYZkwIAXbfbKdaCnikQVV_J4L1zPsLn-zG3eL9fK11CLHvamdYiKqXqAMyqxp1jP_CxLiLzVRTGLY9lSaNhcZeehf6e8cFmvmI0UJb3MW0XplQ1y5mxuQxcB-l2LFdNDjK90cHAEqq1J0BF0wIpgFFQdnjmVAPyvuE3i9NhS3tew"/>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-secondary text-on-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">
+                                Explorer
+                            </div>
+</div>
+<div class="flex-grow">
+<h1 class="text-4xl font-black text-on-surface tracking-tight mb-2">Julian Martinez</h1>
+<p class="text-on-surface-variant max-w-lg leading-relaxed mb-6">Digital nomad and amateur photographer currently exploring the hidden gems of Central Europe. Always looking for the perfect coffee shop and the fastest Wi-Fi.</p>
+<div class="flex gap-4">
+<div class="bg-surface-container px-4 py-2 rounded-2xl flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="location_on">location_on</span>
+<span class="text-sm font-semibold">Barcelona, ES</span>
+</div>
+<div class="bg-surface-container px-4 py-2 rounded-2xl flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="calendar_month">calendar_month</span>
+<span class="text-sm font-semibold">Joined Jan 2022</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Bento Cell -->
+<div class="col-span-4 grid grid-cols-2 gap-4">
+<div class="bg-primary text-on-primary rounded-[28px] p-6 flex flex-col justify-between">
+<span class="material-symbols-outlined text-3xl" data-icon="flight_takeoff">flight_takeoff</span>
+<div>
+<div class="text-3xl font-black">24</div>
+<div class="text-[10px] uppercase font-bold tracking-widest opacity-80">Countries</div>
+</div>
+</div>
+<div class="bg-secondary-container text-on-secondary-container rounded-[28px] p-6 flex flex-col justify-between">
+<span class="material-symbols-outlined text-3xl" data-icon="map">map</span>
+<div>
+<div class="text-3xl font-black">142</div>
+<div class="text-[10px] uppercase font-bold tracking-widest opacity-80">Cities</div>
+</div>
+</div>
+<div class="bg-tertiary-container text-on-tertiary-container rounded-[28px] p-6 flex flex-col justify-between">
+<span class="material-symbols-outlined text-3xl" data-icon="photo_library">photo_library</span>
+<div>
+<div class="text-3xl font-black">1.2k</div>
+<div class="text-[10px] uppercase font-bold tracking-widest opacity-80">Shared</div>
+</div>
+</div>
+<div class="bg-inverse-surface text-inverse-on-surface rounded-[28px] p-6 flex flex-col justify-between">
+<span class="material-symbols-outlined text-3xl" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<div>
+<div class="text-3xl font-black">4.9</div>
+<div class="text-[10px] uppercase font-bold tracking-widest opacity-80">Rating</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Map & Settings Section -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Visited Countries Map -->
+<div class="col-span-8 bg-surface-container-low rounded-[32px] overflow-hidden border border-outline-variant/10 shadow-sm flex flex-col">
+<div class="p-6 flex items-center justify-between border-b border-outline-variant/10">
+<h3 class="font-bold text-lg">World Footprint</h3>
+<div class="flex gap-2">
+<span class="flex items-center gap-1 text-xs text-on-surface-variant font-medium">
+<span class="w-2 h-2 rounded-full bg-primary"></span> Visited
+                            </span>
+<span class="flex items-center gap-1 text-xs text-on-surface-variant font-medium">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span> Wishlist
+                            </span>
+</div>
+</div>
+<div class="relative h-96 bg-[#e0e4f0] group">
+<img alt="World Map Visualization" class="w-full h-full object-cover" data-alt="A highly stylized and modern digital map of the world presented in a clean, professional UI design context. The map features a soft blue and gray color palette with glowing markers over major European and Asian cities. The lighting is balanced and crisp, with a subtle 3D-depth effect that makes the continents appear slightly elevated. It looks like a high-end data visualization tool." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArPO9ltIdT0UaflpKPruW0szGr5LXtc9r3NAT_XOsmnavLPy9QYpQiOD47WTzCELRsItdQL58eBRjR_qchXUZQEakxP18_OcpOPGqFCGsiRyIx_1oR5hFX6NRkP-tRfezdJESqGK-x_5ETXXta1ysdFnqZQLaafdlajEYnM5Cq3R--XXY_IJbxZxRrAf6lEavhaq4bjd3qDfuGxqVSSH8TuvdRbP20VLAXMkNOScPKJFCouRRoxY77vnLYJGDBJ3-FAzZttcw82EA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low/60 to-transparent"></div>
+<!-- Floating Map Controls -->
+<div class="absolute bottom-6 left-6 flex flex-col gap-2">
+<button class="w-10 h-10 bg-white/90 backdrop-blur rounded-xl shadow-md border border-outline-variant/20 flex items-center justify-center hover:bg-white transition-all">
+<span class="material-symbols-outlined text-primary" data-icon="add">add</span>
+</button>
+<button class="w-10 h-10 bg-white/90 backdrop-blur rounded-xl shadow-md border border-outline-variant/20 flex items-center justify-center hover:bg-white transition-all">
+<span class="material-symbols-outlined text-primary" data-icon="remove">remove</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Theme & Preferences -->
+<div class="col-span-4 bg-surface-container-lowest rounded-[32px] p-8 border border-outline-variant/10 shadow-sm space-y-8">
+<div>
+<h3 class="font-bold text-lg mb-4">Quick Preferences</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary/5 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="dark_mode">dark_mode</span>
+</div>
+<span class="text-sm font-medium">Appearance</span>
+</div>
+<button class="w-12 h-6 bg-primary rounded-full relative flex items-center px-1 transition-all">
+<div class="w-4 h-4 bg-white rounded-full absolute right-1"></div>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-secondary/5 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="translate">translate</span>
+</div>
+<span class="text-sm font-medium">Language</span>
+</div>
+<span class="text-xs text-on-surface-variant font-bold">English (US)</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-tertiary/5 rounded-lg">
+<span class="material-symbols-outlined text-tertiary" data-icon="currency_exchange">currency_exchange</span>
+</div>
+<span class="text-sm font-medium">Currency</span>
+</div>
+<span class="text-xs text-on-surface-variant font-bold">USD ($)</span>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/10">
+<h3 class="font-bold text-lg mb-4">Active Trip</h3>
+<div class="relative rounded-2xl overflow-hidden aspect-video group cursor-pointer">
+<img alt="Current Trip" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A breathtaking view of the French Alps during sunrise, with a high-end luxury resort visible in the foreground. The lighting is spectacular, featuring vibrant pinks and oranges of the dawn sky hitting the snow-capped peaks. The style is ultra-high definition, cinematic, and evokes a feeling of premium adventure and tranquility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPDxlBaxdMt7zLk9FlCwFVRuNFFOMSiO1MEcSKCLPvah2ynd7QWkLSzM0kiuU_nTClpQ4QXu2I7eoHlIF8Kjitt8pv_SMoCLvzdcArGZ0ZEJjZF8TZAHalzK2iRAQg9jbFQcAPnUXlmR4IEN1nGWN7BYy0nAag3woVpYzca4YrBBLuz2J00OygysJxkHbqzPMy2Zd1poEpNceph2vNTlJA-ol_9ZfhpvnuwZGvv64IJlnaIPIKTlEjFvTFPruUX9XXefsCGZb2xJw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 flex flex-col justify-end">
+<span class="text-[10px] font-bold text-white/80 uppercase tracking-widest mb-1">Coming up in 4 days</span>
+<h4 class="text-white font-bold">Chamonix Adventure</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Saved Destinations - Horizontal Scroll Area -->
+<div>
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline text-2xl font-black tracking-tight">Saved Destinations</h3>
+<button class="text-primary text-sm font-bold hover:underline">View All Collections</button>
+</div>
+<div class="grid grid-cols-4 gap-6">
+<!-- Dest Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] rounded-[24px] overflow-hidden mb-3 shadow-lg border border-outline-variant/10">
+<img alt="Amsterdam" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A picturesque evening scene of an Amsterdam canal with traditional narrow houses illuminated by soft golden lights. The water reflects the vibrant city colors. The image has a moody, high-end editorial feel with rich blues and deep oranges. The composition is clean and professional, emphasizing the romantic and historic architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEH4mNABQgpSMGXGDtHtfQa6JTL-6QQgMHs7Ymjg42XfZETtRDyIUwKdd7YLryGWwKrZj2OwVbrCYFFlv1O8nGiKgpNIlW-qfJ0PjxAL0T1vfc7uJQAlci-wRXvHLZvmEs0XdcBcPm9FFkHz7xzZYyL-iGEKAyZRyappP03iHHX3EEeybhAsYbgvyWvu0uX6Y1HglOyS6LGi9HEQ6QxZ0mOi_f4bkxOAcXxzHsmYsgZJoHZa4bRSIEoyJ8jmkMu7Dmnq5BzPKBeqc"/>
+</div>
+<div class="px-2">
+<h4 class="font-bold text-on-surface">Amsterdam, NL</h4>
+<p class="text-xs text-on-surface-variant">8 Places Saved</p>
+</div>
+</div>
+<!-- Dest Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] rounded-[24px] overflow-hidden mb-3 shadow-lg border border-outline-variant/10">
+<img alt="Iceland" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A dramatic and ethereal landscape of an Icelandic waterfall under the glow of the Aurora Borealis. The lighting is magical, with greens and purples dancing in the night sky. The scene is shot with a high-end professional camera, focusing on the powerful texture of the water and the dark volcanic rock. The overall mood is epic and serene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMHymNYjCCYPclHsnzDiuhj27b1sfrv0LokYu9uQfca9_QOXTu6fvTR2FPuojL063JeI-eLxPUJT45eKQpLDY-lZr4rIM3MYVv1MD28c9zfN__R4HdhfybAkfrT-kuPbIaIiWQuml_aM8wEf90515-rB8-udaq35juTdoLRfKq28uuYt4WsL7wHanTym4j-DdeMKX0x4Jle8OiAreinFRj2AM-zEHZlLkjX3xcJhYHUXJRXeoB7YiBl7TUy9PrNABY0yX-B5SJ4yI"/>
+</div>
+<div class="px-2">
+<h4 class="font-bold text-on-surface">Reykjavik, IS</h4>
+<p class="text-xs text-on-surface-variant">12 Places Saved</p>
+</div>
+</div>
+<!-- Dest Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] rounded-[24px] overflow-hidden mb-3 shadow-lg border border-outline-variant/10">
+<img alt="Venice" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A stunning aerial view of Venice canals at sunset. The water is a deep turquoise, and the terracotta roofs of the historic buildings glow in the warm evening light. The style is classic yet vibrant, with a high level of detail and a luxury travel magazine aesthetic. The mood is timeless and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNfE9om0k7PasZHmCLbI7nriYvdcvUHw4CUg2LMdSuwjlVQl8_jD_kvMoFKqMcN-heEQ8G3qx2R2aylglVoSY5ZzqANHw63kl3BduE7bEOMvRx1P4grjOsfhl59LXdZ5BPcD72fN-iT2NhmeVkWvR0DbyWSkLJJ7ItwqiCVMhQtN-VFA_46Pp9a-deJoxcRrohF89BUwpsd1MNgu83LRGzoRr3hImsNRmwJslOSJ8udTu2nc8n587ny92Cz-EV5GfsGrqbPxQYKXA"/>
+</div>
+<div class="px-2">
+<h4 class="font-bold text-on-surface">Venice, IT</h4>
+<p class="text-xs text-on-surface-variant">5 Places Saved</p>
+</div>
+</div>
+<!-- Dest Card 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] rounded-[24px] overflow-hidden mb-3 shadow-lg border border-outline-variant/10 bg-surface-container-high flex flex-col items-center justify-center border-dashed border-2 border-primary/20">
+<span class="material-symbols-outlined text-primary text-4xl mb-2" data-icon="add_circle">add_circle</span>
+<span class="text-sm font-bold text-primary">New Collection</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Global FAB Suppression as per mandate: Suppression on Settings/Profile screens -->
+<!-- Navigation Shell logic: Hidden FAB for this view -->
+</body></html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop | Admin Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#fefcff",
+                        "inverse-primary": "#adc6ff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "inverse-surface": "#2e3038",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dbe1ff",
+                        "secondary": "#0051d5",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9ff",
+                        "outline": "#727785",
+                        "tertiary-fixed": "#ffdcc6",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#b75b00",
+                        "surface-container-high": "#e6e7f2",
+                        "surface-dim": "#d8d9e3",
+                        "tertiary": "#924700",
+                        "primary": "#0058be",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-container": "#316bf3",
+                        "surface-container": "#ecedf7",
+                        "on-surface-variant": "#424754",
+                        "primary-container": "#2170e4",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f2f3fd",
+                        "on-primary-fixed": "#001a42",
+                        "inverse-on-surface": "#eff0fa",
+                        "on-background": "#191b23",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-surface": "#191b23",
+                        "on-secondary-fixed": "#00174b",
+                        "surface-variant": "#e1e2ec",
+                        "surface-container-highest": "#e1e2ec",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "outline-variant": "#c2c6d6",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-tertiary-fixed": "#311400",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-tint": "#005ac2",
+                        "surface": "#f9f9ff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "display": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(114, 119, 133, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto bg-surface/80 backdrop-blur-2xl shadow-sm border-b border-outline-variant/10">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-primary">Traveloop</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">My Trips</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">Explore</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body text-label-md" href="#">Budget</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low rounded-full border-none focus:ring-2 focus:ring-primary w-64 text-sm" placeholder="Search analytics..." type="text"/>
+</div>
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="contrast">contrast</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden ring-2 ring-primary/20">
+<img alt="User profile" data-alt="A clean, professional headshot of a smiling executive with short hair, wearing a navy blue blazer in a brightly lit, minimalist office setting. The lighting is soft and flattering, creating a high-end corporate portrait with a shallow depth of field. The overall aesthetic is modern, clean, and highly professional, reflecting the premium visual identity of a tech leadership team." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDy6-PmEmOeqvt9uX9c9A3wXxBbVULXO_f7rpfcprE--BUI97n_Q6qZjjBfFxQnvU7G18pKCPmR0t__RDQ4KJ8oOslc4HwmDdBRt__2yHl58sIPFS28WeZZ2oY7vyAgr9vhXlmt_5uo7Owt_R-JDzkqrAzd_yAXO4Ka70x_Pan_Q2JVQg-M_mxHpINwDveADbcTEY0H6yFF9rSwRT05dZ3X-t9BonQReQD8LDMU0Rn3mNx2n6S8AdEo__nwaDuWoZ4VomNW1jRBYAg"/>
+</div>
+</div>
+</header>
+<!-- Side Navigation Bar -->
+<aside class="h-screen w-72 fixed left-0 top-0 bg-surface-container-low/70 backdrop-blur-3xl border-r border-outline-variant/20 flex flex-col gap-4 p-6 pt-24 z-40">
+<div class="flex items-center gap-3 mb-6 px-2">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="insights" data-weight="fill" style="font-variation-settings: 'FILL' 1;">insights</span>
+</div>
+<div>
+<p class="font-headline text-on-surface font-bold">Summer in Europe</p>
+<p class="text-xs text-on-surface-variant">12 Destinations</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-sm font-medium">Timeline</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-xl font-bold transition-all duration-200 shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="text-sm">Statistics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="explore_nearby">explore_nearby</span>
+<span class="text-sm font-medium">Map View</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-sm font-medium">Collaborators</span>
+</a>
+</nav>
+<button class="mt-auto w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all shadow-lg">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+            Add Event
+        </button>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pl-72 pt-24 min-h-screen">
+<div class="max-w-[1440px] mx-auto p-8">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-10">
+<div>
+<h1 class="text-4xl font-black tracking-tight text-on-surface mb-2">Platform Overview</h1>
+<p class="text-on-surface-variant">Real-time performance metrics and traveler insights across the globe.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-surface-container-high rounded-lg text-sm font-bold flex items-center gap-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-sm">calendar_month</span>
+                        Last 30 Days
+                    </button>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-sm font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Export Report
+                    </button>
+</div>
+</div>
+<!-- Bento Grid - Key Metrics -->
+<div class="grid grid-cols-12 gap-6 mb-8">
+<div class="col-span-12 md:col-span-3 glass-card p-6 rounded-3xl shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+<span class="text-success text-xs font-bold flex items-center gap-1 text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">
+                            +12.5% <span class="material-symbols-outlined text-[14px]">trending_up</span>
+</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">New User Growth</p>
+<h2 class="text-3xl font-black tracking-tighter mt-1">14,284</h2>
+<div class="mt-4 h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-3/4 rounded-full"></div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-3 glass-card p-6 rounded-3xl shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">map</span>
+</div>
+<span class="text-xs font-bold flex items-center gap-1 text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full">
+                            +8.2% <span class="material-symbols-outlined text-[14px]">trending_up</span>
+</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Active Trips</p>
+<h2 class="text-3xl font-black tracking-tighter mt-1">2,851</h2>
+<div class="mt-4 h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-1/2 rounded-full"></div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 glass-card p-6 rounded-3xl shadow-sm flex items-center justify-between">
+<div>
+<p class="text-on-surface-variant text-sm font-medium mb-1">Engagement Rate</p>
+<h2 class="text-3xl font-black tracking-tighter">78.4%</h2>
+<p class="text-xs text-on-surface-variant mt-2">Avg. 42 mins/session across 140 countries</p>
+</div>
+<div class="flex items-end gap-1 h-16">
+<div class="w-3 bg-primary-container/20 h-8 rounded-t-sm"></div>
+<div class="w-3 bg-primary-container/40 h-12 rounded-t-sm"></div>
+<div class="w-3 bg-primary-container/60 h-10 rounded-t-sm"></div>
+<div class="w-3 bg-primary-container/80 h-14 rounded-t-sm"></div>
+<div class="w-3 bg-primary h-16 rounded-t-sm"></div>
+<div class="w-3 bg-primary h-14 rounded-t-sm"></div>
+<div class="w-3 bg-primary h-15 rounded-t-sm"></div>
+</div>
+</div>
+</div>
+<!-- Main Data Visualization Row -->
+<div class="grid grid-cols-12 gap-6 mb-8">
+<!-- User Growth Line Chart Mockup -->
+<div class="col-span-12 lg:col-span-8 glass-card p-8 rounded-[2rem] shadow-xl">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="text-xl font-bold tracking-tight">Active Users Over Time</h3>
+<p class="text-sm text-on-surface-variant">Daily unique visitors and trip creations</p>
+</div>
+<div class="flex gap-2">
+<span class="flex items-center gap-1.5 text-xs font-bold"><span class="w-2 h-2 rounded-full bg-primary"></span> Desktop</span>
+<span class="flex items-center gap-1.5 text-xs font-bold"><span class="w-2 h-2 rounded-full bg-secondary"></span> Mobile</span>
+</div>
+</div>
+<div class="relative h-64 w-full flex items-end justify-between px-2 group">
+<!-- Simplified SVG Chart Path Mockup -->
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,80 Q10,70 20,75 T40,60 T60,65 T80,40 T100,20" fill="none" stroke="#0058be" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path d="M0,90 Q10,85 20,88 T40,75 T60,82 T80,60 T100,45" fill="none" stroke="#0051d5" stroke-dasharray="4 2" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+</svg>
+<div class="h-full border-l border-outline-variant/10 w-px relative"></div>
+<div class="h-full border-l border-outline-variant/10 w-px relative"></div>
+<div class="h-full border-l border-outline-variant/10 w-px relative"></div>
+<div class="h-full border-l border-outline-variant/10 w-px relative"></div>
+<div class="h-full border-l border-outline-variant/10 w-px relative"></div>
+<div class="h-full border-l border-outline-variant/10 w-px relative"></div>
+<div class="h-full border-l border-outline-variant/10 w-px relative"></div>
+<div class="h-full border-l border-outline-variant/10 w-px relative"></div>
+</div>
+<div class="flex justify-between mt-4 px-2 text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+<!-- Popular Destinations Side List -->
+<div class="col-span-12 lg:col-span-4 glass-card p-8 rounded-[2rem] shadow-sm flex flex-col">
+<h3 class="text-xl font-bold tracking-tight mb-6">Popular Destinations</h3>
+<div class="space-y-6 flex-1">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 rounded-2xl overflow-hidden shadow-md">
+<img alt="Paris" data-alt="A cinematic, low-angle shot of the Eiffel Tower at dusk, with the Parisian sky painted in soft hues of lavender and gold. The surrounding architectural details of Paris are visible with elegant streetlights beginning to glow. The image has a romantic, high-end editorial feel with clean composition and sophisticated lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUIzQc6XUtKncR97rFgr5U3zr6go-C5I9Bmr8F6Jb5OIhkqUXB0ipNCWulDtlH5Ma8IdcV0c_d_wF-d2x1wCcg7RlefV8uGv9NrLsIqogll5hqSIuYkj3gbDTJkyYRi6UC970RfXD10lkpQKFE8MqjmcYzXaeiVv62wi8G_TcrVrE5ry5T_BoEkVZYqS6DN4WeyoN0qgAVxQLIVtIvBPsTekGypfh1Ei4gIERCRWGSpDoc4_PcH3yfS_qUQwuX-Kn7t8SJj0EfDik"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Paris, France</p>
+<p class="text-xs text-on-surface-variant">4,280 Travelers this week</p>
+</div>
+<span class="text-primary font-black text-sm">#1</span>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 rounded-2xl overflow-hidden shadow-md">
+<img alt="Tokyo" data-alt="A vibrant night scene in Tokyo's Shibuya district, featuring neon signs reflected in rain-slicked pavement. The image captures the dynamic energy of the city with a futuristic, cyberpunk-lite aesthetic. The colors are rich and saturated, with deep blues and brilliant pinks, illuminated by a high-contrast, modern urban lighting style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGHROb1Cs-oA7S5ZNngM0Si-hjnT3aDBw9yD4c6uOT27wipfy_W6KTvlj1Fy65eRvdxjXblRHn6HB2KLt90lGdwbWOnUKkLYwlpqV70nTtvP72pZDgtmK7Sif8jCbfqSMG_FPacIp2U4bm6a82pzjBWfngyuQBRH5j-lCJzLZFnOe3NN9DlmLak1qYLlzlcZ22QbKyT6WpnhIN2RDSKouOCjgcwg2H5eqhuciaB9NT8Ah7bHzVW4gRKrgI6ulSJneDzbzTUAoWWH4"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Tokyo, Japan</p>
+<p class="text-xs text-on-surface-variant">3,950 Travelers this week</p>
+</div>
+<span class="text-primary font-black text-sm">#2</span>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 rounded-2xl overflow-hidden shadow-md">
+<img alt="Dubai" data-alt="A wide-angle aerial view of the Dubai skyline featuring the Burj Khalifa piercing through a soft morning mist. The architecture is sleek and futuristic, glowing in the early morning sunlight. The color palette consists of shimmering silvers, deep blues, and desert golds, creating an atmosphere of luxury and technological prowess." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALZY81RgRiLCK2zzYVn5-dXryV9IiRdOf3ns4EQWHlM-xPayvjyVNeKDb9UnT4WIavxr8nODXJAB9lvi2_GeG45WCOdC9oHFsoq38ts3nd4JDdnCdNpj4Y3foYZ3DSXZyNvbuL-m1qa6bPhf9pDtNeeSnQu4PY5TXdPLT2IkHkCoOJ4wdXS7XBQhI82oZzqO40qe14-RmiGj41sE1S7s5CaibKGabThSmhsbKbZ62-N3Hebd8Hr97Hc0GAePKmxCrHBn7xU9PSMt0"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Dubai, UAE</p>
+<p class="text-xs text-on-surface-variant">2,120 Travelers this week</p>
+</div>
+<span class="text-primary font-black text-sm">#3</span>
+</div>
+</div>
+<button class="w-full mt-6 py-2 border border-outline-variant/30 rounded-xl text-xs font-bold hover:bg-surface-container-high transition-colors uppercase tracking-widest">
+                        View Full List
+                    </button>
+</div>
+</div>
+<!-- Bottom Row: Statistics & Top Search -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Top Searched Cities Table -->
+<div class="col-span-12 lg:col-span-7 glass-card rounded-[2rem] overflow-hidden shadow-sm">
+<div class="p-8 border-b border-outline-variant/10 flex justify-between items-center">
+<h3 class="text-xl font-bold tracking-tight">Top Searched Cities</h3>
+<span class="text-xs font-bold text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full">Global Search Intent</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low text-xs font-bold text-on-surface-variant uppercase tracking-wider">
+<tr>
+<th class="px-8 py-4">City Name</th>
+<th class="px-8 py-4">Growth</th>
+<th class="px-8 py-4">Booking Rate</th>
+<th class="px-8 py-4">Avg. Spend</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10 text-sm">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-8 py-5 font-bold">Kyoto, JP</td>
+<td class="px-8 py-5 text-emerald-600 font-bold">+24%</td>
+<td class="px-8 py-5">12.5%</td>
+<td class="px-8 py-5">$1,420</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-8 py-5 font-bold">Barcelona, ES</td>
+<td class="px-8 py-5 text-emerald-600 font-bold">+18%</td>
+<td class="px-8 py-5">9.2%</td>
+<td class="px-8 py-5">$890</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-8 py-5 font-bold">Reykjavik, IS</td>
+<td class="px-8 py-5 text-emerald-600 font-bold">+31%</td>
+<td class="px-8 py-5">14.8%</td>
+<td class="px-8 py-5">$2,100</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Engagement Graphs Mini -->
+<div class="col-span-12 lg:col-span-5 glass-card p-8 rounded-[2rem] shadow-sm">
+<h3 class="text-xl font-bold tracking-tight mb-8">Booking Conversion</h3>
+<div class="flex items-center justify-between gap-12">
+<div class="relative w-40 h-40 flex items-center justify-center">
+<!-- SVG Donut Chart Mockup -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#ecedf7" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#0058be" stroke-dasharray="160 251" stroke-linecap="round" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#316bf3" stroke-dasharray="60 251" stroke-dashoffset="-160" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute text-center">
+<p class="text-2xl font-black">64%</p>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase">Success</p>
+</div>
+</div>
+<div class="flex-1 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="text-xs font-bold">Confirmed</span>
+</div>
+<span class="text-xs font-black">64%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary-container"></div>
+<span class="text-xs font-bold">Pending</span>
+</div>
+<span class="text-xs font-black">22%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-surface-container"></div>
+<span class="text-xs font-bold">Abandoned</span>
+</div>
+<span class="text-xs font-black">14%</span>
+</div>
+</div>
+</div>
+<div class="mt-8 p-4 bg-primary-container/10 rounded-2xl border border-primary/10">
+<p class="text-xs font-medium text-primary leading-relaxed">
+<span class="material-symbols-outlined text-[14px] align-middle mr-1">lightbulb</span>
+                            Personalized itinerary suggestions have increased conversion by 12% this month.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Only on relevant screens) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-2xl" data-icon="add">add</span>
+</button>
+</body></html>

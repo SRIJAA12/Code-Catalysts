@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Sign In</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+        }
+        .apple-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        .focus-glow:focus-within {
+            box-shadow: 0 0 0 2px #0058be, 0 0 12px rgba(0, 88, 190, 0.2);
+        }
+        .itinerary-line {
+            background: linear-gradient(180deg, transparent 0%, #c2c6d6 50%, transparent 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#fefcff",
+                        "inverse-primary": "#adc6ff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "inverse-surface": "#2e3038",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dbe1ff",
+                        "secondary": "#0051d5",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9ff",
+                        "outline": "#727785",
+                        "tertiary-fixed": "#ffdcc6",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#b75b00",
+                        "surface-container-high": "#e6e7f2",
+                        "surface-dim": "#d8d9e3",
+                        "tertiary": "#924700",
+                        "primary": "#0058be",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-container": "#316bf3",
+                        "surface-container": "#ecedf7",
+                        "on-surface-variant": "#424754",
+                        "primary-container": "#2170e4",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f2f3fd",
+                        "on-primary-fixed": "#001a42",
+                        "inverse-on-surface": "#eff0fa",
+                        "on-background": "#191b23",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-surface": "#191b23",
+                        "on-secondary-fixed": "#00174b",
+                        "surface-variant": "#e1e2ec",
+                        "surface-container-highest": "#e1e2ec",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "outline-variant": "#c2c6d6",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-tertiary-fixed": "#311400",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-tint": "#005ac2",
+                        "surface": "#f9f9ff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "display": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex items-center justify-center p-0 overflow-hidden">
+<!-- Auth Layout Wrapper -->
+<main class="flex w-full min-h-screen bg-surface">
+<!-- LEFT SIDE: Visual Experience -->
+<section class="hidden lg:flex lg:w-1/2 relative bg-primary-container overflow-hidden items-center justify-center p-12">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<img alt="Travel Visual" class="w-full h-full object-cover opacity-40 mix-blend-overlay" data-alt="A breathtaking high-angle landscape shot of a winding coastal road along the Amalfi Coast during the golden hour. The sky is a soft blend of peach and lavender, reflecting off the deep azure Mediterranean Sea. Elegant vintage cars are parked near a cliffside viewpoint, surrounded by lush bougainvillea. The overall aesthetic is editorial and premium, using soft natural lighting and a high-end travel magazine photography style that aligns with a clean, light-mode UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ArApE5dOlw8KFbBJPx93fS5jzDyuCoL7c42q5rgGvUAcSvRy6E8vZQwb_Gpe4JIHY15bPG5FTHx6jNPK7U1fET9Tt8BH4slWKwYR8_e-WV9bFdLZjXLkFa6qQss3KFkXD7WYPmgZgtAbue8Hrn3RrkqEmUYz3Y6AUZ4i509RjXWudmaIX_DYBrHXrz2RD2968YytgtbZeMS8CppcGsPrlsR4gMfmfjD9LvORJyfZs0-5Xy4jdfi6_nd99z4zfq92axmv-VR-rmw"/>
+</div>
+<!-- Animated Content Layer -->
+<div class="relative z-10 w-full max-w-xl text-on-primary-container">
+<div class="mb-12">
+<h1 class="text-6xl font-black tracking-tighter mb-4 leading-tight">
+                        Plan Smarter.<br/>Travel Better.
+                    </h1>
+<p class="text-xl opacity-90 font-light max-w-md">
+                        Join over 500,000 travelers using Traveloop to craft seamless itineraries and unforgettable memories.
+                    </p>
+</div>
+<!-- Floating Elements Container -->
+<div class="relative h-64 w-full">
+<!-- Floating Card 1 -->
+<div class="absolute top-0 left-0 glass-panel p-4 rounded-xl apple-shadow w-48 rotate-[-3deg] transition-transform hover:scale-105 duration-500">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="explore">explore</span>
+<span class="text-sm font-bold text-on-surface">Santorini, GR</span>
+</div>
+<div class="h-1 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="bg-primary h-full w-2/3"></div>
+</div>
+<span class="text-[10px] text-outline mt-1 block">Itinerary 65% Complete</span>
+</div>
+<!-- Floating Card 2 -->
+<div class="absolute bottom-4 right-12 glass-panel p-4 rounded-xl apple-shadow w-56 rotate-[2deg] transition-transform hover:scale-105 duration-500 delay-100">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="flight_takeoff">flight_takeoff</span>
+<span class="text-sm font-bold text-on-surface">Paris Flight</span>
+</div>
+<div class="flex justify-between items-center text-xs text-on-surface-variant font-medium">
+<span>LHR</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+<span>CDG</span>
+</div>
+<span class="text-[10px] text-primary font-bold mt-2 block">Confirmed • Terminal 5</span>
+</div>
+<!-- Destination Chips -->
+<div class="absolute top-1/2 left-1/3 glass-panel px-4 py-2 rounded-full apple-shadow flex items-center gap-2 border border-white/20">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="map">map</span>
+<span class="text-xs font-bold text-on-surface">Tokyo</span>
+</div>
+<div class="absolute top-1/4 right-0 glass-panel px-4 py-2 rounded-full apple-shadow flex items-center gap-2 border border-white/20">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="beach_access">beach_access</span>
+<span class="text-xs font-bold text-on-surface">Bali</span>
+</div>
+</div>
+</div>
+<!-- Abstract Map Decoration -->
+<svg class="absolute bottom-[-10%] right-[-10%] w-full h-full opacity-10 pointer-events-none" viewbox="0 0 100 100">
+<path d="M10,50 Q40,10 90,50" fill="none" stroke="currentColor" stroke-dasharray="2,2" stroke-width="0.5"></path>
+<path d="M5,70 Q50,40 95,80" fill="none" stroke="currentColor" stroke-dasharray="2,2" stroke-width="0.5"></path>
+</svg>
+</section>
+<!-- RIGHT SIDE: Authentication Form -->
+<section class="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 md:p-24 bg-surface-bright">
+<div class="w-full max-w-[440px] space-y-8">
+<!-- Brand Header -->
+<div class="text-center lg:text-left mb-10">
+<div class="flex items-center justify-center lg:justify-start gap-2 mb-8">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined font-bold" data-icon="travel_explore">travel_explore</span>
+</div>
+<span class="text-2xl font-black tracking-tighter text-on-surface">Traveloop</span>
+</div>
+<h2 class="text-3xl font-bold tracking-tight text-on-surface">Welcome back</h2>
+<p class="text-on-surface-variant mt-2">Please enter your details to sign in.</p>
+</div>
+<!-- Auth Form -->
+<form class="space-y-6">
+<!-- Email Field -->
+<div class="space-y-2 group">
+<label class="text-sm font-semibold text-on-surface-variant ml-1" for="email">Email address</label>
+<div class="relative focus-glow rounded-xl transition-all duration-300">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-xl" data-icon="mail">mail</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-3.5 bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline/50 focus:ring-0 sm:text-sm transition-colors" id="email" name="email" placeholder="alex@example.com" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2 group">
+<div class="flex justify-between items-center px-1">
+<label class="text-sm font-semibold text-on-surface-variant" for="password">Password</label>
+<a class="text-sm font-bold text-primary hover:text-on-secondary-fixed-variant transition-colors" href="#">Forgot password?</a>
+</div>
+<div class="relative focus-glow rounded-xl transition-all duration-300">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-xl" data-icon="lock">lock</span>
+</div>
+<input class="block w-full pl-12 pr-12 py-3.5 bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline/50 focus:ring-0 sm:text-sm transition-colors" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Actions -->
+<div class="pt-2">
+<button class="w-full flex justify-center items-center gap-2 py-4 px-6 border border-transparent rounded-xl apple-shadow text-base font-bold text-on-primary bg-primary hover:bg-primary/90 hover:translate-y-[-2px] active:scale-[0.98] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]" type="submit">
+                            Sign in to Traveloop
+                        </button>
+</div>
+<!-- Divider -->
+<div class="relative py-4">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant/30"></div>
+</div>
+<div class="relative flex justify-center text-sm">
+<span class="px-4 bg-surface-bright text-outline font-medium">Or continue with</span>
+</div>
+</div>
+<!-- Social Login -->
+<div class="grid grid-cols-1 gap-4">
+<button class="w-full flex justify-center items-center gap-3 py-3.5 px-6 border border-outline-variant/50 rounded-xl text-on-surface font-semibold hover:bg-surface-container-low transition-all duration-200" type="button">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 12-4.53z" fill="#EA4335"></path>
+</svg>
+                            Google
+                        </button>
+</div>
+</form>
+<!-- Footer Link -->
+<p class="text-center text-on-surface-variant font-medium">
+                    Don't have an account? 
+                    <a class="text-primary font-bold hover:underline transition-all" href="#">Sign up for free</a>
+</p>
+<!-- System Support Info -->
+<div class="pt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[11px] text-outline uppercase tracking-widest font-bold opacity-60">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Contextual Elements: Success State Toast (Hidden by default) -->
+<div class="fixed bottom-8 right-8 glass-panel border border-primary/20 p-4 rounded-xl apple-shadow flex items-center gap-4 translate-y-24 opacity-0 transition-all duration-500 pointer-events-none">
+<div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Login Successful</p>
+<p class="text-xs text-on-surface-variant">Redirecting to your dashboard...</p>
+</div>
+</div>
+</body></html>

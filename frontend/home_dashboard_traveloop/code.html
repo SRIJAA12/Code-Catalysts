@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#fefcff",
+                    "inverse-primary": "#adc6ff",
+                    "primary-fixed-dim": "#adc6ff",
+                    "inverse-surface": "#2e3038",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#dbe1ff",
+                    "secondary": "#0051d5",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9f9ff",
+                    "outline": "#727785",
+                    "tertiary-fixed": "#ffdcc6",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#b75b00",
+                    "surface-container-high": "#e6e7f2",
+                    "surface-dim": "#d8d9e3",
+                    "tertiary": "#924700",
+                    "primary": "#0058be",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#003ea8",
+                    "surface-bright": "#f9f9ff",
+                    "secondary-container": "#316bf3",
+                    "surface-container": "#ecedf7",
+                    "on-surface-variant": "#424754",
+                    "primary-container": "#2170e4",
+                    "on-tertiary-fixed-variant": "#723600",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#f2f3fd",
+                    "on-primary-fixed": "#001a42",
+                    "inverse-on-surface": "#eff0fa",
+                    "on-background": "#191b23",
+                    "primary-fixed": "#d8e2ff",
+                    "on-secondary-container": "#fefcff",
+                    "secondary-fixed-dim": "#b4c5ff",
+                    "on-surface": "#191b23",
+                    "on-secondary-fixed": "#00174b",
+                    "surface-variant": "#e1e2ec",
+                    "surface-container-highest": "#e1e2ec",
+                    "tertiary-fixed-dim": "#ffb786",
+                    "outline-variant": "#c2c6d6",
+                    "on-primary-fixed-variant": "#004395",
+                    "on-tertiary-fixed": "#311400",
+                    "on-tertiary-container": "#fffbff",
+                    "surface-tint": "#005ac2",
+                    "surface": "#f9f9ff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "display": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-card {
+            background: rgba(25, 27, 35, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar Implementation -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-2xl shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-primary dark:text-inverse-primary">Traveloop</span>
+<div class="hidden md:flex items-center bg-surface-container-low dark:bg-surface-container-highest px-4 py-2 rounded-full gap-2 w-64 group focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-full placeholder:text-outline-variant" placeholder="Search destinations..." type="text"/>
+</div>
+</div>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="font-body text-label-md text-primary dark:text-inverse-primary font-bold border-b-2 border-primary dark:border-inverse-primary pb-1" href="#">Home</a>
+<a class="font-body text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">My Trips</a>
+<a class="font-body text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Explore</a>
+<a class="font-body text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Budget</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-lg transition-all">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-lg transition-all">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-surface-variant">contrast</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-surface-container-high">
+<img alt="User profile" data-alt="A professional headshot of a person with a friendly expression, captured with high-end studio lighting that creates soft shadows and highlights their features. The background is a clean, neutral gradient, emphasizing a modern and approachable user profile aesthetic. The overall image has a crisp, high-resolution quality with a sophisticated, editorial feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARs4Ze3s-HmHduLaa9r72jvXUG2y_aCxvVwSvgLemJDzMTNish93tfF1Muj9H6D9OvCj_JVpMk4fILFSLip_Or3jp5_19jCwpoW72PeuE2FrJ1XwJubyuTIlX2iTJ9tiG6MTgMmEryFaNAG-0adPhNcZrweJxN5lNBgbx3n96UCk8Lu-ayssdeAPEX7KNjJzT_e64GeHAPQ_yiakyZPy-zElleKpWAgjpaS5GB9hpU96WHs6vvtI1es2uDGrMf3m8PxfnppRsC21M"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto pt-24 px-8 pb-16 space-y-16">
+<!-- Hero Section -->
+<section class="relative h-[500px] rounded-3xl overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)]" data-alt="A breathtaking panoramic view of a serene lake surrounded by towering snow-capped mountains at sunrise. The lighting is ethereal, with soft pink and golden hues reflecting on the crystal-clear water. The composition is expansive and inspiring, utilizing a sophisticated color palette of cool blues and warm ambers to create a premium, wanderlust-inducing atmosphere typical of a high-end travel platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB60gqF8oc82vmmtLr2dpHOaHxyaL8UfoRcWK4dyDbEWOd3r5l1sL4j_PUCWu-kNtOvuGnxWBwyYqaBmHMtq2-hhY9GVH0pTA0SAgqpO2cpWv1XpHY05JfMKjzvM66jQrAR2Et4EjubDo59ikGmigR7jTevwhc495fhR0k_uOT_ekT3NaSOssbJfELzdgFRu1B3f3kbxrh7tq884zaS3hl8CGuhdZcYamMHjlgUW2_ZtgnlRS7sF3ZEDF0BjdmcgB3Q3Rv8b64rtcM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-on-background/20 to-transparent"></div>
+<div class="absolute inset-0 flex flex-col justify-end p-12 space-y-6">
+<h1 class="text-6xl font-black text-white tracking-tight max-w-2xl leading-[1.1]">Where do you want to go next?</h1>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+<span class="material-symbols-outlined">add_circle</span>
+                        Plan New Trip
+                    </button>
+<div class="flex gap-2 text-white/90 text-sm font-medium">
+<span class="px-4 py-2 bg-white/20 backdrop-blur-md rounded-full border border-white/30 cursor-pointer hover:bg-white/30 transition-colors">Japan 2024</span>
+<span class="px-4 py-2 bg-white/20 backdrop-blur-md rounded-full border border-white/30 cursor-pointer hover:bg-white/30 transition-colors">Alps Skiing</span>
+<span class="px-4 py-2 bg-white/20 backdrop-blur-md rounded-full border border-white/30 cursor-pointer hover:bg-white/30 transition-colors">Bali Retreat</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Stats Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="glass-card p-6 rounded-2xl flex items-center gap-4 hover:shadow-lg transition-all duration-300 group">
+<div class="p-3 rounded-xl bg-primary-container text-on-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-sm font-medium">Upcoming Trips</p>
+<p class="text-3xl font-bold">3</p>
+</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex items-center gap-4 hover:shadow-lg transition-all duration-300 group">
+<div class="p-3 rounded-xl bg-secondary-container text-on-secondary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">public</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-sm font-medium">Countries Planned</p>
+<p class="text-3xl font-bold">12</p>
+</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex items-center gap-4 hover:shadow-lg transition-all duration-300 group">
+<div class="p-3 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-sm font-medium">Total Budget</p>
+<p class="text-3xl font-bold">$14.2k</p>
+</div>
+</div>
+<div class="glass-card p-6 rounded-2xl flex items-center gap-4 hover:shadow-lg transition-all duration-300 group">
+<div class="p-3 rounded-xl bg-surface-container-highest text-on-surface group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<p class="text-on-surface-variant text-sm font-medium">Days Traveling</p>
+<p class="text-3xl font-bold">45</p>
+</div>
+</div>
+</section>
+<!-- Recent Trips Section -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-3xl font-bold tracking-tight">Recent Trips</h2>
+<button class="text-primary font-bold hover:underline">View All</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Trip Card 1 -->
+<div class="bg-surface-container-low rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/30 flex flex-col group">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A vibrant street scene in Kyoto, Japan, during the cherry blossom season. Traditional wooden architecture lines the narrow street as pink blossoms drift through the air in soft, afternoon sunlight. The image uses a clean, high-saturation color palette with warm wood tones and delicate pinks, creating a high-end editorial travel feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbCBq_P9PJxMK6ygp9I-WyhSl1YtvvAgnwp64Xx8G_wQMHmCM4EFav_yzyGtxBsvZJJfnjTCRVdHhlCRjL1HJkYhOxmj-v5VbzE1Ma2tndkW97Q8yTsZ_ybMaIBXvyF6jGTWbLrakj717AsgRITVWPTc12hxvNkxMuR2rQ5Y2sgRJWMoCXcfvEDqFBLnH2by8eJJY-hKelfmgMWDgadt9mZJQmQmS-exVQeF8CGJJzZJvh9HSF_AP6hobFECw6YZ7Et7SQO5CHA54"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-xs font-bold border border-white/30">Ongoing</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold">Summer in Kyoto</h3>
+<p class="text-on-surface-variant text-sm">Jul 12 - Jul 25, 2024</p>
+</div>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container overflow-hidden">
+<img alt="Collaborator 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUqM_FJsmJ4IhLeYbX0TP-OMCJdJC0oppgwFTo63IdZ-SY2ix6BEZqytkd-LirgENMIqNIpyUXyAoA2IcGV0wLdM73sWbUF25JxdndFtpZhp0NOQSY6mcumrH9AD5XWvEJgY30Mz-ELmUv-dVGwtG3AriBH6H4wOprcNUKrtkz1DuXLCwWFsvXcBPf0vLmilqjohDBvTtq1uDKUwtj37uwX9KbqizS8fFRuCMIYFBH0J-7YVFNApgwvcChPB4ePCWkuA2UlTfPsiw"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container overflow-hidden">
+<img alt="Collaborator 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2wHBzgTYp9UNn-P0b2Nab1Scmt_s4cJg75gVYeKT0x-adXNCw1B16PzxC_xl9bLxgs1ODvWYJwQREvXdKsgrK1dXmn2XHzukhZRd4BvC51z5_otd_RBeAJgPu-PinFL8MtckqUTcWVTwv7ugIFp_LtxceaT1ofIBqibLHh_FTFZG1sFkh-29gHDHdFy4M0SVcz74d8_klW4gO1urh00PtY1wyA063QgX5ynSd7F3-B3Z1FnX-Hj-t8x7GbDEnjpEBEyA01Tjg5B4"/>
+</div>
+</div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[65%]"></div>
+</div>
+<div class="flex justify-between text-sm font-medium">
+<span class="text-on-surface-variant">Progress: 65%</span>
+<span class="text-primary">$4,500</span>
+</div>
+</div>
+</div>
+<!-- Trip Card 2 -->
+<div class="bg-surface-container-low rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/30 flex flex-col group">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="The sun setting behind the Eiffel Tower in Paris, casting long shadows across the Trocadéro gardens. The sky is a deep indigo and burnt orange, creating a romantic and sophisticated atmosphere. The image focuses on high contrast and clean lines, embodying a premium digital workspace aesthetic with deep blues and warm highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTygnMzArFsQzNwITDl4VIL6WP5xMMzVaFrEkHczutIBOj7KmiOTpAhwPUSgA2fVp_y7uoKx5HxZbwTdKsl6mrQ5VZr8Q1KiUJx9tOVlwDVpP59EzyMxeiAMQ1J4Iya1dAODwp-d6nXP8MYQ51Y6FtKz5Ku5loL_7mXpNPacIG6wMXUkgxLElYlwIPZlP5Cz-2Ht4F5boZ__0c_yuTMr_q5kJGyWKaXFCAD_gmqa4NdZo6F1WACi_hxk1sMO7SZxXdZpOypD3iRKc"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-xs font-bold border border-white/30">Upcoming</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold">Paris Fashion Week</h3>
+<p class="text-on-surface-variant text-sm">Sep 23 - Oct 01, 2024</p>
+</div>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container overflow-hidden">
+<img alt="Collaborator 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLY7sWl9RdJ1apNw9sfVI5NfW-XmUnkzcf-BVTdtNxYTpDFMqH5BQMpb1KYuJa0727I48jxktaJo4SWWAirAHMl_6UvYQehB6prtjqvtXjO8_DWIDlG1zbYnEhi4M0EVtlcVf1hYYU0UEMrnrj8t5ftqL8NLxdJZvV9m6o13Qrmw4rp1uLia4Vaxq8bizjdXfNZsK_efWX6J9eOqwAYYJkTmSl1u_kKLH53Nb0SdT3RkXyUpoQFAc9krxyMuiu9DPsKwutrjz17MI"/>
+</div>
+</div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[10%]"></div>
+</div>
+<div class="flex justify-between text-sm font-medium">
+<span class="text-on-surface-variant">Progress: 10%</span>
+<span class="text-primary">$8,200</span>
+</div>
+</div>
+</div>
+<!-- Trip Card 3 -->
+<div class="bg-surface-container-low rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/30 flex flex-col group">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A lush, tropical infinity pool overlooking a dense Indonesian rainforest in Bali during the golden hour. The water is perfectly still, reflecting the emerald green foliage and the warm, soft light of the setting sun. The composition is clean and minimalist, prioritizing high-quality textures and an atmosphere of calm, organized luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1RCS2bsrV_UZe0prGOjqcB3srV3_wT4_dTJMVwdBOsYdBbZdLc38lVw_h6aIXOBsCNLCVUvk1uzWQ4it0p1iByjqOwwgJdOgjd_YEzSvqUEzLcS-UQRZ9Jya875OJ_3lKfTlV7qwAw1UFL7mLA9jUUBN3z7CfXKmYfWqjWCwaB0LYbqb3o4VJ6ZRzyecxo4V9LEC98uHHqkuW-NIngB7BBD788Rp6nd9NBRqIOwKb_eAuJRF8TSP-hDvQzpkcPE2CH0viiE-FaNM"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-white text-xs font-bold border border-white/30">Draft</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold">Bali Zen Retreat</h3>
+<p class="text-on-surface-variant text-sm">Planning stage</p>
+</div>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[0%]"></div>
+</div>
+<div class="flex justify-between text-sm font-medium">
+<span class="text-on-surface-variant">Progress: 0%</span>
+<span class="text-primary">TBD</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Destinations (Bento Style) -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-3xl font-bold tracking-tight">Popular Destinations</h2>
+<div class="flex gap-2">
+<button class="p-2 border border-outline-variant rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 border border-outline-variant rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 h-[600px]">
+<div class="md:col-span-2 lg:col-span-3 h-full relative rounded-3xl overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A cinematic night view of Tokyo's neon-lit Shibuya Crossing from an elevated perspective. The city's intense energy is captured with long-exposure light trails and vibrant blues, magentas, and yellows. The image is crisp and modern, reflecting an urban, high-tech travel aesthetic that is both exciting and sophisticatedly organized." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC04eLiG6VZ7BOtwZNtEOGeLs0mpZY7xrhlOqvHYCEFHZwkWtceIuUBTtibnq3dteUbizKYHRizC_ej0hlqVujuhA8QL6JfaQDaV9ryfQJWMA0e7xy5-GcaeH6lGAMdTdjtvB1Kgy1h4A0xoSMoi1mM1E6Wv6p7MaUbMoO9uQGI2I-HOCY9jyG1egn9kyV1Th2R1x5xVGuBY1vsXOUXDpnIZsZQ9wBy0m72XEmpGMpGmR1SRiMoD-GbKuVB6G44ksbG_1k-46hV88o"/>
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-6 left-6 text-white space-y-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.9</span>
+</div>
+<h4 class="text-2xl font-bold">Tokyo, Japan</h4>
+<p class="text-white/80 font-medium">From $1,200</p>
+</div>
+<button class="absolute top-6 right-6 p-3 bg-white/20 backdrop-blur-md rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<div class="md:col-span-2 lg:col-span-1 h-full relative rounded-3xl overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="The iconic Burj Al Arab sail-shaped hotel against a pristine turquoise coastline in Dubai. The lighting is high-key and bright, emphasizing the modern architecture and luxurious setting. The overall feel is one of uncompromising precision and clean, high-end travel aesthetics with a palette of whites, blues, and sandy golds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTdw_t1QdfXFhWHDsVKeouIfLj8NZnr54zfENhY1Bs-wfdQcPT9Kv3pTvZzpJNenkS0aXEmC3TBNMBdOKcZPfb8j-qqzFmHbsLDY2hNnhEqviHuiSEfP-8De7UrqY8F-8pKSQ8c2b-PtAkWiuLDD_g4kqGukcvEeFDCtlFVrZtEvTspGsbcqXpO-_H3ZZ9ad5TtZowWl3uphSn6NdG5zQwU7Z3GoVeSXyxcGnnUnQbeP-UxglVOWecJd8r5Kxp6qKRh2wZ5zLbO2Q"/>
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-6 left-6 text-white space-y-1">
+<h4 class="text-xl font-bold">Dubai, UAE</h4>
+<p class="text-white/80 font-medium">$2,500</p>
+</div>
+</div>
+<div class="md:col-span-2 lg:col-span-2 h-full relative rounded-3xl overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A classic Parisian cafe terrace with wicker chairs and small round tables, viewed through a soft-focus foreground of spring flowers. The lighting is warm and hazy, creating a sophisticated and romantic mood. The color palette is muted and elegant, reflecting a refined, editorial approach to travel imagery for a premium dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCxCP7bXd537HN8HJJ_5Sl2cSSstH_Dm_pn3QB8Fdt8KRmq-MHZzbUxDTBMzkBhm77-aLTtiG-8ywtiq07rKcFPpVgMN_GD6_7HsU1xIYpUJsXyJ1Mg-ASLffTIc_t3IGUgApeyotRicWuuRtvp8HMYJqUDPjem_7kyhs27j0fRC0LkeEoG-GpOqix50Q01eE0txKbCIpZH9H-ZNYIrJkqaQ8BRz9FdFYx8txKDvNaC7ZzFlxw8_9Ztz1u2sgoMuxCR6iSvdaJacY"/>
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-6 left-6 text-white space-y-1">
+<h4 class="text-xl font-bold">Paris, France</h4>
+<p class="text-white/80 font-medium">$1,800</p>
+</div>
+</div>
+<div class="md:col-span-2 lg:col-span-2 h-full relative rounded-3xl overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A snowy landscape in the Swiss Alps with a traditional wooden chalet nestled among frosted pine trees. The scene is illuminated by crisp, winter sunlight, creating deep shadows and bright white highlights. The image emphasizes structural clarity and peaceful solitude, fitting the organized and inspiring tone of a luxury travel workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMAOhihVmDmR1O30g9XhN8nclA60YzaqMcOSvq7I7gGtcOOWEc1D4jSJGLPzTFnGkSu1xux8Sud3o53d-cfoN-Y3FjMm1kFqLP0mgwz2mWA3vooNmRXGmiBr_FNISCqTeOHEHr22xA13zqnNgQSK8_EsUQ32KCusLewhjaXD7iRULziUvsZWZPDhy-HhnT3YR-JHTkd5ET7HD5yqFk5mhjWA0uK9_L-U-ntUIZbGBmImOs_cPGuYhFXzEgRovngyWubWMhtdgLsUo"/>
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-6 left-6 text-white space-y-1">
+<h4 class="text-xl font-bold">Zermatt, CH</h4>
+<p class="text-white/80 font-medium">$3,200</p>
+</div>
+</div>
+<div class="md:col-span-4 lg:col-span-4 h-full relative rounded-3xl overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="The Canadian Rockies reflected in the glacial waters of Moraine Lake at dawn. The towering rock peaks are sharply detailed against a clear, deep blue sky. The composition is symmetrical and serene, utilizing a sophisticated color palette of cold blues and warm rock tones to evoke a sense of majestic, organized exploration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbSRuras1H44hCdm8zc0iIbqrKQDMJS5lrbNUgwExzSXtqkKRhaBtJY-9gcJQ_FFgSpa4w64XKMYjN0jxKldkeUokLk8XuRQJ47anbgmkLsFngvCNeNQH3-ikeBPGQygN_sqLul4OXIHzW-wO3wpwidKudL7bmiqEgsYboOHX1PXHtyAHZebvTbnfkrzB0sdiXC6p0djF-q9CBlDQgWstRJ2hf2GHjlO3YdrmLneWD_PhTYEnEPDyuWZazGwzgiOqPkh6gNWzowjY"/>
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-8 left-8 text-white space-y-2">
+<span class="bg-primary px-3 py-1 rounded text-xs font-bold uppercase tracking-wider">Top Rated</span>
+<h4 class="text-3xl font-bold">Banff, Canada</h4>
+<p class="text-white/80 font-medium">Explore nature at its finest • From $900</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Contextual FAB - Only for Home Dashboard -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 z-50 group">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-90 transition-transform duration-300">add</span>
+<div class="absolute right-20 bg-on-background text-white px-4 py-2 rounded-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Plan a Trip</div>
+</button>
+</body></html>

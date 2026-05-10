@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#fefcff",
+                        "inverse-primary": "#adc6ff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "inverse-surface": "#2e3038",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dbe1ff",
+                        "secondary": "#0051d5",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9ff",
+                        "outline": "#727785",
+                        "tertiary-fixed": "#ffdcc6",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#b75b00",
+                        "surface-container-high": "#e6e7f2",
+                        "surface-dim": "#d8d9e3",
+                        "tertiary": "#924700",
+                        "primary": "#0058be",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-container": "#316bf3",
+                        "surface-container": "#ecedf7",
+                        "on-surface-variant": "#424754",
+                        "primary-container": "#2170e4",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f2f3fd",
+                        "on-primary-fixed": "#001a42",
+                        "inverse-on-surface": "#eff0fa",
+                        "on-background": "#191b23",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-surface": "#191b23",
+                        "on-secondary-fixed": "#00174b",
+                        "surface-variant": "#e1e2ec",
+                        "surface-container-highest": "#e1e2ec",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "outline-variant": "#c2c6d6",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-tertiary-fixed": "#311400",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-tint": "#005ac2",
+                        "surface": "#f9f9ff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "display": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/20">
+<!-- Shared TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto bg-surface/80 backdrop-blur-2xl shadow-sm border-b border-outline-variant/10">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black tracking-tighter text-primary">Traveloop</span>
+<div class="hidden md:flex items-center gap-8 font-body text-label-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Home</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">My Trips</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Budget</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 hover:bg-surface-container-high rounded-lg transition-all" data-icon="notifications">notifications</span>
+<div class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 hover:bg-surface-container-high rounded-lg transition-all" data-icon="contrast">contrast</span>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed cursor-pointer">
+<img alt="User profile" data-alt="A professional headshot of a smiling person with warm lighting and a soft-focus office background, representing a high-end user profile in a clean light-mode interface. The image is crisp, modern, and suggests reliability and success." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACj9_i7LQ2wAi4EG3MmjVHGTHCZ8oeBxMxbKI37jDpZv1O5tSMNWrHGBqp2x1effOY2CsoadsGd94MxgFfupIhTb6yITCXFQYo1FBEEnTIV6vPwvh13IvZJ33Om3DSWExDZjKcwWZEiYD_4Z5Q4esrltgZ84H9bThgJPXkRykMUEsFEANjhzSWH8s96yeBMafKXwYou-ca8hPoxBtWrDCT-pglfh8xa_q6-WMhZX4yhT7mZbj45BVIiDQrLBWom0OPSPGdxjcisnM"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-8 max-w-[1440px] mx-auto min-h-screen">
+<!-- Header & Filters -->
+<header class="flex flex-col gap-8 mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">My Journeys</h1>
+<p class="text-on-surface-variant max-w-lg">Manage your upcoming adventures, relive past memories, and continue drafting your dream escapes.</p>
+</div>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-transform duration-300 active:scale-95">
+<span class="material-symbols-outlined" data-icon="add" style="font-variation-settings: 'FILL' 0;">add</span>
+                    Create New Trip
+                </button>
+</div>
+<!-- Filter Bar -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-4 p-2 bg-surface-container-low rounded-2xl border border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-1 w-full md:w-auto overflow-x-auto no-scrollbar">
+<button class="px-6 py-2 rounded-xl bg-surface-container-highest text-primary font-bold transition-all duration-300">Upcoming</button>
+<button class="px-6 py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all duration-300">Completed</button>
+<button class="px-6 py-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-all duration-300">Drafts</button>
+</div>
+<div class="relative w-full md:w-80 group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface-bright border-none ring-1 ring-outline-variant/50 focus:ring-2 focus:ring-primary rounded-xl pl-10 pr-4 py-2 transition-all outline-none" placeholder="Search your trips..." type="text"/>
+</div>
+<div class="flex items-center gap-2 border-l border-outline-variant/30 pl-4 ml-2">
+<span class="text-sm font-medium text-on-surface-variant">Sort:</span>
+<button class="flex items-center gap-1 text-sm font-bold text-on-surface hover:text-primary transition-colors">
+                        Latest
+                        <span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Trips Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Trip Card 1: Amalfi Coast -->
+<article class="group bg-surface-container-lowest rounded-3xl border border-outline-variant/20 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A panoramic view of the Amalfi Coast in Italy, showing colorful cliffside houses overlooking a sparkling turquoise Mediterranean sea under a warm golden hour sun. The lighting is soft and ethereal, capturing the luxury and beauty of a premium travel destination in a clean, light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWltYcndL26zC3mz4dm4L-qInLvtr8fyah__bqrfMmF8I1vsk6SoLfpsoRsL09uWrh36AzSHLFnTb2jaPXT4oY3oFnVOsBbNGwyv8DYPazm8f4IHoTfbXKF5YaYyi1Wzow5dnHAfwiNKtbIX7SnuU5s7wMUq5rd1BsYiaC-d86k9HrpPG153nNOncTUKh9xOHD97RbbbXTnVrHWxjs5iPSeXw3LZ8gu-r1JS84nFX3PG0788_Etk7-2pmlr-D9ppgocGtcFnA33Z8"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 rounded-full bg-surface/90 backdrop-blur-md text-xs font-bold text-primary uppercase tracking-wider">In 12 Days</span>
+</div>
+<div class="absolute top-4 right-4 flex gap-2">
+<button class="p-2 rounded-full bg-surface/90 backdrop-blur-md text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Amalfi Coast Escape</h3>
+<p class="text-sm text-on-surface-variant">Italy • 10 Days</p>
+</div>
+<div class="text-right">
+<span class="text-lg font-black text-on-surface">$4,250</span>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Budget</p>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-lowest" data-alt="Close up portrait of a collaborator with a bright white background for a clean UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ5Vh4WHvKE-mcmY9eyrgY3TsVnJdGIZbMkZGrkGj5--2p7nm6a_X8Dua8YSwFIyRtzuiaN718Whp43K1RiabbjH0orowfTw4e7aGvQrubDhIrqEAeviS4pL8aSl3ed24ElJcHbZ88_TEiH8VcnyvMHUj0ppN_letINXUqF5jjXhGt_pM0eD566G8U6ln5NQK2CT9Xi-Ro0q_De7tzEwOB2Seimt8hElPG6d2NoZtaNxhUPyfFciQTQfUJzVzy8xXn-bemwWCRmik"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-lowest" data-alt="Close up portrait of a collaborator with a bright white background for a clean UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCde38DU0glEgKjA_fRbmL5WoXCakC6J59QgMJFizQKWqvn9DXCJ6z03-heiRmH3Gk4X1gOgmAw1z9toppfwbMCiJSm5uEKsIYxkF7r_NpDRAZ1FDWO4qaoRV137W9xhER3sA-5NKu_w6PLtyKriOKnLi1kazBMbIEEa-8-eWRdBwg5wagd6GCoE2cGPzibvdxFRQ8NMZGqxifz7ZR1up0GxqVUgV3IxNF8sC6TrUxOZSAjL5efG4t0Y7V8CWXaifa5up7QMueGyqM"/>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-surface-container-lowest flex items-center justify-center text-[10px] font-bold text-on-surface-variant">+2</div>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">4 Cities • 12 Events</span>
+</div>
+<!-- Progress Bar -->
+<div class="mb-6">
+<div class="flex justify-between text-[10px] font-bold uppercase text-on-surface-variant mb-1.5">
+<span>Planning Progress</span>
+<span>85%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/10">
+<div class="flex gap-1">
+<button class="p-2 rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" title="Edit Trip">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" title="Share">
+<span class="material-symbols-outlined text-xl" data-icon="share">share</span>
+</button>
+</div>
+<button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                            View Details
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Trip Card 2: Nordic Winter -->
+<article class="group bg-surface-container-lowest rounded-3xl border border-outline-variant/20 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A breathtaking view of snow-covered mountains reflected in a crystal-clear fjord in Norway. The lighting is crisp and cool, featuring soft blue and white tones that evoke a sense of serene winter luxury. The image is composed with significant negative space at the top to maintain an airy, minimalist travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWp87-s0hUbLS5S7ptDQftCb0j9lMO5BABWs8k_pC_x2-hi1NFNLL7Rldaf4hoJNaYGkK4hWiPiUeIlPN-DZNWpCYLro52QINBkZTg5QMr1V5Takdc2TxhDry0vbTpUdbHhEYeZihAGjNa4H1qQabL-2ydeGk9yoq1gG98VM0faIFLL7lJnN104ndue4ihYeFdnSGdc6tXUnDmXp4QyuUu0wjLsQ_Zr8vbxbZUKHKlJVj2RDi8gkA-UYPbKGMs0v18rVzZRslLgTA"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 rounded-full bg-surface/90 backdrop-blur-md text-xs font-bold text-on-surface-variant uppercase tracking-wider">Jan 14 - 22</span>
+</div>
+<div class="absolute top-4 right-4 flex gap-2">
+<button class="p-2 rounded-full bg-surface/90 backdrop-blur-md text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Nordic Winter Solo</h3>
+<p class="text-sm text-on-surface-variant">Norway • 8 Days</p>
+</div>
+<div class="text-right">
+<span class="text-lg font-black text-on-surface">$2,800</span>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Budget</p>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-lowest" data-alt="Close up portrait of the primary user for a clean UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRJjvwL_yP7F3YBRSqeXG_EzZl0JWBAGSgxJmgDWWOhec5FaBbN85vb0qKqPU9cqkutnvaFb8M-mxLZQDV_ClL7AI7oPkxNTrJhOSV4BAXG_2l010AfJg3gaQCAnBaWHfSoEsYb_4ZtC3aymSYJA8oFTCgLJrgBrw0Zjb5J_OHESKtePiZZD8a_HP0jYwND2NRli_x22744hVsjFQ9H5HqH_Dw9BQttKU0POh25RIWcPp9t03ZXHhLFn7TsJHKljvDtGgJZj80vwU"/>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">2 Cities • 6 Events</span>
+</div>
+<!-- Progress Bar -->
+<div class="mb-6">
+<div class="flex justify-between text-[10px] font-bold uppercase text-on-surface-variant mb-1.5">
+<span>Planning Progress</span>
+<span>40%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 40%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/10">
+<div class="flex gap-1">
+<button class="p-2 rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" title="Edit Trip">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" title="Share">
+<span class="material-symbols-outlined text-xl" data-icon="share">share</span>
+</button>
+</div>
+<button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                            View Details
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Trip Card 3: Tokyo Neon -->
+<article class="group bg-surface-container-lowest rounded-3xl border border-outline-variant/20 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A vibrant night scene in Tokyo, Japan, featuring neon signs and bustling streets with a futuristic yet inviting atmosphere. The color palette is rich with deep blues, purples, and pops of electric pink, all presented in a high-fidelity, polished photography style that fits a premium travel planning interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWswSVul9cZcyGU50P2AeoL8FmoThsj-d99Rz3jz635n61eD8U5k9u8-B1rk5s0WQ_zaYRHA6d1cBiCw5GD22N3fDkoyLrdAAzY-wB8lGyEfDWEOjojwpgaFpWHQI9YAO3RVbQMKPikZdmlRYns2KqnnCPR3jAnwwFlWgATtXs80PGrBFeHMypy70-iE7XTrA1HYQ3CcJQeonjFbps-YEgOu_2wMEZK-emUVmh8KsEdmZqa4RaZLo5tBmN6x3c41mPLrwMF4VxLx8"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 rounded-full bg-surface/90 backdrop-blur-md text-xs font-bold text-primary uppercase tracking-wider">Spring 2024</span>
+</div>
+<div class="absolute top-4 right-4 flex gap-2">
+<button class="p-2 rounded-full bg-surface/90 backdrop-blur-md text-on-surface-variant hover:text-error transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Tokyo Neon Nights</h3>
+<p class="text-sm text-on-surface-variant">Japan • 14 Days</p>
+</div>
+<div class="text-right">
+<span class="text-lg font-black text-on-surface">$5,500</span>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Budget</p>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-lowest" data-alt="Close up portrait of a collaborator with a bright white background for a clean UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTruoZSY7F0ODp2wfUNcqyuqJN7dIhk5NKtUpMXSdOMYk7SP-JDw_1vUHmBJ1B1DmFk3Q4U9-kTQZWZInHmMBmGyfN-rR82O0FidTcSP27V3sbWSTLLIavR-C5Q0e5jORBLZguv7DJUVQR7feIql1CR2FYUN_LMxSqNmj9KBf7KOdEzFq7905byzlEwQ8ZKOzZnypfC7KqNbDGZ_zuWCyk6lCU5jFyDS0kmxKw5jsUChaJOorLpHx6g2hxTZOvQGQURS6YanPjseU"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-lowest" data-alt="Close up portrait of a collaborator with a bright white background for a clean UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqI7HHFICp-rhEy3ceAv2P_3Qzz5OC8_MfuDqgh_E76ZgMr_4-Dxo6skAitKISbj0rI1gBzdNMjLtHM1g8A7ZY8GOyHrTcoV_H5wFdL4raZSyWtBu8tcbljGquIEHcLnIJcWOtNSPbuZw9h4qt-eIN4viA6nNtWE9x4iKcLiQZYZekiJqYdMM-xriJz-n2iJemcO5OspH56swJ93lK1sfDd2k8tTtdlUcFvdel9hq26v_yJUAR71qyvKc6Qt5hrA42AMUz_h8QHoA"/>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">3 Cities • 24 Events</span>
+</div>
+<!-- Progress Bar -->
+<div class="mb-6">
+<div class="flex justify-between text-[10px] font-bold uppercase text-on-surface-variant mb-1.5">
+<span>Planning Progress</span>
+<span>95%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/10">
+<div class="flex gap-1">
+<button class="p-2 rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" title="Edit Trip">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container text-on-surface-variant transition-colors" title="Share">
+<span class="material-symbols-outlined text-xl" data-icon="share">share</span>
+</button>
+</div>
+<button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                            View Details
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination or Load More -->
+<div class="mt-16 flex justify-center">
+<button class="group flex items-center gap-3 px-8 py-4 bg-surface-container-low hover:bg-surface-container-high rounded-full border border-outline-variant/30 font-bold transition-all duration-300">
+                Load More Journeys
+                <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+</div>
+</main>
+<!-- SideNavBar (Contextual Drawer) - Fixed Right for easy access on Desktop -->
+<aside class="hidden xl:flex h-screen w-72 fixed right-0 top-0 bg-surface-container-low/70 backdrop-blur-3xl border-l border-outline-variant/20 flex-col gap-4 p-6 z-40">
+<div class="flex flex-col items-center text-center gap-2 mb-6">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="flight_takeoff">flight_takeoff</span>
+</div>
+<h4 class="font-headline text-on-surface font-bold text-lg">Trip Statistics</h4>
+<p class="text-[11px] text-on-surface-variant uppercase tracking-widest font-bold">Your lifetime stats</p>
+</div>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-sm">
+<p class="text-xs text-on-surface-variant mb-1">Total Miles Traveled</p>
+<p class="text-2xl font-black text-primary">24,580</p>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-sm">
+<p class="text-xs text-on-surface-variant mb-1">Countries Visited</p>
+<p class="text-2xl font-black text-on-surface">14</p>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-2xl border border-outline-variant/20 shadow-sm">
+<p class="text-xs text-on-surface-variant mb-1">Upcoming Events</p>
+<p class="text-2xl font-black text-secondary">32</p>
+</div>
+</div>
+<div class="mt-auto p-4 bg-primary rounded-2xl text-on-primary">
+<p class="text-xs font-medium opacity-80 mb-2">PRO TIP</p>
+<p class="text-sm font-bold leading-tight">Collaborators can now add flight details directly to the shared timeline!</p>
+<button class="mt-4 w-full py-2 bg-on-primary text-primary rounded-xl font-bold text-xs hover:bg-opacity-90 transition-all">Try Beta Features</button>
+</div>
+</aside>
+<!-- Mobile Navigation -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-2xl border-t border-outline-variant/20 z-50 flex items-center justify-around px-4 py-3">
+<div class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="text-[10px] font-bold">Trips</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="text-[10px] font-bold">Explore</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</div>
+</nav>
+<!-- Floating Action Button (FAB) - Contextual to Home/My Trips -->
+<button class="fixed bottom-24 right-8 w-16 h-16 bg-primary text-on-primary rounded-2xl shadow-2xl shadow-primary/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 z-40 md:bottom-8">
+<span class="material-symbols-outlined text-3xl" data-icon="add_location" style="font-variation-settings: 'FILL' 1;">add_location</span>
+</button>
+</body></html>

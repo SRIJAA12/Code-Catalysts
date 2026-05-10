@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Summer in Europe - Traveloop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-primary-container": "#fefcff",
+                  "inverse-primary": "#adc6ff",
+                  "primary-fixed-dim": "#adc6ff",
+                  "inverse-surface": "#2e3038",
+                  "on-tertiary": "#ffffff",
+                  "on-primary": "#ffffff",
+                  "secondary-fixed": "#dbe1ff",
+                  "secondary": "#0051d5",
+                  "surface-container-lowest": "#ffffff",
+                  "background": "#f9f9ff",
+                  "outline": "#727785",
+                  "tertiary-fixed": "#ffdcc6",
+                  "error": "#ba1a1a",
+                  "tertiary-container": "#b75b00",
+                  "surface-container-high": "#e6e7f2",
+                  "surface-dim": "#d8d9e3",
+                  "tertiary": "#924700",
+                  "primary": "#0058be",
+                  "on-error": "#ffffff",
+                  "on-secondary": "#ffffff",
+                  "on-secondary-fixed-variant": "#003ea8",
+                  "surface-bright": "#f9f9ff",
+                  "secondary-container": "#316bf3",
+                  "surface-container": "#ecedf7",
+                  "on-surface-variant": "#424754",
+                  "primary-container": "#2170e4",
+                  "on-tertiary-fixed-variant": "#723600",
+                  "on-error-container": "#93000a",
+                  "surface-container-low": "#f2f3fd",
+                  "on-primary-fixed": "#001a42",
+                  "inverse-on-surface": "#eff0fa",
+                  "on-background": "#191b23",
+                  "primary-fixed": "#d8e2ff",
+                  "on-secondary-container": "#fefcff",
+                  "secondary-fixed-dim": "#b4c5ff",
+                  "on-surface": "#191b23",
+                  "on-secondary-fixed": "#00174b",
+                  "surface-variant": "#e1e2ec",
+                  "surface-container-highest": "#e1e2ec",
+                  "tertiary-fixed-dim": "#ffb786",
+                  "outline-variant": "#c2c6d6",
+                  "on-primary-fixed-variant": "#004395",
+                  "on-tertiary-fixed": "#311400",
+                  "on-tertiary-container": "#fffbff",
+                  "surface-tint": "#005ac2",
+                  "surface": "#f9f9ff",
+                  "error-container": "#ffdad6"
+          },
+          "fontFamily": {
+                  "headline": ["Inter"],
+                  "display": ["Inter"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-card {
+      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.7);
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto bg-surface/80 backdrop-blur-2xl shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-primary">Traveloop</span>
+<nav class="hidden md:flex items-center gap-6 font-body text-label-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">My Trips</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Budget</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-all duration-300">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-all duration-300">
+<span class="material-symbols-outlined text-on-surface-variant">contrast</span>
+</button>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional headshot of a person with a warm, friendly smile, set against a clean, out-of-focus urban background. The lighting is soft and natural, emphasizing a modern and approachable aesthetic. The color palette is neutral and high-key, fitting perfectly into a premium light-mode travel application interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcV5CSbkyiiW8vwJiH8XUgOxiHyb91qdqC6eNPfU6RjvdJD4cI0Y__136dYiLLlcyL6Xg4T2yA8CHl_-nW1UBz1ySFDlts91PQ2ENQWZOBfzu70XEPFmcu2BXsC6_0XgjIqvQMCqwlNEezOzb38A0JrWqSno2ZJS62v1RxQmR67MJPX5dFzkYpvRFTzYGskVnKkIzgKI4th91mTDb_ULmpqe-LzsEoHjcZmJzJceIC7FK5_UjcNJUqK4rM7F8xbiYkh5MvIweJvpk"/>
+</div>
+</header>
+<!-- Side Navigation Shell -->
+<aside class="h-screen w-72 fixed left-0 top-0 pt-24 hidden md:flex flex-col gap-4 p-6 bg-surface-container-low/70 backdrop-blur-3xl border-r border-outline-variant/20 shadow-xl z-40">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">explore</span>
+</div>
+<div>
+<h2 class="font-headline text-on-surface font-bold leading-tight">Summer in Europe</h2>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">12 Destinations</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1 font-body text-label-sm">
+<button class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-xl font-bold transition-all duration-200">
+<span class="material-symbols-outlined">calendar_today</span>
+        Timeline
+      </button>
+<button class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all duration-200">
+<span class="material-symbols-outlined">insights</span>
+        Statistics
+      </button>
+<button class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all duration-200">
+<span class="material-symbols-outlined">explore_nearby</span>
+        Map View
+      </button>
+<button class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all duration-200">
+<span class="material-symbols-outlined">group</span>
+        Collaborators
+      </button>
+</nav>
+<button class="mt-auto w-full py-4 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+      Add Event
+    </button>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-72 pt-24 min-h-screen px-8 pb-12 max-w-[1440px] mx-auto">
+<!-- Hero & Quick Stats -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+<div class="lg:col-span-8 relative h-[400px] rounded-3xl overflow-hidden shadow-2xl group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A breathtaking panoramic view of the Amalfi Coast in Italy during the golden hour. The rugged cliffs are dotted with colorful pastel-colored houses overlooking a crystalline turquoise sea. The sun casts a warm, soft glow over the entire landscape, creating an aspirational and serene mood. High-fidelity photography with vibrant yet natural color saturation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj5h6wR7JHRhODh6JAQPPKHj38ya4NrFgXHeSqdpRMUt27gOotAOZzW94qSBLjsZ0kzNEnsKm563cY0U-a40BhZ1jT13ku_fSTRD3_Qp4cytXItwKvwEOqYzgiUfATNKnIMxyeJCrM3OMD09Pj3YJALCspnG_dQZDPWaAw3o2O5Lm0QI8oQAMJ38SB-w5VdF1i8y_FUdU6hskH8g7TqEjceKa3NcWumthV2SRnUVECAHZmW-aJemhn_6R26E9bQfBuv6fNWaNqsXo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-10">
+<span class="text-white/80 text-sm font-medium tracking-widest uppercase mb-2">Grand Journey 2024</span>
+<h1 class="text-5xl font-black text-white tracking-tighter">European Summer Expedition</h1>
+</div>
+<div class="absolute top-6 right-6 flex gap-2">
+<button class="glass-card p-3 rounded-full hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-on-surface">share</span>
+</button>
+<button class="glass-card p-3 rounded-full hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-on-surface">picture_as_pdf</span>
+</button>
+<button class="glass-card p-3 rounded-full hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-on-surface">print</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-4 grid grid-cols-2 gap-4">
+<div class="bg-primary-container p-6 rounded-3xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-on-primary-container text-4xl">payments</span>
+<div>
+<p class="text-on-primary-container/70 text-sm">Total Budget</p>
+<h3 class="text-2xl font-bold text-on-primary-container">$4,850.00</h3>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 rounded-3xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary text-4xl">schedule</span>
+<div>
+<p class="text-on-surface-variant text-sm">Duration</p>
+<h3 class="text-2xl font-bold text-on-surface">14 Days</h3>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 rounded-3xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary text-4xl">fitness_center</span>
+<div>
+<p class="text-on-surface-variant text-sm">Activities</p>
+<h3 class="text-2xl font-bold text-on-surface">32 Plans</h3>
+</div>
+</div>
+<div class="bg-tertiary-fixed p-6 rounded-3xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-4xl">wb_sunny</span>
+<div>
+<p class="text-on-tertiary-fixed-variant text-sm">Avg. Temp</p>
+<h3 class="text-2xl font-bold text-on-tertiary-fixed">28°C</h3>
+</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Timeline -->
+<div class="lg:col-span-7 space-y-12">
+<header class="flex items-center justify-between">
+<h2 class="text-3xl font-bold tracking-tight">Full Itinerary</h2>
+<div class="flex gap-4">
+<button class="text-sm font-bold text-primary hover:underline">Expand All</button>
+<button class="text-sm font-bold text-on-surface-variant">Collapse</button>
+</div>
+</header>
+<!-- Day 01 -->
+<div class="relative pl-12">
+<!-- Notion Style Line -->
+<div class="absolute left-4 top-0 bottom-0 w-px bg-outline-variant/30"></div>
+<div class="absolute left-[10px] top-0 w-4 h-4 rounded-full border-4 border-background bg-primary"></div>
+<div class="mb-4">
+<span class="text-primary font-bold text-sm tracking-widest uppercase">Day 01 — Arrival &amp; Positano</span>
+<h3 class="text-2xl font-bold mt-1">Sunkissed Beginnings</h3>
+</div>
+<div class="space-y-6">
+<!-- Transport Detail -->
+<div class="bg-white p-6 rounded-2xl border border-outline-variant/10 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">flight_takeoff</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold">Flight LX-102</h4>
+<p class="text-sm text-on-surface-variant">ZRH → NAP • 09:45 — 11:20</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-container/10 text-secondary text-[10px] font-bold uppercase tracking-wider">Confirmed</span>
+</div>
+</div>
+</div>
+<!-- Activity Card -->
+<div class="bg-white rounded-2xl border border-outline-variant/10 shadow-sm overflow-hidden group">
+<div class="flex flex-col md:flex-row h-48">
+<div class="w-full md:w-48 overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A close-up of a charming Italian café terrace overlooking the sea. Tables are set with white linens and vibrant lemons. The atmosphere is quiet and sophisticated, with soft morning sunlight filtering through striped awnings. High-end lifestyle photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNowVbn_8W2uZm1jo-p_1w1Nn8B3cZh9PowGGrJajFSN5z_ozUacStdxkM7HZdYEokFkNqAPbr9pkDJwTGvGNNrYnPwluH2iMrhtzTuR3v4RkkjpSLhmn0PLSsg5_9MpCkQnDyeqOyhu6CGpeuz-ZDlUEQUo54vz5eJ3r4DTyu_eBzg2frnYlQbOLKLyp0h0kzUeaNjgFwcLXN60l51c3i_5WEJgToW9z4TwOzEyD-XXaD0uZTN6zWel-HmPFBh1K1OeUsnJ9brb4"/>
+</div>
+<div class="p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-xs text-on-surface-variant">location_on</span>
+<span class="text-xs text-on-surface-variant font-medium">Spiaggia Grande, Positano</span>
+</div>
+<h4 class="font-bold text-lg">Beachfront Lunch at Chez Black</h4>
+<p class="text-sm text-on-surface-variant mt-2 line-clamp-2">Famous for its heart-shaped pizza and vibrant atmosphere. Perfect first meal in Italy.</p>
+</div>
+<div class="flex items-center gap-4 mt-4">
+<div class="flex items-center gap-1 text-xs font-bold text-primary">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                      13:30
+                    </div>
+<div class="flex items-center gap-1 text-xs font-bold text-tertiary">
+<span class="material-symbols-outlined text-sm">attach_money</span>
+                      $80
+                    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Hotel Detail -->
+<div class="bg-surface-container-low p-6 rounded-2xl border border-outline-variant/20 flex items-center gap-6">
+<div class="w-20 h-20 rounded-xl overflow-hidden shadow-lg shrink-0">
+<img class="w-full h-full object-cover" data-alt="Luxurious hotel suite balcony with a view of the Mediterranean Sea. Pristine white furniture, marble floors, and lush bougainvillea plants. The lighting is crisp and bright, conveying ultra-high-end luxury and comfort. Apple-style clean aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDujOf_e0AwKHkdAmc18i4saCcNqw9F8T6FRzBO_0TDdTWiQbAPz6h1i31R-ima6Vhd4sF-g4csObBji3oeSNDmxAdJRIiYFZ8_gLf6i9h70lELSkoZNSeX81DsIyFAMdYWEEZ2YfFJ2Trrg4PFwBOJ1YqhqkWwQmRspCD4Nl4GS-PId3i9YJHbdAColdDTlGgwQXbzLl7TqC0NPwvoX4p2MF-C8TcSbb63rmHRy4pIzvVGf9yiO5kmQbvNuCWj1Wo1XATLca5ES9o"/>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1 text-[10px] text-tertiary font-black uppercase mb-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+                  Luxury Stay
+                </div>
+<h4 class="font-bold text-lg">Le Sirenuse</h4>
+<p class="text-sm text-on-surface-variant">Check-in: 15:00 • Confirmation #XJ-8821</p>
+</div>
+<button class="bg-white p-3 rounded-full shadow-sm hover:scale-110 transition-all">
+<span class="material-symbols-outlined text-primary">call</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Day 02 Preview -->
+<div class="relative pl-12 opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<div class="absolute left-4 top-0 bottom-0 w-px bg-outline-variant/30"></div>
+<div class="absolute left-[14px] top-0 w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="mb-4">
+<span class="text-on-surface-variant font-bold text-sm tracking-widest uppercase">Day 02 — Boat Tour</span>
+<h3 class="text-2xl font-bold mt-1">Capri Exploration</h3>
+</div>
+</div>
+</div>
+<!-- Right Column: Map & Insights -->
+<div class="lg:col-span-5 space-y-8">
+<!-- Interactive Map Block -->
+<div class="sticky top-24 space-y-8">
+<div class="bg-surface-container-high rounded-[32px] overflow-hidden shadow-2xl h-[500px] relative border border-white/40">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover filter grayscale opacity-40" data-alt="A stylized, minimalist map illustration of Italy and the Amalfi Coast. The map is rendered in muted tones of gray and off-white with delicate thin lines tracing coastal routes. A glowing blue line represents the planned travel route from Naples to Positano and Capri." data-location="Italy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr8bhKWZvcRz_-PO4ps4Wy1RpPCOrWMd1fMNR_hHkWp1fO8pI-jise7eIfsjyIWgVq7mR_q-Gp5l0swep61V99Qx0TindsKjKZ0hWvthrBaDabAPjOuj8w6PbJbQ_E7V2wxNw54j8K1QgZUIeGVecz8CoOQGSNYdviyjRVngOClxFxN7tfSUOR5jASPFCaI9188l-97icEiEdX6TCah35rMLFgmokeJJ6bbR_Rkl6TkRv0v0uy9jucr9x5QlpxNmIjDzDE7OdKMPo"/>
+</div>
+<!-- Map UI Overlays -->
+<div class="absolute top-6 left-6 right-6 flex justify-between items-start pointer-events-none">
+<div class="glass-card px-4 py-2 rounded-full pointer-events-auto flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-bold text-on-surface">Live: You are in Positano</span>
+</div>
+<div class="flex flex-col gap-2 pointer-events-auto">
+<button class="glass-card p-2 rounded-xl hover:bg-white transition-colors">
+<span class="material-symbols-outlined">layers</span>
+</button>
+<button class="glass-card p-2 rounded-xl hover:bg-white transition-colors">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+</div>
+<!-- Route Summary Bottom Card -->
+<div class="absolute bottom-6 left-6 right-6 pointer-events-none">
+<div class="glass-card p-6 rounded-3xl pointer-events-auto border border-white/20">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-bold text-on-surface">Route Segment 01</h4>
+<span class="text-xs text-on-surface-variant">42.5 km • 1h 15m</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded-lg bg-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xs text-primary">airport_shuttle</span>
+</div>
+<div class="flex-1 h-1 bg-outline-variant/20 rounded-full relative overflow-hidden">
+<div class="absolute inset-y-0 left-0 w-2/3 bg-primary rounded-full"></div>
+</div>
+<div class="w-8 h-8 rounded-lg bg-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xs text-primary">hotel</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Travel Info Cards -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white p-6 rounded-3xl border border-outline-variant/10 shadow-sm">
+<span class="material-symbols-outlined text-primary mb-3">currency_exchange</span>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider">Exchange Rate</p>
+<h4 class="text-lg font-bold">1 USD = 0.92 EUR</h4>
+</div>
+<div class="bg-white p-6 rounded-3xl border border-outline-variant/10 shadow-sm">
+<span class="material-symbols-outlined text-primary mb-3">electric_bolt</span>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-wider">Power Socket</p>
+<h4 class="text-lg font-bold">Type C / F / L</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Floating Navigation Shell (Hidden on Desktop) -->
+<footer class="md:hidden fixed bottom-0 left-0 w-full bg-surface/80 backdrop-blur-2xl z-50 px-6 py-4 flex items-center justify-around border-t-0 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<span class="text-[10px] font-bold">Itinerary</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-bold">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</footer>
+</body></html>

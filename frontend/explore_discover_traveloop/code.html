@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-primary-container": "#fefcff",
+                  "inverse-primary": "#adc6ff",
+                  "primary-fixed-dim": "#adc6ff",
+                  "inverse-surface": "#2e3038",
+                  "on-tertiary": "#ffffff",
+                  "on-primary": "#ffffff",
+                  "secondary-fixed": "#dbe1ff",
+                  "secondary": "#0051d5",
+                  "surface-container-lowest": "#ffffff",
+                  "background": "#f9f9ff",
+                  "outline": "#727785",
+                  "tertiary-fixed": "#ffdcc6",
+                  "error": "#ba1a1a",
+                  "tertiary-container": "#b75b00",
+                  "surface-container-high": "#e6e7f2",
+                  "surface-dim": "#d8d9e3",
+                  "tertiary": "#924700",
+                  "primary": "#0058be",
+                  "on-error": "#ffffff",
+                  "on-secondary": "#ffffff",
+                  "on-secondary-fixed-variant": "#003ea8",
+                  "surface-bright": "#f9f9ff",
+                  "secondary-container": "#316bf3",
+                  "surface-container": "#ecedf7",
+                  "on-surface-variant": "#424754",
+                  "primary-container": "#2170e4",
+                  "on-tertiary-fixed-variant": "#723600",
+                  "on-error-container": "#93000a",
+                  "surface-container-low": "#f2f3fd",
+                  "on-primary-fixed": "#001a42",
+                  "inverse-on-surface": "#eff0fa",
+                  "on-background": "#191b23",
+                  "primary-fixed": "#d8e2ff",
+                  "on-secondary-container": "#fefcff",
+                  "secondary-fixed-dim": "#b4c5ff",
+                  "on-surface": "#191b23",
+                  "on-secondary-fixed": "#00174b",
+                  "surface-variant": "#e1e2ec",
+                  "surface-container-highest": "#e1e2ec",
+                  "tertiary-fixed-dim": "#ffb786",
+                  "outline-variant": "#c2c6d6",
+                  "on-primary-fixed-variant": "#004395",
+                  "on-tertiary-fixed": "#311400",
+                  "on-tertiary-container": "#fffbff",
+                  "surface-tint": "#005ac2",
+                  "surface": "#f9f9ff",
+                  "error-container": "#ffdad6"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "fontFamily": {
+                  "headline": ["Inter"],
+                  "display": ["Inter"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .masonry-grid {
+      column-count: 1;
+      column-gap: 1.5rem;
+    }
+    @media (min-width: 768px) { .masonry-grid { column-count: 2; } }
+    @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+    @media (min-width: 1280px) { .masonry-grid { column-count: 4; } }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+    }
+    .glass-effect {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/20">
+<!-- Shared Component: TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-2xl shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-primary dark:text-inverse-primary">Traveloop</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">My Trips</a>
+<a class="text-primary dark:text-inverse-primary font-bold border-b-2 border-primary dark:border-inverse-primary pb-1 font-body text-label-md" href="#">Explore</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">Budget</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-lg transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-lg transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">contrast</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden">
+<img alt="User profile" data-alt="A professional headshot of a smiling man with clean features, set against a neutral, high-key studio background. The lighting is soft and even, highlighting a modern and approachable look. The image fits perfectly within a premium digital workspace aesthetic, with clean lines and balanced composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQmenX6Q4EGTWsgYep-zhsD3vpeZWsoGM_7VsJibhi996qcudu3Oq6nIzeo6kgXG55OmzF5sgSNG7xbwg3DNP5Qowzl_aL1L7DSA5NRinUd-kOHgCZynWvUbYTW_a4MaTdyNIS_XU4rfeUvXXK72cX8SlAp3qIgC9oaQ_6y67lbkhFQt5UCBGRDS2XP17OVwpVNu-oVsMV9JqKD9pVJaHE1VXoZE_lobsmc3SZp8r85W0xYWsbsvwuMb36xM7Knf90_fzFW56UoYc"/>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-12 px-8 max-w-[1440px] mx-auto">
+<!-- Search Hero Section -->
+<section class="mb-12">
+<div class="relative max-w-4xl mx-auto">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-6 text-outline text-2xl">search</span>
+<input class="w-full pl-16 pr-6 py-6 bg-surface-container-lowest border-none rounded-2xl shadow-xl text-xl focus:ring-2 focus:ring-primary transition-all placeholder:text-outline-variant" placeholder="Search cities, activities, or countries..." type="text"/>
+<div class="absolute right-4 flex gap-2">
+<kbd class="hidden md:inline-flex items-center gap-1 px-3 py-1 bg-surface-variant rounded-lg text-sm text-outline font-medium">
+<span class="text-xs">⌘</span>K
+            </kbd>
+</div>
+</div>
+<!-- Quick Autocomplete Suggestions -->
+<div class="mt-4 flex flex-wrap gap-2 px-2">
+<span class="text-on-surface-variant text-sm py-1">Trending:</span>
+<button class="text-sm bg-surface-container-high px-4 py-1 rounded-full hover:bg-secondary-container hover:text-on-secondary-container transition-colors">Tokyo</button>
+<button class="text-sm bg-surface-container-high px-4 py-1 rounded-full hover:bg-secondary-container hover:text-on-secondary-container transition-colors">Wine Tasting in Tuscany</button>
+<button class="text-sm bg-surface-container-high px-4 py-1 rounded-full hover:bg-secondary-container hover:text-on-secondary-container transition-colors">Iceland Glaciers</button>
+</div>
+</div>
+</section>
+<!-- Filters Sidebar & Content Layout -->
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Filters Panel -->
+<aside class="w-full lg:w-72 flex-shrink-0">
+<div class="sticky top-28 space-y-8">
+<div>
+<h3 class="font-bold text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">filter_list</span>
+              Refine Search
+            </h3>
+<div class="space-y-6">
+<!-- Category Filter -->
+<div>
+<label class="block text-sm font-semibold text-outline uppercase tracking-wider mb-3">Category</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex flex-col items-center justify-center p-3 rounded-xl border border-outline-variant bg-surface-container-low hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined mb-1">apartment</span>
+<span class="text-xs">Cities</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary bg-primary-container text-on-primary-container transition-all">
+<span class="material-symbols-outlined mb-1">hiking</span>
+<span class="text-xs">Activities</span>
+</button>
+</div>
+</div>
+<!-- Budget Range -->
+<div>
+<label class="block text-sm font-semibold text-outline uppercase tracking-wider mb-3">Budget Range</label>
+<div class="px-2">
+<input class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+<div class="flex justify-between mt-2 text-xs text-on-surface-variant">
+<span>$0</span>
+<span>$500+ /day</span>
+</div>
+</div>
+</div>
+<!-- Weather -->
+<div>
+<label class="block text-sm font-semibold text-outline uppercase tracking-wider mb-3">Weather Preference</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-sm hover:bg-surface-variant transition-colors">☀️ Sunny</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-sm hover:bg-surface-variant transition-colors">❄️ Snow</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-sm hover:bg-surface-variant transition-colors">☁️ Mild</button>
+</div>
+</div>
+<!-- Regions -->
+<div>
+<label class="block text-sm font-semibold text-outline uppercase tracking-wider mb-3">Regions</label>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm">Europe</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm">Asia Pacific</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm">North America</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-secondary text-on-secondary rounded-xl font-bold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all">
+            Apply Filters
+          </button>
+</div>
+</aside>
+<!-- Main Results (Masonry Layout) -->
+<div class="flex-grow">
+<div class="masonry-grid">
+<!-- City Card 1 -->
+<div class="masonry-item group cursor-pointer">
+<div class="relative bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/30 shadow-md group-hover:shadow-2xl transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img alt="Sydney Skyline" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A breathtaking high-angle view of the Sydney Opera House and Harbour Bridge during the golden hour. The sky is a gradient of warm oranges and deep purples, reflecting off the calm water. The composition is clean and architectural, echoing a high-end travel magazine style with soft, cinematic lighting and high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhuiXu0qj3hgquKu2kYfr5OKxEF4VO9-K0lNK_utE02FpEQJKh8BToJ6oH2oXl5g2c2wd3AnO4SpNbiWP9SC6OEuagHPXle1MQaNtbK0VOR6zE7fRIWwaJO6AZ24ruVqY6HNl9G-XRQZklkK-XY6L0v8twxY7zgei7sYog8iBaQfJP4awLryZozsrQTCcRaDfNOuqNnnyfN7OKUUjMyfr6QzYD3Iw3t0g5G7eiqfcMOBj-W3jb0ZU6rAk-nvyYFZ-MnpMTkEbicdE"/>
+<div class="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 bg-white/90 backdrop-blur rounded-full shadow-sm">
+<span class="text-sm">🇦🇺</span>
+<span class="text-xs font-bold text-on-surface">AUSTRALIA</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold">Sydney</h4>
+<span class="text-primary font-bold">$120<span class="text-xs text-outline font-normal">/day</span></span>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="text-[10px] uppercase font-bold tracking-widest text-secondary px-2 py-0.5 bg-secondary-fixed rounded">Best Season: Sept-Nov</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-4 line-clamp-2">Experience the iconic harbor, surf at Bondi Beach, and explore the historic Rocks district.</p>
+<div class="flex items-center justify-between border-t border-outline-variant/20 pt-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface-container-lowest bg-surface-variant flex items-center justify-center text-[10px] font-bold">SYD</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface-container-lowest bg-surface-variant flex items-center justify-center text-[10px] font-bold">MEL</div>
+</div>
+<button class="flex items-center gap-2 bg-primary-container text-on-primary-container px-4 py-2 rounded-lg text-sm font-bold active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+                    Quick Add
+                  </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Card 1 -->
+<div class="masonry-item group cursor-pointer">
+<div class="relative bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/30 shadow-md group-hover:shadow-2xl transition-all duration-500">
+<div class="relative h-48 overflow-hidden">
+<img alt="Cooking Class" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="An intimate, authentic Italian cooking class set in a rustic Tuscan kitchen. Flour is scattered on a heavy wooden table where fresh pasta is being hand-rolled. Warm sunlight streams through a window, illuminating clouds of flour and the rich colors of vine-ripened tomatoes. The style is warm, organic, and evocative of a high-quality food documentary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvGMKZi9Q4oCfarrt7RYoSP3H62V-4m-jeVFTxhc797kTn_VRBXOqce7LI8n3AcYY4jA1v33r00TY4iahieHPVTV8PlIuutsk-Jef79E5mklwVM4k9baeo1lhd6Jd6Kmbk2vDbrZQVNDx1JJWfjUe39GWbS4Zw5GX4k-DdDsHK83R0eihhzWWqdKBOXTWascTfmpJQ_Rui1UGwKzg53Nbe8lrC1yP_Ign-kPoKTWMBPfXabP7M4LUdILHPudaMYQwl5rqZS07F-mY"/>
+<div class="absolute bottom-4 left-4">
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold shadow-lg">WORKSHOP</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-center mb-3">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.9</span>
+<span class="text-xs text-outline font-normal">(1.2k)</span>
+</div>
+<span class="text-sm font-bold">$85</span>
+</div>
+<h4 class="text-lg font-bold mb-2">Traditional Pasta Making</h4>
+<div class="flex items-center gap-4 text-on-surface-variant text-xs mb-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 3 Hours</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">group</span> Max 8</span>
+</div>
+<button class="w-full py-2.5 bg-surface text-primary border border-primary rounded-xl font-bold group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+                  Add to Trip
+                </button>
+</div>
+</div>
+</div>
+<!-- City Card 2 -->
+<div class="masonry-item group cursor-pointer">
+<div class="relative bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/30 shadow-md group-hover:shadow-2xl transition-all duration-500">
+<div class="relative h-80 overflow-hidden">
+<img alt="Kyoto" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A serene temple scene in Kyoto during autumn. Vibrant red maple leaves frame a traditional wooden pagoda. Soft morning mist hangs in the air, creating a tranquil and mystical atmosphere. The color palette is dominated by warm reds and earthy browns against a soft gray sky, rendered in a crisp, editorial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuAhNGZWxFiqPX09z2BvtdGF-bPGhHXEjYvYosUr4wfbsxp3JP5avLa76Jy2TmebAjKjbxnz_6Dcjf28r9BGa070x8A-nFhRMyBF1INj7XJqmgPKwVT2ogCtr4CG8ZdSOfo-UTQ6OqIzakuDV9L65hVoS7y2YkIsM_hT41Z3UH3lcsWJmXRiN7HvITn0cLWlPwobQVq7wV-CPsxjsqNJIB9neLn7d4nQZJtjIUuxiQKT8Z9AJbaci-lbWp1_wHSfxs5usPfJC2CUc"/>
+<div class="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 bg-white/90 backdrop-blur rounded-full shadow-sm">
+<span class="text-sm">🇯🇵</span>
+<span class="text-xs font-bold text-on-surface">JAPAN</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold">Kyoto</h4>
+<span class="text-primary font-bold">$95<span class="text-xs text-outline font-normal">/day</span></span>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="text-[10px] uppercase font-bold tracking-widest text-secondary px-2 py-0.5 bg-secondary-fixed rounded">Best Season: Oct-Dec</span>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-[10px] font-semibold bg-surface-container-high px-2 py-1 rounded">Temples</span>
+<span class="text-[10px] font-semibold bg-surface-container-high px-2 py-1 rounded">Cuisine</span>
+<span class="text-[10px] font-semibold bg-surface-container-high px-2 py-1 rounded">History</span>
+</div>
+<button class="w-full flex items-center justify-center gap-2 bg-primary-container text-on-primary-container py-3 rounded-xl text-sm font-bold active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+                  Quick Add
+                </button>
+</div>
+</div>
+</div>
+<!-- Activity Card 2 -->
+<div class="masonry-item group cursor-pointer">
+<div class="relative bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/30 shadow-md group-hover:shadow-2xl transition-all duration-500">
+<div class="relative h-64 overflow-hidden">
+<img alt="Scuba Diving" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A wide-angle underwater shot of a scuba diver exploring a vibrant coral reef teeming with colorful tropical fish. Sunlight rays pierce through the crystalline blue water, creating a cathedral-like effect. The scene is full of life and texture, captured in a high-clarity, professional marine photography style with deep oceanic blues and brilliant reef colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4uyu2qVa6EisIknKfPU9k4cktyUu6AgRWnYoZViL6rXKUqeOn_oJmPv-ygMISbCNFFxrMD0Upx_jkRoD6EFfr6yAHW3bMrNVeQrllFhndNwiohOrWpOPOvJgtjjRibixFcZZYj1-z8_zb6p0k-E-dP7awNG1VIfwKiBANQ3qFkFkhP5n_8GZguV57cxEg8OArbowXLnRofg9UbDwtN0r4XQ5E5w0Zr2y58lUfzuEQPUUPYA4eAA5acoCdDm2FaxNXivv_G2zqadM"/>
+<div class="absolute top-4 right-4">
+<div class="p-2 bg-white/20 backdrop-blur-md rounded-full text-white">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+</div>
+</div>
+<div class="p-5">
+<div class="flex gap-1 mb-2">
+<span class="px-2 py-0.5 bg-surface-container text-[10px] font-bold rounded">ADVENTURE</span>
+<span class="px-2 py-0.5 bg-surface-container text-[10px] font-bold rounded">WATER</span>
+</div>
+<h4 class="text-lg font-bold mb-1">Great Barrier Reef Dive</h4>
+<p class="text-xs text-on-surface-variant mb-4">Full day excursion with certified instructors and gear.</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-black">$150</span>
+<button class="bg-primary text-on-primary p-2 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Card 3 -->
+<div class="masonry-item group cursor-pointer">
+<div class="relative bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/30 shadow-md group-hover:shadow-2xl transition-all duration-500">
+<div class="p-5">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="text-[10px] font-bold text-error uppercase">Limited Spots Left</span>
+</div>
+<h4 class="text-xl font-bold mb-2">Northern Lights Photography Tour</h4>
+<div class="flex items-center gap-2 mb-4 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">location_on</span>
+                  Reykjavik, Iceland
+                </div>
+<div class="bg-surface-container-low p-4 rounded-xl mb-4 border-l-4 border-primary">
+<div class="text-xs font-bold text-outline mb-1">NEXT AVAILABLE</div>
+<div class="text-sm font-bold">Tomorrow, 9:00 PM</div>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary rounded-xl font-bold shadow-lg shadow-primary/20 transition-all">
+                  Book Now - $125
+                </button>
+</div>
+</div>
+</div>
+<!-- City Card 3 -->
+<div class="masonry-item group cursor-pointer">
+<div class="relative bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant/30 shadow-md group-hover:shadow-2xl transition-all duration-500">
+<div class="relative h-56 overflow-hidden">
+<img alt="Paris" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A romantic Parisian evening scene featuring the Eiffel Tower sparkling in the distance. In the foreground, a charming street cafe with woven chairs and small round tables is bathed in the warm glow of street lamps. The mood is sophisticated and nostalgic, with a color palette of deep navy, warm gold, and soft grays, rendered in a cinematic, low-light style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjf-jK3452cybSH8MYZX80DSCL2r83p1Cq2Fo7sVEuc21AH_h2Kg4M0LcNcV2IHPZD6AQckdYLWCd5p6_P1vCCwvPhWvjeBPA4E3yq8mpbeR09R72bH7WodKJIb9a9TXwh9GHqLLGNJXGVFOP09vFYhyY8rDqdXzkbFv4jloouMaMUtIM-2Y8f5aqn-tR9pyVL9O-e8qMTcybPedrLDS1r-SYlzDLt6Fw8YY48fG_cS2NAmvoqPbSbYgW-zS1tVyMd6pK-6vZm2uo"/>
+<div class="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 bg-white/90 backdrop-blur rounded-full shadow-sm">
+<span class="text-sm">🇫🇷</span>
+<span class="text-xs font-bold text-on-surface">FRANCE</span>
+</div>
+</div>
+<div class="p-5">
+<h4 class="text-xl font-bold mb-1">Paris</h4>
+<div class="text-sm text-on-surface-variant mb-4">The City of Light and timeless elegance.</div>
+<div class="grid grid-cols-2 gap-4 text-[10px] font-bold text-outline">
+<div class="flex flex-col gap-1">
+<span>TOP ATTRACTION</span>
+<span class="text-on-surface font-bold text-xs">Louvre Museum</span>
+</div>
+<div class="flex flex-col gap-1">
+<span>DAILY COST</span>
+<span class="text-primary font-bold text-xs">€140</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Section -->
+<div class="mt-12 text-center">
+<button class="px-8 py-4 bg-surface-container-highest text-on-surface font-bold rounded-2xl hover:bg-surface-variant transition-all flex items-center gap-3 mx-auto">
+<span class="material-symbols-outlined">expand_more</span>
+            Load More Destinations
+          </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Navigation Bar (Hidden on Mobile) -->
+<aside class="hidden lg:flex flex-col gap-4 p-6 h-screen w-72 fixed left-0 top-0 bg-surface-container-low/70 dark:bg-inverse-surface/70 backdrop-blur-3xl border-r border-outline-variant/20 shadow-xl z-40 transform -translate-x-full lg:translate-x-0">
+<div class="mb-8 pt-20">
+<div class="flex items-center gap-4 mb-2">
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">explore</span>
+</div>
+<div>
+<h2 class="font-headline text-on-surface dark:text-inverse-on-surface font-bold">Discover</h2>
+<p class="text-xs text-on-surface-variant">Finding inspiration</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-3 bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl font-bold scale-[1.02] transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-body text-label-sm">Explorer</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant/50 rounded-xl hover:scale-[1.02] transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-body text-label-sm">Timeline</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant/50 rounded-xl hover:scale-[1.02] transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-body text-label-sm">Statistics</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant/50 rounded-xl hover:scale-[1.02] transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body text-label-sm">Collaborators</span>
+</a>
+</nav>
+<div class="mt-auto">
+<div class="bg-surface-container-high p-4 rounded-2xl">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-outline">YOUR BUDGET</span>
+<span class="text-xs font-bold text-primary">$4,250</span>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-1/3 h-full bg-primary"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-2">Spent $1,420 on flights and stays.</p>
+</div>
+</div>
+</aside>
+</body></html>

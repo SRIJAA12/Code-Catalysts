@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#fefcff",
+                        "inverse-primary": "#adc6ff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "inverse-surface": "#2e3038",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dbe1ff",
+                        "secondary": "#0051d5",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9ff",
+                        "outline": "#727785",
+                        "tertiary-fixed": "#ffdcc6",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#b75b00",
+                        "surface-container-high": "#e6e7f2",
+                        "surface-dim": "#d8d9e3",
+                        "tertiary": "#924700",
+                        "primary": "#0058be",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-container": "#316bf3",
+                        "surface-container": "#ecedf7",
+                        "on-surface-variant": "#424754",
+                        "primary-container": "#2170e4",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f2f3fd",
+                        "on-primary-fixed": "#001a42",
+                        "inverse-on-surface": "#eff0fa",
+                        "on-background": "#191b23",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-surface": "#191b23",
+                        "on-secondary-fixed": "#00174b",
+                        "surface-variant": "#e1e2ec",
+                        "surface-container-highest": "#e1e2ec",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "outline-variant": "#c2c6d6",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-tertiary-fixed": "#311400",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-tint": "#005ac2",
+                        "surface": "#f9f9ff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "display": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .itinerary-line::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            bottom: 0;
+            width: 1px;
+            background-color: #c2c6d6;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto bg-surface/80 backdrop-blur-2xl shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-primary">Traveloop</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">My Trips</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body text-label-md" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">Budget</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-all">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="contrast">contrast</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-all">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional close-up headshot of a person with a friendly expression. The lighting is soft and high-key, maintaining a premium light-mode aesthetic. The background is a clean, out-of-focus modern office space with neutral tones, aligning with an Apple-inspired minimalist design language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSo6q9oMv-DkrETfYW1-wMM_lMaS3k2O5rqnZIGY_jxo3RSQBLOYvZSN6699vDD2OJeyNmq5Ll42OgSwCwVW0mqXoaXo-7mYlI-OPE0xyT-K4DAmW_jRYSr9gNRxINpDUoRsdsK0yrpMiWvXBXRPMDW0sTFq6wcuzYDR2gRqrgq8y1Zwa9T75z6o0cBO7-zNuKOeuEL2pyt0U5Y5etbUe4hR7sgWKPVft5fFfsz1HTThAZiDKgpEJDCplcBw6F1RHAmC0fz4XVJvI"/>
+</div>
+</nav>
+<main class="max-w-[1440px] mx-auto pt-24 px-8 pb-20">
+<!-- Hero Section -->
+<section class="relative h-[600px] rounded-3xl overflow-hidden mb-12 shadow-xl group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A breathtaking panoramic view of the Eiffel Tower and the Parisian skyline during a golden hour sunset. The sky is painted with soft pastel oranges, pinks, and deep blues. The lighting is warm and ethereal, creating a romantic and high-end travel atmosphere. The image is crisp and editorial, fitting a premium travel planning interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9L2CPyqxoaBHjgmCaqU90zewI8lASIdDwrQ8p1V-mCaKgCCXoXL5038xSVb03kVGmuMdZXl-qqa-BMt-VdR13fLJ8yBXat1lUrje1RvaBYpyX6zrcwYPwEAR1aJW7s1R2crWIDXHG8PE61q9yhqg1khA95ggrhP5dmQ1_eovu5X9eltjXd5CE41_DG1r6qF9JL3fVkmmavUkiL9Jlxb4K16sScodYhFoLhbCjvaZvG8WN9UnWbt3HZ3Qul78VfUPFsuJ7kZnB08s"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-12 left-12 right-12 flex justify-between items-end">
+<div class="text-white">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-primary/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-md">Featured Trip</span>
+<span class="text-white/80 text-sm flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 12 Days</span>
+</div>
+<h1 class="text-6xl font-black tracking-tight mb-2">Summer in Europe</h1>
+<p class="text-xl text-white/90 max-w-2xl font-light">An curated exploration of hidden gems and iconic landmarks across France, Italy, and Switzerland.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-white text-on-surface px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:scale-[1.02] active:scale-95 transition-all shadow-lg">
+<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+                        Copy Trip
+                    </button>
+<button class="bg-white/20 backdrop-blur-md text-white border border-white/30 p-3 rounded-xl hover:bg-white/30 transition-all">
+<span class="material-symbols-outlined" data-icon="ios_share">ios_share</span>
+</button>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-12 gap-12">
+<!-- Left Column: Content -->
+<div class="col-span-12 lg:col-span-8 space-y-12">
+<!-- Creator & Meta -->
+<div class="flex items-center justify-between p-8 bg-surface-container-low rounded-3xl border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="Portrait of a smiling professional woman traveler in her late 20s. She is standing outdoors with soft natural light highlighting her face against a minimalist architectural background. The overall aesthetic is clean, bright, and high-quality, fitting an Apple-style design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0o8meJ9dF_TwnqoB14A5MVy8bcf-x2eLyzfuOg4YCBrgZ0rdztwgW2ebFdkXmmCQ7rLt7LBGu3_-9W3fa41t3pTUm--lt8Rvi5qcEpjQYBC6KLsAPkIi7l-6m1PBhEEOvS4m61_giEIsQR2QcKPZRq1TUY_ymvNiTqXcUJw0wAZj4IFURfSNkxrrtRhFfIYiiog113FqAus1RDjB-T6pdHnGUBXSa7sLEk1T1R09tx_rBzQFZ5_2Qg9IMY0b5Hift3RB3QYHHCHc"/>
+<div>
+<p class="text-on-surface-variant text-sm">Created by</p>
+<h3 class="font-bold text-lg">Elena Rodriguez</h3>
+</div>
+</div>
+<div class="flex gap-8">
+<div class="text-center">
+<p class="text-primary font-bold text-xl">12</p>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest">Destinations</p>
+</div>
+<div class="text-center">
+<p class="text-primary font-bold text-xl">1.2k</p>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest">Saves</p>
+</div>
+<div class="text-center">
+<p class="text-primary font-bold text-xl">4.9</p>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest">Rating</p>
+</div>
+</div>
+</div>
+<!-- Bento Gallery -->
+<div class="grid grid-cols-4 grid-rows-2 gap-4 h-[400px]">
+<div class="col-span-2 row-span-2 rounded-2xl overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A vivid and colorful high-resolution photograph of the Amalfi Coast in Italy. The image features pastel-colored houses perched on a steep cliff overlooking the crystal-clear turquoise Mediterranean Sea. The lighting is bright and summery, creating a sense of luxury and serene exploration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4W6HxlGj1IbyCQl2hMePVjol1_huY-FlsBhk-NW6AVmMDCaPqAzJ9rY8uZmlSQkbKNs7ZThSe6UYbjIweEehv6mf-iS7DO4aMvYHnzSewYvHn6UecdZLsft2GhQIvcKQ6RrZPlDl_q57xBkFoldL0mb04c2dvSjuNsSTBZnxnvabpq9U4Vi4QYB5ZdnLSMptauXNdbTuIu8aWbQtCCVSqoTN-KjXWdWl7V1MCyf5o9UpMo-SFBlaItwHub3cKXivW8clo4Sel_m4"/>
+</div>
+<div class="col-span-2 row-span-1 rounded-2xl overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A scenic shot of a narrow Venetian canal with gondolas moored against historic weathered buildings. The water reflects the warm sunlight and the intricate architectural details of Venice. The mood is peaceful and classic, presented with an editorial, high-contrast visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZwsGsarhzJGR_QaRBgRYlj27kTKODaRFYdiliwMZubZpzy8RzowkWd7zXaTEyqUDgUxSAzZSaVarzvH-I5z6Gug1gZ_rPea77vTS9r3UIkyILDh3N9x8aRA_QeaCYj_m5BuziIr8cnMyEK60VER8fkBFRrTd7qbCS5nipQWFA0iRnJzQqDinxykm6ayoFGGWW4lDEmuTo-RExASffRXNuArT5pi3U8wHCN9qukZAxPnNCgHt-RhV2DOXSLqIHMBb_YrLOOJXK_hA"/>
+</div>
+<div class="col-span-1 row-span-1 rounded-2xl overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Majestic snow-capped mountain peaks of the Swiss Alps under a clear, bright blue sky. The foreground shows lush green meadows, creating a striking natural contrast. The photography is sharp and high-key, conveying purity and adventure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0NSnBtA0UDWSNOOp9bMREQJHKrmpx7ORGzLzQBadBcYAmGbNgnJEBnYaOOCSBZ1T2aFe0nwIzk7T3NOUq8MK1qfw6aJVDQt4hq3pefZdwADUVpY12oiI_5DWn66UOZElHBCZwcC-CwETx6VR9FAanYCO2w86rpduM7AiUh6b0J42SXLlQxr0K4Y_IQysW7fBZra1zJev3kPCYHA6MqSrkRd3mVQvkTFXxdFnim2wnaQLNvopEssnlOvhr4cEbWOxUmWmsUKtLNf0"/>
+</div>
+<div class="col-span-1 row-span-1 rounded-2xl overflow-hidden bg-primary flex flex-col items-center justify-center text-white cursor-pointer hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-3xl mb-1" data-icon="gallery_thumbnail">gallery_thumbnail</span>
+<span class="font-bold">+18 More</span>
+</div>
+</div>
+<!-- Itinerary Summary -->
+<div class="space-y-8">
+<h2 class="text-3xl font-black tracking-tight flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+                        Trip Timeline
+                    </h2>
+<div class="relative pl-10 space-y-12 itinerary-line">
+<!-- Day 1-3 -->
+<div class="relative">
+<span class="absolute -left-10 top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-background z-10"></span>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-bold text-xl">Days 1-3: The City of Light</h4>
+<p class="text-on-surface-variant font-medium">Paris, France</p>
+</div>
+<span class="text-sm font-bold bg-surface-container-high px-3 py-1 rounded-lg">High Density</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-white p-4 rounded-2xl border border-outline-variant/30 flex gap-4 hover:shadow-md transition-all cursor-pointer">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up of a classic Parisian cafe table with a croissant and espresso." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5UycE_R4pXzvbmJAOXUpge5U5rvvgImlVN6ZuGyWYIeD_h8wuw5mag92Ojee1NG_U73Ehd03fZ5GPTkpRlUV8h7iMrQf1_VqgXJqxBhRjyA7tiEVcpkVOM5kwmK7gvw1rOIBsv0fLtanngsPrT7VPY21_eYZ_aY-l5Mpkj6vBQM90280dkdOQanKlZa4sDGQChMKXlPp_9WJ4oTPwK_53aTOPjesnz3CNoBsTCrv_tjbg7tAauoZzNsdmVw6BBUq-5TJJGe3aKOg"/>
+</div>
+<div>
+<h5 class="font-bold text-sm">Le Marais Brunch</h5>
+<p class="text-xs text-on-surface-variant">Hidden local gem with 5-star croissants.</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-2xl border border-outline-variant/30 flex gap-4 hover:shadow-md transition-all cursor-pointer">
+<div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Interior of a modern art museum with white walls and soft overhead lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcHyxs-rYz5p6GVQZ5lbObm6E6293smtT_BCpG3npSRJHh3TsplTMx2NBKSQd2iM2fYccwmCG86KSX4iNdrE00ivwxKpDdUDd2Yn9ro5QRUVYC-D-uKx7jzPjBlN6BVrEKxfqMpNAbLAZc16BcP5u2J1D1k7LEbgr3vnhwK_1vGkS8JAIbhOxxRHlWiPeGeFCoFK8oDFqhzy51d_kbNPUfo1PFcjTqzUqJQ6kNtcUVdcW47MyZyGtExs7ilnnBIwxmDhjxKsKbslM"/>
+</div>
+<div>
+<h5 class="font-bold text-sm">Palais de Tokyo</h5>
+<p class="text-xs text-on-surface-variant">Contemporary art with a view of the Seine.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Day 4-7 -->
+<div class="relative">
+<span class="absolute -left-10 top-0 w-4 h-4 rounded-full bg-outline-variant ring-4 ring-background z-10"></span>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-bold text-xl">Days 4-7: Alpine Serenity</h4>
+<p class="text-on-surface-variant font-medium">Interlaken, Switzerland</p>
+</div>
+<span class="text-sm font-bold bg-surface-container-high px-3 py-1 rounded-lg">Scenic</span>
+</div>
+<div class="bg-white p-6 rounded-2xl border border-outline-variant/30 hover:shadow-md transition-all">
+<p class="text-on-surface-variant italic mb-4 text-sm leading-relaxed">"Waking up to the view of the Eiger was the highlight of the trip. Make sure to take the early train to Jungfraujoch to beat the crowds."</p>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="hotel">hotel</span>
+<span class="font-bold text-sm">Victoria-Jungfrau Grand Hotel</span>
+</div>
+</div>
+</div>
+<!-- Day 8-12 -->
+<div class="relative">
+<span class="absolute -left-10 top-0 w-4 h-4 rounded-full bg-outline-variant ring-4 ring-background z-10"></span>
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-bold text-xl">Days 8-12: Tuscan Sunsets</h4>
+<p class="text-on-surface-variant font-medium">Florence &amp; Tuscany, Italy</p>
+</div>
+<span class="text-sm font-bold bg-surface-container-high px-3 py-1 rounded-lg">Culinary</span>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="h-24 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Vineyards in Tuscany at dusk with rolling hills." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc0zzFbcOdgEGxDMn86wQo8z4ovwKhtGLGqRsedmTccgxTi_AmRuBLFUdv0Voe3W5eNbytRSs73fF4iejkTwSvEquF_y2aC7Aw-ykkpotxIbGl2-Hl4Uj3Qkyfg5aJTg9ca55JL_F1PQdBPYnlMGnkpDhGhcBlSER7hl8idZtLNVXoy-8DOCHXLfZz72YeFiSx59BzUQKj8Lv0-86FuulS4DvWsW91z2R71DeYYsg2cPDgSS2QQcLojhla9k1szMumaF5L4U7cmIc"/>
+</div>
+<div class="h-24 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A delicious plate of Italian pasta on a rustic wooden table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGTSeOI4cBgeSYG8GD9B77jjBspL-DzFm05AxnbyUaRUAEL5YTOtE9HjxoPTX-i-DkPT8PWvz9kY-j1zyFVCZ3OrTSzldmvu8Vgj-XR_EZ3LJLUyisAg-t0HuV8Iwnd7pmsNSEvEmH2O4tUt9RL6inX9hjSYv_Z5Ddam0P1jGfqt4h4xbGF7No9zR0oB_pRvrRDWyBHg-PZPTcAl2YFdKk25R5a5_gAGfUsnIBKsotbmhGtTC_P26Co_VG70SDpjrgJwu2fJ7ak5s"/>
+</div>
+<div class="h-24 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Sunset over the city of Florence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa52gg0nij5PORIIm5Nib15nHIR9_DrBMZORq6OGwdyYlfbCQ7vhOJBZCSFga73gRTiEM6bd5FsNTeUc1wF_bWK9GCZencpC6SIFW26mI3Tu7K9SI0K-eQvbZ8XTIM_GWI8oxjdNrxcUPC5UJaMBJ3YXcDuFvwju_Isf_U7O6SXw1e3gg6uFsEFOH4QtlE1kPEFswATdE-LmoVBYrPWru38y19w2oUlVdeDC_27dlfSaigeqeaKhIzrY8QuP56O0S7GY9AMBRta_s"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Map & Sticky Sidebar -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Interactive Map Component -->
+<div class="bg-surface-container-low rounded-3xl overflow-hidden border border-outline-variant/30 sticky top-28 shadow-lg">
+<div class="p-6 border-b border-outline-variant/20 flex justify-between items-center">
+<h3 class="font-bold">Trip Route</h3>
+<span class="material-symbols-outlined text-primary" data-icon="map">map</span>
+</div>
+<div class="h-[400px] bg-slate-200 relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-80" data-alt="A stylized, clean map view of Western Europe with plotted navigation lines connecting Paris, Interlaken, and Florence. The map features a minimalist palette of soft grays and blues, with primary blue accent dots for destinations, matching a tech-forward travel platform aesthetic." data-location="Europe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_bMQ_RGuouZwi1yoBn7bu_i-jGVE4RU1lxV1Q1p9jWnN_ujny5zpZ6oN2sckWNz44hHQ3X2TufWcUnqx7ED6nPLiRfVPLPc0-XzDUvbAD1hTdJtRCo0mVA3d3349BILXi-GaTYedqgBXn5C5ABMSNU16S8dh-6k_H9uOaIG_q25z4FonIAzPhkV-ky04qFGiFJMhj_0Z9lf5o_PXHrDJ3EaOpy9W43R5tUL_GzxEWusrwtsdAaiMEweUnz0pKaLqr36vtqqh6mfU"/>
+<!-- Map Marker Overlays -->
+<div class="absolute top-1/4 left-1/3">
+<div class="relative">
+<span class="flex h-4 w-4">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-4 w-4 bg-primary border-2 border-white"></span>
+</span>
+<div class="absolute top-6 -left-4 glass-card px-3 py-1 rounded-lg text-[10px] font-bold whitespace-nowrap">Paris, FR</div>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-4 bg-white/50">
+<div class="flex items-center gap-3 text-sm">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="flight_takeoff">flight_takeoff</span>
+</div>
+<div>
+<p class="font-bold">Total Distance</p>
+<p class="text-on-surface-variant text-xs">1,240 km</p>
+</div>
+</div>
+<div class="flex items-center gap-3 text-sm">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="train">train</span>
+</div>
+<div>
+<p class="font-bold">Transfers</p>
+<p class="text-on-surface-variant text-xs">4 High-speed rails</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Card -->
+<div class="bg-primary p-8 rounded-3xl text-white shadow-xl shadow-primary/20 relative overflow-hidden group">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-white/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+<h3 class="text-2xl font-black mb-2">Like this trip?</h3>
+<p class="text-white/80 mb-6 text-sm">Duplicate this itinerary to your personal Traveloop workspace and start customizing your own journey.</p>
+<button class="w-full bg-white text-primary py-4 rounded-2xl font-black hover:bg-surface-container-low transition-all active:scale-[0.98]">
+                        Copy to My Trips
+                    </button>
+<div class="mt-6 pt-6 border-t border-white/20 flex justify-between items-center">
+<span class="text-xs font-bold uppercase tracking-widest text-white/60">Share with Friends</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary-fixed transition-colors" data-icon="share">share</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary-fixed transition-colors" data-icon="mail">mail</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary-fixed transition-colors" data-icon="link">link</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="max-w-[1440px] mx-auto border-t border-outline-variant/10 px-8 py-12 flex justify-between items-center opacity-60">
+<div class="flex items-center gap-8 text-sm font-medium">
+<span class="font-black text-lg tracking-tighter text-on-surface">Traveloop</span>
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">Help Center</a>
+</div>
+<p class="text-sm">© 2024 Traveloop Inc. All rights reserved.</p>
+</footer>
+</body></html>

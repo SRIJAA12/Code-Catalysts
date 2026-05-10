@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f9f9ff",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-container": "#ecedf7",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#316bf3",
+                        "on-primary-fixed-variant": "#004395",
+                        "inverse-on-surface": "#eff0fa",
+                        "surface-container-low": "#f2f3fd",
+                        "on-primary-container": "#fefcff",
+                        "surface-tint": "#005ac2",
+                        "inverse-surface": "#2e3038",
+                        "surface-container-highest": "#e1e2ec",
+                        "surface-bright": "#f9f9ff",
+                        "primary-fixed": "#d8e2ff",
+                        "outline": "#727785",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "on-tertiary-container": "#fffbff",
+                        "on-surface": "#191b23",
+                        "surface-variant": "#e1e2ec",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-primary-fixed": "#001a42",
+                        "surface-container-high": "#e6e7f2",
+                        "on-background": "#191b23",
+                        "on-secondary-fixed": "#00174b",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#b75b00",
+                        "tertiary": "#924700",
+                        "on-secondary-container": "#fefcff",
+                        "surface": "#f9f9ff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#0051d5",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#adc6ff",
+                        "on-surface-variant": "#424754",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#d8d9e3",
+                        "primary-container": "#2170e4",
+                        "primary": "#0058be",
+                        "on-tertiary-fixed": "#311400",
+                        "outline-variant": "#c2c6d6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "display": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c2c6d6;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto bg-surface/80 backdrop-blur-2xl shadow-sm">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black tracking-tighter text-primary">Traveloop</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">My Trips</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body text-label-md" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md" href="#">Budget</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-all">
+<span class="material-symbols-outlined text-on-surface-variant">contrast</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile" data-alt="A professional and clean headshot portrait of a smiling person with soft, natural studio lighting. The background is a solid, neutral warm gray that complements the high-end editorial feel of the travel planning interface. The image is crisp, modern, and friendly, reflecting a premium concierge service user profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKJcZQZcZOKV3Y-EHC36ArQHN8s4UNomapoXPeh8nPal1HwjumrSrHau3s_IVvKoL6WHQXAZCNWiwfE9OntZoYawUTeK6yqKSY2ATSa_-nK4DpSpfyheXqHGfPdo0zkG7nwIg87ap7gDXDDUil6tyyd4sczj-ydPLaXAQgDHG_NuLgtmv5Z4EbVQoxxq8WjXyERQIsHLMQ34L-fZt93V2DAYuLCONRRbJsAWeTJv4-ks0mt_PrmOku5ovRlT0p8exxzVjy8zIOgbE"/>
+</div>
+</div>
+</header>
+<main class="pt-24 min-h-screen max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 p-6">
+<section class="md:col-span-5 flex flex-col h-[calc(100vh-120px)] bg-surface-container-lowest rounded-3xl border border-outline-variant/30 overflow-hidden shadow-sm">
+<div class="p-6 border-b border-outline-variant/20 flex items-center justify-between bg-surface-bright">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<h2 class="font-bold text-on-surface">Traveloop AI</h2>
+<p class="text-xs text-on-surface-variant">Always active • Itinerary Specialist</p>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<div class="flex flex-col items-end">
+<div class="max-w-[85%] bg-primary-container text-on-primary-container p-4 rounded-2xl rounded-tr-none shadow-sm">
+<p class="text-sm">I'm planning a 5-day trip to Japan. I want to see the best of Tokyo and Kyoto, with a focus on photography and traditional food. Can you help?</p>
+</div>
+<span class="text-[10px] text-outline mt-1 mr-1">10:14 AM</span>
+</div>
+<div class="flex flex-col items-start">
+<div class="flex gap-3 max-w-[85%]">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">smart_toy</span>
+</div>
+<div class="bg-surface-container-low text-on-surface p-4 rounded-2xl rounded-tl-none shadow-sm border border-outline-variant/10">
+<p class="text-sm">Absolutely! Japan is a photographer's dream. I'm crafting a balanced itinerary that captures the neon energy of Shinjuku and the serene moss gardens of Kyoto. </p>
+</div>
+</div>
+<span class="text-[10px] text-outline mt-1 ml-11">10:15 AM</span>
+</div>
+<div class="flex flex-col items-start">
+<div class="flex gap-3 max-w-[85%]">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-sm">smart_toy</span>
+</div>
+<div class="bg-surface-container-low text-on-surface p-4 rounded-2xl rounded-tl-none shadow-sm border border-outline-variant/10">
+<p class="text-sm">I've selected some incredible spots like the Fushimi Inari gates at sunrise and a hidden Omakase spot in Ginza. Let me build out the full timeline for you...</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 ml-11">
+<div class="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
+<div class="w-2 h-2 bg-primary rounded-full animate-bounce [animation-delay:0.2s]"></div>
+<div class="w-2 h-2 bg-primary rounded-full animate-bounce [animation-delay:0.4s]"></div>
+<span class="text-xs text-on-surface-variant font-medium ml-2">Traveloop AI is typing</span>
+</div>
+</div>
+<div class="p-6 bg-surface-bright border-t border-outline-variant/20">
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-2xl py-4 pl-6 pr-14 text-sm focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-on-surface-variant/50" placeholder="Tell me more about your interests..." type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary text-on-primary rounded-xl flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</section>
+<section class="md:col-span-7 flex flex-col h-[calc(100vh-120px)] bg-surface-container-low rounded-3xl border border-outline-variant/30 overflow-hidden shadow-xl relative">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full" data-location="Tokyo, Kyoto, Japan" style=""></div>
+</div>
+<div class="p-8 pb-4 flex items-center justify-between z-10">
+<div>
+<h1 class="text-3xl font-black tracking-tight text-on-surface">5 Days in Japan</h1>
+<p class="text-on-surface-variant flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                        Oct 12 - Oct 17 • Tokyo &amp; Kyoto
+                    </p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-2xl font-bold flex items-center gap-2 shadow-lg hover:scale-105 active:scale-95 transition-all">
+                    Use this plan
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto px-8 pb-8 space-y-8 z-10 scroll-smooth">
+<div class="grid grid-cols-2 gap-4">
+<div class="relative h-40 rounded-2xl overflow-hidden group">
+<img alt="Shibuya Crossing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A cinematic wide-angle shot of the iconic Shibuya Crossing in Tokyo at twilight. The scene is alive with vibrant neon signage reflecting off the pavement and a massive crowd of pedestrians crossing under soft, atmospheric city lights. The color palette is a rich blend of deep purples, electric blues, and warm amber highlights, capturing the sophisticated energy of modern Japan." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeSTzuY3B-vMyuXNA5diG9x_3NgTkEthnYF_qediNv_U3p23rH8wxodNieESM6Hm8oDuuJf0xxirKw8ZZKQX8ieiLV71gO5MCVd-9IEFTscjFq50c3aM9GAFY6eVnHpyfjaDzR_fWmcQhtALDmhvYuRDcvN10OvSQ62BHe6KfeyVnqMLTgna37Ff4pcMf8wqPkkdYo0WI6oKhceCkqPptKhry3wby6JULixBwK-DB_Oigg6emv-VEjKjA-uARB5AefFfuFO-4EZ8E"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<span class="absolute bottom-3 left-4 text-white font-bold">Tokyo Metro</span>
+</div>
+<div class="relative h-40 rounded-2xl overflow-hidden group">
+<img alt="Kyoto Temple" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A serene and minimalist composition of a traditional wooden temple in Kyoto, surrounded by lush green moss and meticulously raked Zen gravel. The lighting is soft and diffused, characteristic of an early morning mist. The overall aesthetic is clean, high-end, and peaceful, focusing on textures of wood and stone with a muted palette of earth tones and vibrant greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBt7LZaA_WuOUpd8FdaR8BVXx50yTcVlatsyBFj5itimeRwGRQ9BKSJRFjbsizIXEYec6A6H_Q36D4xcT1CdDXSFLqPQxFrfjng9tpnnbSotK16xrz59EnZesKjK0CvjpaMgrO-nJLzz8e-oTL6-HztxIqytx_Lg9OAj1LseAukPK8LHjwuxKxcrRWboWPL8k5_CyNppjzeXJp9ITaASpPnLqdm3v2Yowz-TROMKA5bJmuL6E-WgKxkA08NVK3VYe_1LCDu01noA4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<span class="absolute bottom-3 left-4 text-white font-bold">Old Kyoto</span>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex gap-6">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold ring-4 ring-primary/10">1</div>
+<div class="w-0.5 flex-1 bg-outline-variant/30 my-2"></div>
+</div>
+<div class="flex-1 pb-4">
+<h3 class="font-bold text-lg mb-3">Day 1: Neon &amp; Nightlife</h3>
+<div class="grid gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/20 hover:shadow-md transition-all">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">Morning</span>
+<h4 class="font-bold mt-1">TeamLab Borderless</h4>
+<p class="text-xs text-on-surface-variant mt-1">Immersive digital art photography</p>
+</div>
+<span class="material-symbols-outlined text-outline">photo_camera</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-2xl border border-outline-variant/20 hover:shadow-md transition-all">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-wider">Evening</span>
+<h4 class="font-bold mt-1">Shinjuku Gyoen National Garden</h4>
+<p class="text-xs text-on-surface-variant mt-1">Perfect sunset shots of the skyline</p>
+</div>
+<span class="material-symbols-outlined text-outline">landscape</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center text-xs font-bold">2</div>
+<div class="w-0.5 flex-1 bg-outline-variant/30 my-2"></div>
+</div>
+<div class="flex-1 pb-4">
+<h3 class="font-bold text-lg mb-3">Day 2: The Heart of Tokyo</h3>
+<div class="bg-surface-container-lowest/50 p-4 rounded-2xl border border-dashed border-outline-variant/50">
+<p class="text-sm text-on-surface-variant italic">Planning culinary experiences for Tsukiji Market...</p>
+</div>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center text-xs font-bold">3</div>
+<div class="w-0.5 flex-1 bg-outline-variant/30 my-2"></div>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-lg mb-3">Day 3: Shinkansen to Kyoto</h3>
+<div class="flex items-center gap-3 bg-tertiary-fixed text-on-tertiary-fixed p-4 rounded-2xl">
+<span class="material-symbols-outlined">train</span>
+<div>
+<p class="text-sm font-bold">High Speed Rail Experience</p>
+<p class="text-xs opacity-80">2h 15m scenic transition</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
+<div class="flex items-center gap-2 bg-surface-container-highest/80 backdrop-blur-xl px-4 py-2 rounded-full border border-white/20 shadow-xl">
+<div class="flex -space-x-2">
+<img alt="collaborator" class="w-6 h-6 rounded-full border-2 border-white" data-alt="Close-up portrait of a man's face with a friendly expression. Professional lighting and modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy20DSy01YWQirrqTzIYkolR64C6ws6wcuUnLZR7_LWWh7Hnr55jKoFWtg4BmHfm1FPW8O9Zde2WruljgKYeopHzgEJuMzH4V2EIfa744B3qo1x38G6VInIB32R_298UGjYcB0_8F-bqp2HhreIMTLQY4Ijh5fU-425FGhNxVz39EZJoBBAzOYikmYtYwhAMXIlVQfWMI2OytiutS-jUviyd_MXHcKBYmQj6yCI057NeiLV3JZq_N-l8ksyr-oObok8O4GImeDfYc"/>
+<img alt="collaborator" class="w-6 h-6 rounded-full border-2 border-white" data-alt="Close-up portrait of a woman's face with a vibrant smile. High-quality editorial lighting style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR6OfdSwGQWIEtzJQoa3zY1JXS8j8vL-f-M0HbGeykpe3G9XArt9z4hAy5r-nAB0pbDTLEanoVKXHhyjpCVUZVtpcZEMUPQnbcp8eGjBkyw68Cw03p-nGkfgJNBgtqNiws8hdU1WStcj4SLXTJl6N0BiwvrgKESBZUJTGqn0gf_5mJxEibTLdQ8gRR2PieLdqJlX5SxmOx1VTW5TELSeCPB_wAU3UELHoeS1A1XCZUinGWxLkoI0uNjGmqLlciL1c9rIlMyLxb3Lk"/>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Collaborating Live</span>
+</div>
+</div>
+</section>
+</main>
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+</body></html>

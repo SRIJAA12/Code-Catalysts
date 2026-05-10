@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trip Notes - Traveloop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-sidebar { backdrop-filter: blur(20px); }
+        .editor-focus:focus { outline: none; }
+        .notion-scroll::-webkit-scrollbar { width: 4px; }
+        .notion-scroll::-webkit-scrollbar-track { background: transparent; }
+        .notion-scroll::-webkit-scrollbar-thumb { background: #e1e2ec; border-radius: 10px; }
+    </script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#fefcff",
+                        "inverse-primary": "#adc6ff",
+                        "primary-fixed-dim": "#adc6ff",
+                        "inverse-surface": "#2e3038",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dbe1ff",
+                        "secondary": "#0051d5",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9ff",
+                        "outline": "#727785",
+                        "tertiary-fixed": "#ffdcc6",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#b75b00",
+                        "surface-container-high": "#e6e7f2",
+                        "surface-dim": "#d8d9e3",
+                        "tertiary": "#924700",
+                        "primary": "#0058be",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-container": "#316bf3",
+                        "surface-container": "#ecedf7",
+                        "on-surface-variant": "#424754",
+                        "primary-container": "#2170e4",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f2f3fd",
+                        "on-primary-fixed": "#001a42",
+                        "inverse-on-surface": "#eff0fa",
+                        "on-background": "#191b23",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-surface": "#191b23",
+                        "on-secondary-fixed": "#00174b",
+                        "surface-variant": "#e1e2ec",
+                        "surface-container-highest": "#e1e2ec",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "outline-variant": "#c2c6d6",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-tertiary-fixed": "#311400",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-tint": "#005ac2",
+                        "surface": "#f9f9ff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+
+    <!-- Top Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-4 bg-surface/80 backdrop-blur-2xl shadow-sm border-b border-outline-variant/10">
+        <div class="flex items-center gap-8">
+            <span class="text-2xl font-black tracking-tighter text-primary">Traveloop</span>
+            <div class="hidden md:flex gap-6 items-center">
+                <a href="#" class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md">Home</a>
+                <a href="#" class="text-primary font-bold border-b-2 border-primary pb-1 font-body text-label-md">My Trips</a>
+                <a href="#" class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md">Explore</a>
+                <a href="#" class="text-on-surface-variant hover:text-primary transition-colors font-body text-label-md">Budget</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="p-2 hover:bg-surface-container-high rounded-lg transition-all text-on-surface-variant">
+                <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <button class="p-2 hover:bg-surface-container-high rounded-lg transition-all text-on-surface-variant">
+                <span class="material-symbols-outlined">contrast</span>
+            </button>
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=100&h=100" 
+                 alt="User Profile" 
+                 class="w-10 h-10 rounded-full border border-outline-variant"
+                 data-alt="A professional headshot of a stylish traveler in their late 20s, with warm outdoor lighting and a soft bokeh background of a Mediterranean city. The person wears high-quality linen clothing, embodying a premium and relaxed aesthetic. The colors are natural and warm, fitting into a clean light-mode interface.">
+        </div>
+    </nav>
+
+    <div class="flex pt-20 h-screen max-w-[1440px] mx-auto">
+        <!-- Sidebar Navigation (Notion Style) -->
+        <aside class="w-72 bg-surface-container-low/70 backdrop-blur-3xl border-r border-outline-variant/20 flex flex-col gap-4 p-6 overflow-y-auto notion-scroll">
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore_nearby</span>
+                </div>
+                <div>
+                    <h2 class="font-headline text-on-surface font-bold text-sm">Summer in Europe</h2>
+                    <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">12 Destinations</p>
+                </div>
+            </div>
+
+            <button class="flex items-center gap-3 w-full px-4 py-3 bg-primary text-on-primary rounded-xl font-bold shadow-md hover:scale-[1.02] transition-transform active:scale-95">
+                <span class="material-symbols-outlined">add</span>
+                <span class="text-sm">Add Event</span>
+            </button>
+
+            <nav class="flex flex-col gap-1 mt-4">
+                <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all group">
+                    <span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">calendar_today</span>
+                    <span class="text-sm">Timeline</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all group">
+                    <span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">insights</span>
+                    <span class="text-sm">Statistics</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all group">
+                    <span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">explore_nearby</span>
+                    <span class="text-sm">Map View</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-2.5 bg-primary-container text-on-primary-container rounded-xl font-bold transition-all group">
+                    <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+                    <span class="text-sm">Trip Journal</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all group">
+                    <span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">group</span>
+                    <span class="text-sm">Collaborators</span>
+                </a>
+            </nav>
+
+            <div class="mt-8">
+                <p class="text-[10px] font-bold text-outline uppercase tracking-[0.2em] mb-4 px-4">Daily Logs</p>
+                <div class="flex flex-col gap-1">
+                    <div class="px-4 py-2 text-xs text-on-surface font-medium border-l-2 border-primary">Day 1: Paris Arrival</div>
+                    <div class="px-4 py-2 text-xs text-on-surface-variant hover:text-primary cursor-pointer transition-colors">Day 2: Louvre & Seine</div>
+                    <div class="px-4 py-2 text-xs text-on-surface-variant hover:text-primary cursor-pointer transition-colors">Day 3: Versailles Palace</div>
+                    <div class="px-4 py-2 text-xs text-on-surface-variant hover:text-primary cursor-pointer transition-colors">Day 4: Lyon Gastronomy</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-y-auto bg-surface-container-lowest notion-scroll">
+            <div class="max-w-4xl mx-auto px-12 py-16">
+                
+                <!-- Hero Cover -->
+                <div class="relative h-64 w-full rounded-2xl overflow-hidden mb-12 shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&q=80&w=1200" 
+                         alt="Paris cover" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1200ms] ease-out"
+                         data-alt="A wide panoramic view of the Seine River in Paris at dusk, with the Eiffel Tower glowing in the distance against a soft lavender and gold sky. The water reflects the warm lights of the city. The photography is cinematic and high-end, utilizing a dreamy, romantic atmosphere with crisp details and a clean, minimalist aesthetic.">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-8 flex items-center gap-4 text-white">
+                        <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center text-4xl shadow-xl">
+                            🇫🇷
+                        </div>
+                        <div>
+                            <h1 class="text-4xl font-bold tracking-tight">Paris Arrival</h1>
+                            <p class="text-white/80 text-sm">August 12, 2024 • 2:30 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editor Actions -->
+                <div class="flex items-center gap-4 mb-8 text-on-surface-variant">
+                    <button class="flex items-center gap-2 px-3 py-1.5 hover:bg-surface-container-high rounded-md transition-all text-sm font-medium">
+                        <span class="material-symbols-outlined text-lg">calendar_month</span>
+                        <span>Date</span>
+                    </button>
+                    <button class="flex items-center gap-2 px-3 py-1.5 hover:bg-surface-container-high rounded-md transition-all text-sm font-medium">
+                        <span class="material-symbols-outlined text-lg">location_on</span>
+                        <span>Place de la Concorde</span>
+                    </button>
+                    <button class="flex items-center gap-2 px-3 py-1.5 hover:bg-surface-container-high rounded-md transition-all text-sm font-medium">
+                        <span class="material-symbols-outlined text-lg">sell</span>
+                        <span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded text-xs">Adventure</span>
+                    </button>
+                </div>
+
+                <!-- Rich Text Area (Mock) -->
+                <div class="space-y-8">
+                    <p class="text-xl leading-relaxed text-on-surface font-light first-letter:text-5xl first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:text-primary">
+                        Finally landed in Paris. The air is crisp, and the city feels more alive than ever. From Charles de Gaulle, we took a private transfer that wound through the beautiful Hausmann streets. 
+                    </p>
+                    
+                    <div class="grid grid-cols-12 gap-6 items-start">
+                        <div class="col-span-7 space-y-6">
+                            <h3 class="text-2xl font-bold text-on-surface tracking-tight">Afternoon Wanderings</h3>
+                            <p class="text-on-surface-variant leading-relaxed">
+                                We dropped our bags at the hotel in the 1st Arrondissement and immediately headed out to find a small café. The first stop was 'Café de Flore' – iconic, though perhaps a bit touristy, the chocolate chaud was unmatched. 
+                            </p>
+                            <ul class="space-y-4 border-l-2 border-primary/20 pl-6 my-8">
+                                <li class="flex items-center gap-3 text-on-surface-variant italic">
+                                    <span class="material-symbols-outlined text-primary text-sm">format_quote</span>
+                                    "Paris is always a good idea." — Audrey Hepburn
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-span-5">
+                            <div class="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-500">
+                                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=600" 
+                                     alt="Street view" 
+                                     class="w-full aspect-[4/5] object-cover"
+                                     data-alt="A vertical close-up shot of a traditional Parisian street corner café with red awnings and small round marble tables. A single cup of coffee sits on a table with a croissant on a white plate. Soft morning sunlight filters through nearby chestnut trees, creating dappled shadows. The mood is tranquil and sophisticated.">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photo Attachment Grid -->
+                    <div class="pt-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xs font-bold text-outline uppercase tracking-widest">Photo Gallery</h4>
+                            <button class="text-primary text-xs font-bold hover:underline">Add More</button>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="aspect-square rounded-xl overflow-hidden bg-surface-container shadow-sm group relative">
+                                <img src="https://images.unsplash.com/photo-1549144863-31f487a8f11e?auto=format&fit=crop&q=80&w=400" 
+                                     alt="Louvre" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                     data-alt="A detailed architectural shot of the Louvre Museum pyramid glass structure against a clear deep blue sky. The golden stone of the surrounding palace walls glows in the late afternoon sun. Minimalist composition with a focus on geometric lines and premium lighting.">
+                                <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-white">zoom_in</span>
+                                </div>
+                            </div>
+                            <div class="aspect-square rounded-xl overflow-hidden bg-surface-container shadow-sm group relative">
+                                <img src="https://images.unsplash.com/photo-1550110134-d241441d4519?auto=format&fit=crop&q=80&w=400" 
+                                     alt="Cafe" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                     data-alt="A warm, interior view of a vintage Parisian bakery with rows of fresh golden baguettes and buttery croissants on wooden shelves. The lighting is cozy and amber-hued, evoking a sense of smell and comfort. The overall tone is rustic yet refined, fitting a travel diary aesthetic.">
+                                <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-white">zoom_in</span>
+                                </div>
+                            </div>
+                            <div class="aspect-square rounded-xl overflow-hidden bg-surface-container shadow-sm group relative">
+                                <div class="w-full h-full flex flex-col items-center justify-center border-2 border-dashed border-outline-variant rounded-xl cursor-pointer hover:bg-surface-variant/30 transition-colors">
+                                    <span class="material-symbols-outlined text-outline-variant text-4xl mb-2">add_a_photo</span>
+                                    <span class="text-xs text-outline font-medium">Upload</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Journal Writing Entry Point -->
+                    <div class="pt-12 border-t border-outline-variant/10">
+                        <textarea placeholder="Start writing your thoughts for today..." 
+                                  class="w-full h-64 bg-transparent border-none p-0 text-lg leading-relaxed text-on-surface placeholder:text-outline-variant editor-focus focus:ring-0 resize-none font-body"></textarea>
+                    </div>
+                </div>
+
+                <!-- Footer Stats -->
+                <footer class="mt-20 pt-8 border-t border-outline-variant/10 flex items-center justify-between text-xs text-on-surface-variant font-medium">
+                    <div class="flex gap-6">
+                        <span>428 Words</span>
+                        <span>3 Photo Attachments</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                        <span>Auto-saved at 4:32 PM</span>
+                    </div>
+                </footer>
+            </div>
+        </main>
+
+        <!-- Right Side Widgets -->
+        <aside class="w-80 bg-surface/50 border-l border-outline-variant/20 p-8 flex flex-col gap-8">
+            <div>
+                <h5 class="text-xs font-bold text-outline uppercase tracking-widest mb-4">Weather Archive</h5>
+                <div class="bg-surface-container-low p-4 rounded-2xl border border-outline-variant/10 shadow-sm">
+                    <div class="flex items-center justify-between">
+                        <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 1;">sunny</span>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold">24°C</div>
+                            <div class="text-[10px] text-on-surface-variant">Sunny & Clear</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h5 class="text-xs font-bold text-outline uppercase tracking-widest mb-4">Location Map</h5>
+                <div class="rounded-2xl overflow-hidden aspect-video border border-outline-variant/10 shadow-sm relative group cursor-pointer">
+                    <div class="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors"></div>
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400" 
+                         alt="Map placeholder" 
+                         class="w-full h-full object-cover"
+                         data-location="Paris">
+                    <div class="absolute bottom-2 right-2 bg-white/80 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold shadow-sm">
+                        Paris, France
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h5 class="text-xs font-bold text-outline uppercase tracking-widest mb-4">Quick Links</h5>
+                <div class="flex flex-col gap-2">
+                    <button class="flex items-center justify-between px-4 py-3 bg-surface-container rounded-xl text-sm hover:bg-surface-container-high transition-colors text-on-surface">
+                        <span>Hotel Confirmation</span>
+                        <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </button>
+                    <button class="flex items-center justify-between px-4 py-3 bg-surface-container rounded-xl text-sm hover:bg-surface-container-high transition-colors text-on-surface">
+                        <span>Ticket: Louvre</span>
+                        <span class="material-symbols-outlined text-sm">confirmation_number</span>
+                    </button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Floating Action Menu -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-3">
+        <button class="w-14 h-14 bg-white/80 backdrop-blur-3xl text-on-surface-variant rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95 border border-outline-variant/20 group">
+            <span class="material-symbols-outlined group-hover:text-primary transition-colors">share</span>
+        </button>
+        <button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95 border border-primary/20">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">save</span>
+        </button>
+    </div>
+
+</body>
+</html></style></head><body></body></html>

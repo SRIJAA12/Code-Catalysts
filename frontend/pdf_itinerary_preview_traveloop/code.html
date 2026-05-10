@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f9f9ff",
+                        "tertiary-fixed": "#ffdcc6",
+                        "surface-container": "#ecedf7",
+                        "primary-fixed-dim": "#adc6ff",
+                        "on-tertiary-fixed-variant": "#723600",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#316bf3",
+                        "on-primary-fixed-variant": "#004395",
+                        "inverse-on-surface": "#eff0fa",
+                        "surface-container-low": "#f2f3fd",
+                        "on-primary-container": "#fefcff",
+                        "surface-tint": "#005ac2",
+                        "inverse-surface": "#2e3038",
+                        "surface-container-highest": "#e1e2ec",
+                        "surface-bright": "#f9f9ff",
+                        "primary-fixed": "#d8e2ff",
+                        "outline": "#727785",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb786",
+                        "on-tertiary-container": "#fffbff",
+                        "on-surface": "#191b23",
+                        "surface-variant": "#e1e2ec",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-primary-fixed": "#001a42",
+                        "surface-container-high": "#e6e7f2",
+                        "on-background": "#191b23",
+                        "on-secondary-fixed": "#00174b",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#b75b00",
+                        "tertiary": "#924700",
+                        "on-secondary-container": "#fefcff",
+                        "surface": "#f9f9ff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#0051d5",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#adc6ff",
+                        "on-surface-variant": "#424754",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#d8d9e3",
+                        "primary-container": "#2170e4",
+                        "primary": "#0058be",
+                        "on-tertiary-fixed": "#311400",
+                        "outline-variant": "#c2c6d6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "display": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pdf-page {
+            aspect-ratio: 1 / 1.414;
+            width: 100%;
+            max-width: 800px;
+        }
+        @media print {
+            .no-print { display: none; }
+            .pdf-page { shadow: none; margin: 0; width: 100%; }
+        }
+    </style>
+</head>
+<body class="bg-inverse-surface font-body selection:bg-primary-container/30">
+<!-- Backdrop Modal UI -->
+<div class="fixed inset-0 bg-black/80 backdrop-blur-md z-0"></div>
+<!-- Main Content Container -->
+<div class="relative z-10 min-h-screen flex flex-col items-center">
+<!-- Toolbar Section -->
+<header class="w-full max-w-[1440px] px-8 py-6 flex items-center justify-between no-print sticky top-0 z-20">
+<div class="flex items-center gap-4">
+<span class="text-white/60 font-medium text-sm tracking-widest uppercase">Preview Mode</span>
+<div class="h-4 w-px bg-white/20"></div>
+<h1 class="text-white font-headline text-lg font-bold">European Summer Expedition.pdf</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-300 border border-white/10">
+<span class="material-symbols-outlined text-[20px]">print</span>
+<span class="text-sm font-medium">Print</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2 bg-primary text-white hover:bg-primary-container rounded-lg transition-all duration-300 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span class="text-sm font-medium">Download PDF</span>
+</button>
+<div class="h-8 w-px bg-white/20 mx-2"></div>
+<button class="w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-error hover:text-white text-white rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</header>
+<!-- Document Viewer -->
+<main class="w-full flex-1 flex flex-col items-center px-4 pb-20 overflow-y-auto">
+<!-- PDF Document (The White Paper) -->
+<article class="pdf-page bg-surface-container-lowest shadow-2xl overflow-hidden flex flex-col animate-in fade-in slide-in-from-bottom-4 duration-700">
+<!-- Branding Header -->
+<div class="bg-primary px-12 py-10 flex justify-between items-end">
+<div>
+<span class="text-on-primary/60 text-xs font-bold tracking-[0.2em] uppercase mb-2 block">Official Itinerary</span>
+<h2 class="text-on-primary font-headline text-4xl font-black tracking-tighter">Traveloop</h2>
+</div>
+<div class="text-right">
+<p class="text-on-primary font-medium">Summer in Europe</p>
+<p class="text-on-primary/70 text-sm italic">July 15 - July 30, 2024</p>
+</div>
+</div>
+<!-- Document Content -->
+<div class="p-12 space-y-10">
+<!-- Overview Section -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-px bg-outline-variant"></div>
+<h3 class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">The Expedition Overview</h3>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<div class="p-4 bg-surface-container rounded-xl">
+<span class="text-[10px] uppercase font-bold text-outline tracking-wider block mb-1">Destinations</span>
+<p class="text-on-surface font-bold">12 Cities</p>
+</div>
+<div class="p-4 bg-surface-container rounded-xl">
+<span class="text-[10px] uppercase font-bold text-outline tracking-wider block mb-1">Total Distance</span>
+<p class="text-on-surface font-bold">2,450 km</p>
+</div>
+<div class="p-4 bg-surface-container rounded-xl">
+<span class="text-[10px] uppercase font-bold text-outline tracking-wider block mb-1">Group Size</span>
+<p class="text-on-surface font-bold">4 Travelers</p>
+</div>
+</div>
+</section>
+<!-- Daily Schedule -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-px bg-outline-variant"></div>
+<h3 class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Timeline Highlights</h3>
+</div>
+<div class="space-y-6">
+<!-- Day Card 1 -->
+<div class="flex gap-6 border-b border-outline-variant/30 pb-6">
+<div class="flex-none w-20 pt-1">
+<div class="bg-primary-container/10 text-primary px-3 py-1 rounded text-center">
+<span class="text-[10px] font-black uppercase tracking-tighter block leading-none mb-1">July</span>
+<span class="text-2xl font-black">15</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold text-on-surface">Arrival in Paris, France</h4>
+<span class="text-[10px] bg-secondary-container/10 text-secondary px-2 py-0.5 rounded font-bold uppercase">Arrival</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Check-in at Le Meurice. Private transfer from CDG. Welcome dinner at Jules Verne on the Eiffel Tower at 8:00 PM.</p>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 text-xs text-outline font-medium">
+<span class="material-symbols-outlined text-[16px]">hotel</span>
+<span>Le Meurice Palace</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-outline font-medium">
+<span class="material-symbols-outlined text-[16px]">restaurant</span>
+<span>Jules Verne (Resv. #4492)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Day Card 2 -->
+<div class="flex gap-6 border-b border-outline-variant/30 pb-6">
+<div class="flex-none w-20 pt-1">
+<div class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded text-center">
+<span class="text-[10px] font-black uppercase tracking-tighter block leading-none mb-1">July</span>
+<span class="text-2xl font-black">16</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-xl font-bold text-on-surface">Louvre Museum &amp; Seine Cruise</h4>
+<span class="text-[10px] bg-tertiary-container/10 text-tertiary px-2 py-0.5 rounded font-bold uppercase">Culture</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">Skip-the-line morning tour of the Louvre. Afternoon at leisure in the Marais district. Sunset cruise on the Seine with champagne.</p>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 text-xs text-outline font-medium">
+<span class="material-symbols-outlined text-[16px]">museum</span>
+<span>The Louvre (10:00 AM)</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-outline font-medium">
+<span class="material-symbols-outlined text-[16px]">directions_boat</span>
+<span>Bateaux Mouches (8:30 PM)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Budget Summary -->
+<section class="mt-auto">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-px bg-outline-variant"></div>
+<h3 class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Budget Distribution</h3>
+</div>
+<div class="border border-outline-variant rounded-xl overflow-hidden">
+<table class="w-full text-left text-sm">
+<thead class="bg-surface-container-low border-b border-outline-variant">
+<tr>
+<th class="px-6 py-4 font-bold text-on-surface-variant">Category</th>
+<th class="px-6 py-4 font-bold text-on-surface-variant">Allocated</th>
+<th class="px-6 py-4 font-bold text-on-surface-variant text-right">Estimate</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr>
+<td class="px-6 py-4 font-medium text-on-surface">Accommodation</td>
+<td class="px-6 py-4 text-on-surface-variant">5-Star Luxury Hotels</td>
+<td class="px-6 py-4 text-right font-bold text-on-surface">€8,400.00</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-medium text-on-surface">Transportation</td>
+<td class="px-6 py-4 text-on-surface-variant">Business Rail &amp; Transfers</td>
+<td class="px-6 py-4 text-right font-bold text-on-surface">€2,150.00</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-medium text-on-surface">Activities &amp; Dining</td>
+<td class="px-6 py-4 text-on-surface-variant">Guided Tours &amp; Fine Dining</td>
+<td class="px-6 py-4 text-right font-bold text-on-surface">€4,200.00</td>
+</tr>
+</tbody>
+<tfoot class="bg-surface-container-highest">
+<tr>
+<td class="px-6 py-4 font-black text-on-surface uppercase tracking-wider" colspan="2">Total Projected Budget</td>
+<td class="px-6 py-4 text-right font-black text-primary text-lg">€14,750.00</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</section>
+<!-- Footer -->
+<div class="pt-12 border-t border-outline-variant/30 flex justify-between items-center opacity-50">
+<div class="text-[10px] text-outline font-medium">
+<p>REF: TRV-2024-EUR-SUM</p>
+<p>Generated by Traveloop Premium Concierge</p>
+</div>
+<div class="text-right text-[10px] text-outline font-medium">
+<p>Page 01 of 08</p>
+<p>© 2024 Traveloop Inc.</p>
+</div>
+</div>
+</div>
+<!-- Aesthetic Watermark Decor -->
+<div class="absolute -bottom-10 -right-10 opacity-[0.03] select-none pointer-events-none">
+<span class="material-symbols-outlined text-[300px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+</div>
+</article>
+<!-- Secondary CTA / Context -->
+<div class="mt-8 text-center no-print">
+<p class="text-white/40 text-xs font-medium uppercase tracking-[0.3em] mb-4">Quick Actions</p>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-all">
+<span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+<!-- Custom Tooltip for Context (Visual Only) -->
+<div class="fixed bottom-6 right-6 no-print">
+<div class="bg-surface-container-high/20 backdrop-blur-xl border border-white/10 p-4 rounded-2xl flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-white/20">
+<img class="w-full h-full object-cover" data-alt="A portrait of a professional travel consultant with a friendly expression, captured in a bright and airy studio with soft, natural light-mode aesthetic. He wears a stylish, minimalist charcoal sweater that contrasts with the clean, off-white background. The image evokes a sense of expertise, trust, and premium service in the travel industry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfr03ZL0BVL1IsbS0BoBFehZWefa-T1MX-OuDqmbvzHCfxe4anNAvrjRSpEhG1T3ZRjVNiLSYDR2GOax74MHio6xjhuwW75EAoQG7Ye5yfUnHoe-MXJR7NbC520oPqB9HBjBKCEhFs14-GGfENojP6BkGPKVZYxfjvg0Z_hzr3HL-T4Adg_BEhpp5Otu188CG1sgPUU9nI0bkos9MkyQ2UBg6IOWUyW1XMwzy3qETmRNtaM3fTyvUm9VpNiTc8vG7W5TMw8VBo260"/>
+</div>
+<div>
+<p class="text-white text-xs font-bold">Need help with your itinerary?</p>
+<p class="text-white/60 text-[10px]">Chat with your personal concierge</p>
+</div>
+</div>
+</div>
+</body></html>
