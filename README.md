@@ -45,7 +45,7 @@ We built Traveloop using modern, scalable, and secure technologies.
 
 ### Backend & Database
 - **Express.js API Backend Server**: RESTful APIs, secure middleware, and robust routing.
-- **PostgreSQL (Supabase)** & **Prisma ORM**: Relational, scalable, and reliable database architecture.
+- **PostgreSQL ** & **Prisma ORM**: Relational, scalable, and reliable database architecture.
 
 ### Authentication & Services
 - **Firebase**: Secure and scalable Email/Password and Google authentication.
